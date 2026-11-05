@@ -12,7 +12,7 @@ export default {
     { id: 'key', label: 'Key', job: 'has peaks that lift each pin to just the right height',
       svg: '<path d="M70 200 H130 L140 190 H160 L170 200 H210" stroke="#94a3b8" stroke-width="8" fill="none" stroke-linecap="round"/><rect x="50" y="185" width="28" height="30" rx="4" fill="#64748b"/>', explode: [-50, 20] },
     { id: 'lblWrong', label: 'Wrong label',
-      svg: '<text x="200" y="50" text-anchor="middle" fill="#f87171" font-size="12" font-weight="700">wrong key</text>', pose: { opacity: 0 } },
+      svg: '<text x="200" y="50" text-anchor="middle" fill="#f87171" font-size="12" font-weight="700">jammed</text>', pose: { opacity: 0 } },
     { id: 'lblKeyway', label: 'Keyway label',
       svg: '<text x="120" y="200" text-anchor="middle" fill="#cbd5e1" font-size="11" font-weight="700">keyway</text>' },
     { id: 'lblKey', label: 'Key label',
@@ -54,7 +54,7 @@ export default {
       label: 'Wrong key',
       caption: 'A peak is too high or too low. A pin still blocks the shear line. The plug will not turn.',
       on: {},
-      parts: { key: { x: 90, opacity: 0.7 }, pins: { y: -4 } },
+      parts: { lblWrong: { opacity: 1 },  key: { x: 90, opacity: 0.7 }, pins: { y: -4 } },
     },
   },
 };
