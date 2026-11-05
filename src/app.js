@@ -105,6 +105,8 @@ document.querySelectorAll('#topics button').forEach((b) => (b.onclick = () => {
   topicFilter = b.dataset.topic;
   document.querySelectorAll('#topics button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
   fillPicker();
+  const list = topicFilter === 'All' ? machines : machines.filter((m) => m.topic === topicFilter);
+  if (list.length && (!S.m || !list.some((m) => m.id === S.m.id))) pick(list[0].id);
 }));
 fillPicker();
 $('#back').onclick = back; $('#play').onclick = play; $('#reset').onclick = () => pick(S.m.id); $('#quizbtn').onclick = quiz;
