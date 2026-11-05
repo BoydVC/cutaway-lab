@@ -5,6 +5,10 @@ export default {
   parts: [
     { id: 'sun', label: 'Sunlight', job: 'gives the energy the leaf needs',
       svg: '<circle cx="70" cy="60" r="28" fill="#fde047"/><g stroke="#facc15" stroke-width="3" stroke-linecap="round"><path d="M70 18 V8 M70 112 V102 M28 60 H18 M122 60 H112 M40 30 L32 22 M100 90 L108 98 M40 90 L32 98 M100 30 L108 22"/></g>' },
+    { id: 'lblSun', label: 'Sunlight label',
+      svg: '<text x="60" y="100" text-anchor="middle" fill="#fde047" font-size="13" font-weight="700">sunlight</text>' },
+    { id: 'lblSugar', label: 'Sugar label',
+      svg: '<text x="280" y="220" text-anchor="middle" fill="#86efac" font-size="13" font-weight="700">sugar</text>', pose: { opacity: 0 } },
     { id: 'leaf', label: 'Leaf', job: 'is the solar panel that runs the recipe',
       svg: '<path d="M220 80 C280 60 340 100 320 160 C300 210 240 220 200 180 C170 150 180 100 220 80Z" fill="#16a34a" stroke="#14532d" stroke-width="3"/><path d="M220 80 Q250 140 300 170" stroke="#14532d" stroke-width="2" fill="none"/><path d="M240 110 Q260 130 280 140 M230 140 Q255 155 275 165" stroke="#14532d" stroke-width="1.5" fill="none"/>', explode: [30, -20] },
     { id: 'root', label: 'Roots', job: 'drink water from the soil',
@@ -24,7 +28,7 @@ export default {
     idle: { label: 'Leaf at rest', caption: 'Night is over. The leaf is ready. Sun is coming up.', on: { LIGHT: 'light' } },
     light: { label: 'Catch light', caption: 'Chlorophyll grabs sunlight. Energy is stored for the recipe.', on: { SIP: 'sip' }, parts: { sun: { scale: 1.15 }, leaf: { scale: 1.04 } } },
     sip: { label: 'Sip water + air', caption: 'Roots push water up. Stomata open and carbon dioxide drifts in.', on: { COOK: 'cook', CLOSE: 'wilt' }, parts: { h2o: { opacity: 1, y: -80 }, co2: { opacity: 1, x: -40 }, stomata: { scale: 1.3 } } },
-    cook: { label: 'Cook sugar', caption: 'Light + water + CO₂ become sugar. Oxygen is the leftover — out it goes!', on: {}, parts: { sugar: { opacity: 1, scale: 1.2 }, o2: { opacity: 1, x: -30, y: -20 }, co2: { opacity: 0.2 }, h2o: { opacity: 0.3 }, leaf: { scale: 1.06 } } },
+    cook: { label: 'Cook sugar', caption: 'Light + water + CO₂ become sugar. Oxygen is the leftover — out it goes!', on: {}, parts: { lblSugar: { opacity: 1 },  sugar: { opacity: 1, scale: 1.2 }, o2: { opacity: 1, x: -30, y: -20 }, co2: { opacity: 0.2 }, h2o: { opacity: 0.3 }, leaf: { scale: 1.06 } } },
     wilt: { label: 'Stomata close', caption: 'Too dry today. Leaf closes its doors to save water. Cooking pauses.', on: {}, parts: { stomata: { scale: 0.6, opacity: 0.5 }, co2: { opacity: 0.1 }, h2o: { opacity: 0.2 } } },
   },
 };
