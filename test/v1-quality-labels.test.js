@@ -9,6 +9,10 @@ describe('v1.0 quality labels', () => {
       const texts = m.parts.flatMap((p) => [...(p.svg.matchAll(/<text[^>]*>([^<]+)<\/text>/g) || [])].map((x) => x[1]));
       assert.ok(texts.length >= 2, `${m.id} only ${texts.length}: ${texts}`);
     });
+    it(`${m.id} has ≥1 decorative lbl* part`, () => {
+      const n = m.parts.filter((p) => /^lbl/i.test(p.id) || /label$/i.test(p.label || '')).length;
+      assert.ok(n >= 1, `${m.id} missing lbl* (have ${n})`);
+    });
   }
   it('fleet locked at 36', () => assert.equal(machines.length, 36));
   for (const m of machines) {
