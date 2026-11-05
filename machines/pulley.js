@@ -3,6 +3,8 @@ export default {
   blurb: 'How a fixed pulley changes the direction of your pull — you still pull with the full weight, but you can pull down instead of up.',
   initial: 'ready',
   parts: [
+    { id: 'lblRopeSlip', label: 'Slip callout',
+      svg: '<text x="200" y="40" text-anchor="middle" fill="#f87171" font-size="12" font-weight="700">rope slipped</text>', pose: { opacity: 0 } },
     { id: 'frame', label: 'Frame',
       svg: '<rect x="160" y="40" width="80" height="16" rx="3" fill="#475569"/><rect x="192" y="56" width="16" height="40" fill="#64748b"/>' },
     { id: 'wheel', label: 'Wheel', job: 'turns so the rope can change direction',
@@ -46,7 +48,7 @@ export default {
       label: 'Rope slipped',
       caption: 'You let go. Friction was not enough. The load drops back down. Grip tighter next time!',
       on: {},
-      parts: { load: { y: 10 }, hand: { opacity: 0.3 } },
+      parts: { lblRopeSlip: { opacity: 1 },  load: { y: 10 }, hand: { opacity: 0.3 } },
     },
   },
 };
