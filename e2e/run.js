@@ -65,10 +65,10 @@ await page.goto(URL + '#baseball/twinKill'); await page.waitForTimeout(900); awa
 await page.goto(URL + '#soccer/cross'); await page.waitForTimeout(900); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/soccer.png` });
 await page.goto(URL + '#lacrosse/dish'); await page.waitForTimeout(900); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/lacrosse.png` });
 
+await t('sports: basketball dish', async () => { await page.goto(URL + '#basketball/iso'); await page.waitForTimeout(200); for (let i = 0; i < 3; i++) { await page.keyboard.press('ArrowRight'); await page.waitForTimeout(80); } assert.match(page.url(), /dish/); });
 await page.goto(URL + '#basketball/dish'); await page.waitForTimeout(800); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/basketball.png` });
-console.log('ok sports: basketball dish');
+await t('sports: hockey stretch', async () => { await page.goto(URL + '#hockey/retrieve'); await page.waitForTimeout(200); for (let i = 0; i < 3; i++) { await page.keyboard.press('ArrowRight'); await page.waitForTimeout(80); } assert.match(page.url(), /stretch/); });
 await page.goto(URL + '#hockey/stretch'); await page.waitForTimeout(800); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/hockey.png` });
-console.log('ok sports: hockey stretch');
 await page.goto(URL + '#bike/roll'); await page.waitForTimeout(800); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/bike.png` });
 console.log('ok bike roll');
 await page.goto(URL + '#tennis/brush'); await page.waitForTimeout(800); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/tennis.png` });
