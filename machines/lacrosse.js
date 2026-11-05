@@ -14,6 +14,8 @@ export default {
     { id: 'attack2', label: 'Far-side attacker', job: 'stretches the defense to the far pipe', svg: '<circle cx="260" cy="200" r="10" fill="#0f766e" stroke="#fef08a" stroke-width="1.5"/><text x="260" y="204" text-anchor="middle" fill="#fef08a" font-size="11" font-weight="700">2</text>', explode: [30, 25] },
     { id: 'defense', label: 'Trailing defense', job: 'scrambles back in a 3-person rotate', svg: '<g fill="#b45309"><circle cx="200" cy="150" r="8"/><circle cx="230" cy="170" r="8"/><circle cx="210" cy="130" r="8"/></g>' },
     { id: 'ball', label: 'Ball', job: 'is saved, cleared, then shot', svg: '<circle cx="78" cy="150" r="5" fill="#f8fafc" stroke="#334155"/>', explode: [0, -40] },
+    { id: 'lblBall', label: 'Ball label',
+      svg: '<text x="200" y="200" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="700">ball</text>' },
     { id: 'stick', label: 'Cradle path', svg: '<path d="M130 175 Q200 100 300 140" stroke="#fbbf24" stroke-width="2" fill="none" stroke-dasharray="4 3"/>', pose: { opacity: 0 } },
   ],
   states: {
