@@ -1,6 +1,6 @@
 # 🔧 Cutaway Lab
 
-Step inside a rocket launch, a Mars sky-crane landing, a pendulum clock, a beating heart, a honeybee waggle dance and a volcano. Every animated cutaway is driven by a small **state machine**, so kids can step through how a thing works and the app can check that every machine is sound (every step reachable, nothing gets stuck).
+Step inside a rocket launch, a Mars sky-crane landing, a pendulum clock, a beating heart, a honeybee waggle dance, a frog's life cycle, a volcano and the water cycle. Every animated cutaway is driven by a small **state machine**, so kids can step through how a thing works and the app can check that every machine is sound (every step reachable, nothing gets stuck).
 
 ![demo](screenshots/demo.gif)
 
@@ -38,7 +38,9 @@ Deep links: `#starship/staging`, `#clock/tickLeft/x` (x = exploded).
 | 🕰️ Pendulum Clock | wound → tick ⇄ tock (loop) | run down |
 | ❤️ Heartbeat | fill → top squeeze → big squeeze (loop) | rest |
 | 🐝 Honeybee Waggle Dance | search → find flowers → dance → everyone goes | back home |
+| 🐸 Frog Life Cycle | eggs → tadpole → legs → froglet → adult | snack for a fish |
 | 🌋 Volcano Eruption | asleep → magma rises → eruption → new land | goes quiet |
+| 💧 The Water Cycle | ocean → evaporation → condensation → precipitation → collection | hot day loop |
 
 - `src/engine.js`: the statechart engine: `validate` (unknown targets, unreachable states, livelocks, bad part refs), `step`, `mainPath`, `pose`, `toMermaid`.
 - `src/layout.js`: lays out the live statechart (main path in a column, skips and loops as nested arcs).
@@ -63,9 +65,12 @@ Register it in `machines/index.js`, then run `npm run check`.
 | ![hero](screenshots/hero-1440x900.png) | ![clock](screenshots/clock-exploded.png) |
 | ![heart](screenshots/heart.png) | ![quiz](screenshots/quiz.png) |
 | ![mars](screenshots/mars.png) | ![volcano](screenshots/volcano-exploded.png) |
+| ![frog](screenshots/frog.png) | ![water](screenshots/water.png) |
 
 Phone: ![phone](screenshots/phone-390x844.png)
 
 Regenerate the GIF: `node scripts/record-gif.js` (needs ffmpeg).
+
+Accessibility: the diagram's label follows the current step, the chart's next steps are keyboard-focusable (Enter), and `prefers-reduced-motion` turns off animation and slows autoplay.
 
 MIT licensed. Diagrams are simplified for kids; not engineering or medical references.

@@ -22,3 +22,7 @@ dialog{background:#1e293b;color:#e5e7eb;border:2px solid #facc15;border-radius:1
 nav button small{color:#facc15}
 #chart text.ev{font-size:8px;fill:#94a3b8}
 .links{margin:4px 0 0}.links a{color:#a5b4fc}
+
+@media (prefers-reduced-motion: reduce){#stage .part{transition:none}}
+:focus-visible{outline:3px solid #facc15;outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}

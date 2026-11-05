@@ -31,7 +31,7 @@ function render() {
   }
   document.querySelectorAll('#stage text.lbl').forEach((t) => t.remove());
   if (S.exploded) setTimeout(labels, 820);
-  $('#caption').textContent = st.caption; chart(); speak(st.caption);
+  $('#caption').textContent = st.caption; $('#stage').setAttribute('aria-label', `${m.title}: ${st.label}. ${st.caption}`); chart(); speak(st.caption);
   const path = mainPath(m), extra = Object.keys(m.states).filter((k) => !path.includes(k)), seen = new Set([...S.history, state]);
   $('#states').innerHTML = [...path, ...extra].map((k) => `<li data-state="${k}" class="${k === state ? 'on' : S.history.includes(k) ? 'done' : ''}">${m.states[k].label}${extra.includes(k) ? ' <small>(side path)</small>' : ''}</li>`).join('');
   const evs = events(m, state);
@@ -56,9 +56,9 @@ function chart() {
     const d = e.straight ? `M${A.x + 40} ${A.y + A.h} L${B.x + 40} ${B.y}` : `M${A.x + A.w} ${A.y + 11} C${A.x + A.w + 14 * e.lane + 10} ${A.y + 11} ${B.x + B.w + 14 * e.lane + 10} ${B.y + 11} ${B.x + B.w + 2} ${B.y + 11}`;
     const lx = e.straight ? A.x + 46 : A.x + A.w + 7 * e.lane + 8, ly = e.straight ? A.y + A.h + 7 : (A.y + B.y) / 2 + 14;
     return `<path class="${e.back ? 'back' : ''}" d="${d}"><title>${e.ev}</title></path><text class="ev" x="${lx}" y="${ly}">${nice(e.ev)}</text>`; }).join('');
-  const nodes = Object.entries(L.nodes).map(([n, r]) => `<g class="node ${n === state ? 'on' : S.history.includes(n) ? 'done' : ''}" data-state="${n}"><rect x="${r.x}" y="${r.y}" width="${r.w}" height="${r.h}"/><text x="${r.x + 8}" y="${r.y + 15}">${m.states[n].label.slice(0, 30)}</text></g>`).join('');
+  const nodes = Object.entries(L.nodes).map(([n, r]) => `<g class="node ${n === state ? 'on' : S.history.includes(n) ? 'done' : ''}" data-state="${n}" role="button" tabindex="${Object.values(m.states[state].on || {}).includes(n) ? 0 : -1}" aria-label="${m.states[n].label}${n === state ? ' (you are here)' : ''}"><rect x="${r.x}" y="${r.y}" width="${r.w}" height="${r.h}"/><text x="${r.x + 8}" y="${r.y + 15}">${m.states[n].label.slice(0, 30)}</text></g>`).join('');
   svg.innerHTML = '<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#64748b" stroke="none"/></marker></defs>' + edges + nodes;
-  svg.querySelectorAll('g.node').forEach((g) => (g.onclick = () => { const ev = Object.entries(m.states[S.state].on || {}).find(([, t]) => t === g.dataset.state); if (ev) fire(ev[0]); }));
+  svg.querySelectorAll('g.node').forEach((g) => (g.onkeydown = (e) => { if (e.key === 'Enter') { e.stopPropagation(); g.onclick(); } }, g.onclick = () => { const ev = Object.entries(m.states[S.state].on || {}).find(([, t]) => t === g.dataset.state); if (ev) fire(ev[0]); }));
 }
 function speak(text) { if (!$('#narrate').checked || !window.speechSynthesis) return; speechSynthesis.cancel(); speechSynthesis.speak(new SpeechSynthesisUtterance(text)); }
 function stars() {
@@ -72,7 +72,8 @@ function play() {
   if (S.timer) return stop();
   if (isFinal(S.m, S.state)) pick(S.m.id);
   $('#play').textContent = '⏸ Pause'; let n = 0;
-  S.timer = setInterval(() => { const e = events(S.m, S.state); if (!e.length || n++ > 12) return stop(); fire(e[0]); }, 1600);
+  const slow = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  S.timer = setInterval(() => { const e = events(S.m, S.state); if (!e.length || n++ > 12) return stop(); fire(e[0]); }, slow ? 2600 : 1600);
 }
 function stop() { clearInterval(S.timer); S.timer = null; $('#play').textContent = '▶ Play (Space)'; }
 function quiz() {

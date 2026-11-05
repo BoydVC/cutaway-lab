@@ -14,5 +14,5 @@ test('loop edges marked back', () => { const clock = machines.find((m) => m.id =
 test('progress keeps best score', () => { const s = mem(); record(s, 'a', 2); record(s, 'a', 1); assert.equal(load(s).a, 2); record(s, 'a', 3); assert.equal(load(s).a, 3); });
 test('progress survives garbage', () => { const s = mem(); s.setItem('cutaway-lab:stars', '{nope'); assert.deepEqual(load(s), {}); });
 test('badges', () => { assert.equal(badge({}, 6), ''); assert.match(badge({ a: 1 }, 6), /Apprentice/); assert.match(badge({ a: 3, b: 3, c: 3, d: 2 }, 6), /Lab/); assert.match(badge(Object.fromEntries('abcdef'.split('').map((k) => [k, 3])), 6), /Master/); assert.equal(total({ a: 1, b: 2 }), 3); });
-test('six machines across topics', () => { assert.equal(machines.length, 6); assert.ok(new Set(machines.map((m) => m.topic)).size >= 4); });
+test('eight machines across topics', () => { assert.equal(machines.length, 8); assert.ok(new Set(machines.map((m) => m.topic)).size >= 4); });
 test('adjacent forward edges are straight, skips are lanes', () => { const s = machines.find((m) => m.id === 'starship'); const L = layout(s); assert.ok(L.edges.find((e) => e.from === 'pad' && e.to === 'ignition').straight); const scrub = L.edges.find((e) => e.to === 'scrubbed'); assert.ok(!scrub.straight && scrub.lane > 1); });
