@@ -10,7 +10,7 @@ export default {
     { id: 'lblEso', label: 'Esophagus label',
       svg: '<text x="250" y="140" text-anchor="middle" fill="#fda4af" font-size="12" font-weight="700">esophagus</text>' },
     { id: 'esophagus', label: 'Esophagus', job: 'is the tube that squeezes food down to the stomach',
-      svg: '<path d="M200 70 V120" stroke="#fca5a5" stroke-width="10" stroke-linecap="round"/><text x="230" y="100" fill="#fecaca" font-size="11" font-weight="700">tube</text>', explode: [40, -10] },
+      svg: '<path d="M200 70 V120" stroke="#fca5a5" stroke-width="10" stroke-linecap="round"/><text x="230" y="100" fill="#fecaca" font-size="11" font-weight="700">·</text>', explode: [40, -10] },
     { id: 'stomach', label: 'Stomach', job: 'churns food with acid into a soupy mix',
       svg: '<path d="M170 125 C150 140 155 190 185 195 C210 200 230 180 225 155 C220 130 195 118 170 125Z" fill="#fdba74" stroke="#c2410c" stroke-width="2"/><text x="195" y="165" text-anchor="middle" fill="#7c2d12" font-size="11" font-weight="800">stomach</text>', explode: [-50, 10] },
     { id: 'intestine', label: 'Small intestine', job: 'soaks up nutrients into the blood',

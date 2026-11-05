@@ -12,8 +12,10 @@ export default {
     { id: 'lblPendulum', label: 'Pendulum label',
       svg: '<text x="200" y="280" text-anchor="middle" fill="#fde68a" font-size="13" font-weight="700">pendulum</text>' },
     { id: 'lblEscape', label: 'Escape label',
-      svg: '<text x="280" y="120" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="700">escape</text>' },
+      svg: '<text x="260" y="95" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="700">escape</text>' },
     { id: 'weight', label: 'Weight', job: 'gives the clock its energy by slowly falling', svg: '<rect x="245" y="120" width="16" height="40" rx="3" fill="#a3a3a3"/><line x1="253" y1="40" x2="253" y2="120" stroke="#ddd"/>', explode: [50, 30] },
+    { id: 'lblWeight', label: 'Weight label',
+      svg: '<text x="310" y="220" text-anchor="middle" fill="#cbd5e1" font-size="12" font-weight="700">weight</text>' },
   ],
   states: {
     wound: { label: 'Wound up', caption: 'Someone winds the clock, lifting the heavy weight to the top.', on: { RELEASE: 'tickLeft', LEAVE: 'stopped' } },
