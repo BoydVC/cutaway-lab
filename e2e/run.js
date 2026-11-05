@@ -127,7 +127,7 @@ console.log('ok digest absorb');
 await page.goto(URL + '#water/precip'); await page.waitForTimeout(1000); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/water.png` });
 // screenshots
 await page.mouse.move(5, 895);
-await page.goto(URL + '#starship/staging'); await page.waitForTimeout(1000); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/hero-1440x900.png` });
+await page.goto(URL + '#starship/liftoff'); await page.waitForTimeout(1000); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/hero-1440x900.png` });
 await page.goto(URL + '#clock/tickRight/x'); await page.waitForTimeout(1100); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/clock-exploded.png` });
 await page.goto(URL + '#heart/ventricles'); await page.waitForTimeout(1000); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/heart.png` });
 await page.goto(URL + '#mars/skycrane'); await page.waitForTimeout(1000); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/mars.png` });
@@ -137,12 +137,12 @@ const phone = await browser.newPage({ viewport: { width: 390, height: 844 }, dev
 await phone.goto(URL + '#starship/catch'); await phone.waitForTimeout(1000);
 await phone.goto(URL + '#heart/ventricles'); await phone.waitForTimeout(600);
 await t('phone: heart no overflow', async () => { assert.ok(await phone.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)); });
-await phone.screenshot({ path: `${out}/phone-heart-390x844.png`, fullPage: true });
+await phone.evaluate(() => scrollTo(0, 0)); await phone.screenshot({ path: `${out}/phone-heart-390x844.png` });
 await phone.goto(URL + '#football/throw'); await phone.waitForTimeout(600);
 await t('phone: football no overflow', async () => { assert.ok(await phone.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)); });
 await phone.screenshot({ path: `${out}/phone-football-390x844.png`, fullPage: true });
 await t('phone: no horizontal overflow', async () => { assert.ok(await phone.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)); });
-await phone.screenshot({ path: `${out}/phone-390x844.png`, fullPage: true });
+await phone.goto(URL + '#heart/ventricles'); await phone.waitForTimeout(700); await phone.evaluate(() => scrollTo(0, 0)); await phone.screenshot({ path: `${out}/phone-390x844.png` });
 await t('a11y: narrate speaks only once per state', async () => {
   await page.goto(URL + '#heart/fill'); await page.waitForTimeout(200);
   if (await page.locator('#quiz[open]').count()) await page.click('#qclose');
