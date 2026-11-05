@@ -13,6 +13,8 @@ export default {
       svg: '<text x="200" y="185" text-anchor="middle" fill="#facc15" font-size="14" font-weight="700">set 70°</text>', explode: [0, 0] },
     { id: 'sensor', label: 'Temp sensor', job: 'measures how warm the room is right now',
       svg: '<circle cx="200" cy="220" r="14" fill="#22c55e" stroke="#86efac" stroke-width="2"/><text x="200" y="250" text-anchor="middle" fill="#86efac" font-size="12">sensor</text>', explode: [0, 40] },
+    { id: 'lblHeat', label: 'Heat label',
+      svg: '<text x="320" y="200" text-anchor="middle" fill="#fb923c" font-size="12" font-weight="700">HEAT</text>', pose: { opacity: 0 } },
     { id: 'relay', label: 'Heat relay', job: 'switches the furnace on or off',
       svg: '<rect x="130" y="255" width="140" height="18" rx="4" fill="#334155"/><text x="200" y="268" text-anchor="middle" fill="#94a3b8" font-size="11">relay OFF</text>', explode: [-40, 20] },
     { id: 'lblFurnace', label: 'Furnace label',
@@ -34,11 +36,11 @@ export default {
       on: { FIRE: 'heating', FAULT: 'fault' },
       parts: { relayOn: { opacity: 1 }, relay: { opacity: 0 } },
     },
-    heating: {
+    heating: { /*heat*/
       label: 'Heating',
       caption: 'Furnace runs. Warm air raises the room toward 70°.',
       on: { REACH: 'satisfied' },
-      parts: { lblFurnace: { opacity: 1 },  flame: { opacity: 1 }, relayOn: { opacity: 1 }, relay: { opacity: 0 } },
+      parts: { lblHeat: { opacity: 1 },  lblFurnace: { opacity: 1 },  flame: { opacity: 1 }, relayOn: { opacity: 1 }, relay: { opacity: 0 } },
     },
     satisfied: {
       label: 'Setpoint reached',
