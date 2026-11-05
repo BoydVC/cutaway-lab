@@ -37,6 +37,6 @@ export default {
     push: { label: 'Pedal push', caption: 'You push down. The crank turns the chainring clockwise.', on: { PULL: 'pull', SLIP: 'slip' }, parts: { pedal: { rot: 40, y: -8 }, chainring: { rot: 25 }, chain: { opacity: 1 } } },
     pull: { label: 'Chain pulls', caption: 'Chain links bite the teeth and yank the cassette around.', on: { ROLL: 'roll' }, parts: { chain: { x: 4 }, cassette: { rot: 30 }, pedal: { rot: 80, y: -4 }, chainring: { rot: 55 }, arrow: { opacity: 0.6 } } },
     roll: { label: 'Wheel rolls', caption: 'Cassette and rear wheel share an axle — the bike rolls forward. You\'re riding!', on: {}, parts: { rearWheel: { rot: 40 }, cassette: { rot: 40 }, chainring: { rot: 70 }, pedal: { rot: 110 }, arrow: { opacity: 1 }, frontWheel: { rot: 35 } } },
-    slip: { label: 'Chain slip', caption: 'Oops — chain popped off the ring. Stop, put it back on, try again.', on: {}, parts: { chain: { y: 25, opacity: 0.5, rot: -15 }, pedal: { rot: 20 } } },
+    slip: { label: 'Chain slip', caption: 'Oops — chain popped off the ring. Stop, put it back on, try again.', on: {}, parts: { lblSlip: { opacity: 1 },  chain: { y: 25, opacity: 0.5, rot: -15 }, pedal: { rot: 20 } } },
   },
 };
