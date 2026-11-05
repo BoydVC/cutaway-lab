@@ -7,6 +7,8 @@ export default {
       svg: '<circle cx="200" cy="155" r="100" fill="#1e293b" stroke="#94a3b8" stroke-width="4"/>' },
     { id: 'dial', label: 'Dial', job: 'marks north, south, east, and west',
       svg: '<text x="200" y="72" text-anchor="middle" fill="#f87171" font-size="16" font-weight="800">N</text><text x="200" y="248" text-anchor="middle" fill="#e2e8f0" font-size="14" font-weight="700">S</text><text x="100" y="160" text-anchor="middle" fill="#e2e8f0" font-size="14" font-weight="700">W</text><text x="300" y="160" text-anchor="middle" fill="#e2e8f0" font-size="14" font-weight="700">E</text>', explode: [0, -40] },
+    { id: 'lblPivot', label: 'Pivot label',
+      svg: '<text x="265" y="180" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="700">pivot</text>' },
     { id: 'lblNeedle', label: 'Needle label',
       svg: '<text x="265" y="100" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="700">needle</text>' },
     { id: 'lblField', label: 'Field label',

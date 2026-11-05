@@ -11,6 +11,8 @@ export default {
       svg: '<g fill="#fbbf24"><rect x="160" y="100" width="10" height="40" rx="2"/><rect x="180" y="95" width="10" height="45" rx="2"/><rect x="200" y="105" width="10" height="35" rx="2"/><rect x="220" y="98" width="10" height="42" rx="2"/></g><line x1="145" y1="140" x2="255" y2="140" stroke="#22c55e" stroke-width="2" stroke-dasharray="4 3"/>', explode: [0, -40] },
     { id: 'key', label: 'Key', job: 'has peaks that lift each pin to just the right height',
       svg: '<path d="M70 200 H130 L140 190 H160 L170 200 H210" stroke="#94a3b8" stroke-width="8" fill="none" stroke-linecap="round"/><rect x="50" y="185" width="28" height="30" rx="4" fill="#64748b"/>', explode: [-50, 20] },
+    { id: 'lblKeyway', label: 'Keyway label',
+      svg: '<text x="120" y="200" text-anchor="middle" fill="#cbd5e1" font-size="11" font-weight="700">keyway</text>' },
     { id: 'lblKey', label: 'Key label',
       svg: '<text x="80" y="200" text-anchor="middle" fill="#fde68a" font-size="13" font-weight="700">key</text>' },
     { id: 'lblPins', label: 'Pins label',
