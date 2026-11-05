@@ -15,7 +15,7 @@ export default {
       svg: '<text x="200" y="220" text-anchor="middle" fill="#fdba74" font-size="12" font-weight="700">heat shield</text>', pose: { opacity: 1 } },
     { id: 'shell', label: 'Back shell', job: 'holds the parachute', svg: '<path d="M170 60 L185 30 H215 L230 60Z" fill="#e5e7eb"/>', explode: [60, -10] },
     { id: 'chute', label: 'Parachute', job: 'slows the lander in the thin air', svg: '<path d="M140 20 Q200 -40 260 20 Z" fill="#f8fafc" stroke="#ef4444" stroke-width="3"/><path d="M140 20 L190 30 M260 20 L210 30" stroke="#ddd"/>', pose: { opacity: 0 } },
-    { id: 'crane', label: 'Sky crane', job: 'hovers on rockets and lowers the rover on cables', svg: '<rect x="170" y="66" width="60" height="18" rx="3" fill="#94a3b8"/><text x="200" y="79" text-anchor="middle" fill="#0f172a" font-size="11" font-weight="700">crane</text><path d="M175 84 l-8 14 M225 84 l8 14" stroke="#f97316" stroke-width="4"/><circle cx="167" cy="100" r="5" fill="#fb923c" opacity=".8"/><circle cx="233" cy="100" r="5" fill="#fb923c" opacity=".8"/>', pose: { opacity: 0 }, explode: [70, -30] },
+    { id: 'crane', label: 'Sky crane', job: 'hovers on rockets and lowers the rover on cables', svg: '<rect x="170" y="66" width="60" height="18" rx="3" fill="#94a3b8"/><path d="M175 84 l-8 14 M225 84 l8 14" stroke="#f97316" stroke-width="4"/><circle cx="167" cy="100" r="5" fill="#fb923c" opacity=".8"/><circle cx="233" cy="100" r="5" fill="#fb923c" opacity=".8"/>', pose: { opacity: 0 }, explode: [70, -30] },
     { id: 'lblCrane', label: 'Crane label',
       svg: '<text x="200" y="100" text-anchor="middle" fill="#fde68a" font-size="13" font-weight="700">sky crane</text>', pose: { opacity: 0 } },
     { id: 'lblRover', label: 'Rover label',

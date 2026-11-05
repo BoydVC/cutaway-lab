@@ -43,7 +43,7 @@ export default {
       label: 'Burning',
       caption: 'Melted wax climbs the wick. The flame vaporizes it. Steady light!',
       on: { SNUFF: 'out', DROWN: 'drown' },
-      parts: { lblFlame: { opacity: 1 },  flame: { opacity: 1 }, pool: { opacity: 1 } },
+      parts: { lblFlame: { opacity: 1 }, lblPool: { opacity: 1 },  flame: { opacity: 1 }, pool: { opacity: 1 } },
     },
     out: {
       label: 'Snuffed',
