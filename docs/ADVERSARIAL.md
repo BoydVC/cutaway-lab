@@ -100,3 +100,17 @@ Side-path label "Fault toss" vs event FAULT_TOSS — layout truncates fine at 32
 - `test/v13-civic-machines.test.js` (elevator/flush/stoplight)
 - `test/v14-blast.test.js` — e2e walk covers fleet; narrate report merge; chart fonts
 
+## Round 4 — final-day quality (2026-11-05 ~15:10 ET)
+
+| ID | Severity | Finding | Fix |
+|----|----------|---------|-----|
+| R4-1 | med | Photosynthesis stomata label sat on roots | moved onto leaf; roots labeled |
+| R4-2 | med | Shutter aperture+blades shared (x,y) → "abladesere" | separated; phone-safe; Euclidean guard |
+| R4-3 | med | Elevator floor "1" stayed yellow while moving | floorHi highlight tracks floor 3 |
+| R4-4 | low | Circuit 9V/bulb low contrast | #fde68a |
+| R4-5 | low | Gears mesh overlapped arrows; driver/driven colors inverted | mesh y=55; colors match gears |
+| R4-6 | low | Always-visible overlaps (stoplight pole/signal, tennis racket/S, lacrosse G/G) | deconflicted |
+| R4-7 | info | TLC missing for original 8 story machines | Starship…WaterCycle added → **36/36** |
+| R4-8 | info | formal/check-all only sports | now validates all 36 |
+
+OCR privacy: screenshots + GIF frames clean of Charlotte/Victor/Miranda/Boyd/Spalding/Char/Vic.
