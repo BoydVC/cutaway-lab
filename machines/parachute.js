@@ -1,0 +1,49 @@
+export default {
+  id: 'parachute', title: 'Parachute Landing', emoji: '🪂', topic: 'Machines',
+  blurb: 'How a canopy opens, fills with air, and slows a fall — and why a tangled line is dangerous.',
+  initial: 'freefall',
+  parts: [
+    { id: 'sky', label: 'Sky',
+      svg: '<rect x="40" y="30" width="320" height="260" rx="8" fill="#0c4a6e"/>' },
+    { id: 'canopy', label: 'Canopy', job: 'catches air so the fall slows down',
+      svg: '<path d="M100 80 Q200 20 300 80 L280 100 Q200 70 120 100Z" fill="#f87171" stroke="#fecaca" stroke-width="2"/>', pose: { opacity: 0.2, scale: 0.3, y: 40 }, explode: [0, -40] },
+    { id: 'lines', label: 'Suspension lines', job: 'connect the canopy to the harness',
+      svg: '<g stroke="#e2e8f0" stroke-width="2"><path d="M120 100 L180 200"/><path d="M160 95 L190 200"/><path d="M240 95 L210 200"/><path d="M280 100 L220 200"/></g>', pose: { opacity: 0 }, explode: [40, 0] },
+    { id: 'harness', label: 'Harness', job: 'holds the person under the canopy',
+      svg: '<rect x="175" y="200" width="50" height="40" rx="6" fill="#334155" stroke="#94a3b8" stroke-width="2"/><circle cx="200" cy="190" r="12" fill="#fbbf24"/>', explode: [0, 40] },
+    { id: 'ground', label: 'Ground',
+      svg: '<rect x="40" y="270" width="320" height="30" fill="#166534"/>' },
+  ],
+  states: {
+    freefall: {
+      label: 'Freefall',
+      caption: 'Jumping! Canopy is packed. Speed builds. Pull the pilot chute soon.',
+      on: { PULL: 'deploy' },
+      parts: { canopy: { opacity: 0.15, scale: 0.25, y: 50 } },
+    },
+    deploy: {
+      label: 'Canopy deploys',
+      caption: 'Pilot chute yanks the bag. Canopy unfolds and starts to catch air.',
+      on: { INFLATE: 'inflated', TANGLE: 'tangle' },
+      parts: { canopy: { opacity: 0.7, scale: 0.7, y: 10 }, lines: { opacity: 0.5 } },
+    },
+    inflated: {
+      label: 'Full canopy',
+      caption: 'Canopy is a big air pillow. Fall slows to a gentle float.',
+      on: { LAND: 'landed' },
+      parts: { canopy: { opacity: 1, scale: 1, y: 0 }, lines: { opacity: 1 }, harness: { y: 10 } },
+    },
+    landed: {
+      label: 'Soft landing',
+      caption: 'Feet touch. Collapse the canopy so wind does not drag you.',
+      on: {},
+      parts: { canopy: { opacity: 0.8, y: 40, scale: 0.9 }, lines: { opacity: 0.7 }, harness: { y: 50 } },
+    },
+    tangle: {
+      label: 'Line tangle',
+      caption: 'Lines crossed. Canopy will not inflate right. Need a reserve chute!',
+      on: {},
+      parts: { canopy: { opacity: 0.5, scale: 0.5, rot: 20 }, lines: { opacity: 0.8, rot: -15 } },
+    },
+  },
+};

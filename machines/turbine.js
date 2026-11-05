@@ -1,0 +1,50 @@
+export default {
+  id: 'turbine', title: 'Wind Turbine', emoji: '🌬️', topic: 'Machines',
+  blurb: 'How wind turns blades, a shaft, and a generator to make electricity — and why brakes stop it in a storm.',
+  initial: 'calm',
+  parts: [
+    { id: 'tower', label: 'Tower', job: 'holds the nacelle high where the wind is stronger',
+      svg: '<rect x="190" y="120" width="20" height="180" fill="#64748b"/><rect x="160" y="290" width="80" height="16" fill="#475569"/>', explode: [0, 40] },
+    { id: 'nacelle', label: 'Nacelle', job: 'houses the gearbox and generator',
+      svg: '<rect x="160" y="90" width="100" height="40" rx="8" fill="#1e293b" stroke="#94a3b8" stroke-width="2"/>', explode: [50, 0] },
+    { id: 'blades', label: 'Blades', job: 'catch the wind and spin the shaft',
+      svg: '<g stroke="#e2e8f0" stroke-width="8" stroke-linecap="round" fill="none"><path d="M200 110 L200 30"/><path d="M200 110 L270 150"/><path d="M200 110 L130 150"/></g>', explode: [-40, -30] },
+    { id: 'hub', label: 'Hub',
+      svg: '<circle cx="200" cy="110" r="12" fill="#fbbf24"/>' },
+    { id: 'generator', label: 'Generator', job: 'turns spinning motion into electric current',
+      svg: '<rect x="175" y="98" width="30" height="24" rx="3" fill="#22c55e"/><text x="190" y="85" text-anchor="middle" fill="#86efac" font-size="11" font-weight="700">gen</text>', pose: { opacity: 0.5 }, explode: [0, -35] },
+    { id: 'power', label: 'Power out',
+      svg: '<path d="M200 300 V320 M180 320 H220" stroke="#facc15" stroke-width="4"/><text x="200" y="340" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="700">grid</text>', pose: { opacity: 0 } },
+  ],
+  states: {
+    calm: {
+      label: 'Calm air',
+      caption: 'Little wind. Blades still. Generator waits.',
+      on: { BREEZE: 'cutin' },
+    },
+    cutin: {
+      label: 'Cut-in speed',
+      caption: 'Wind reaches cut-in speed. Brakes release. Blades begin to turn.',
+      on: { SPIN: 'spinning' },
+      parts: { blades: { rot: 15 } },
+    },
+    spinning: {
+      label: 'Blades spinning',
+      caption: 'Wind pushes the blades. The shaft turns. Generator starts making current.',
+      on: { POWER: 'generating', STORM: 'braking' },
+      parts: { blades: { rot: 40 }, generator: { opacity: 0.8 } },
+    },
+    generating: {
+      label: 'Making power',
+      caption: 'Steady spin. Electricity flows down the tower to the grid.',
+      on: {},
+      parts: { blades: { rot: 80 }, generator: { opacity: 1 }, power: { opacity: 1 } },
+    },
+    braking: {
+      label: 'Storm brake',
+      caption: 'Wind is too strong! Brakes lock the blades so the turbine is not damaged.',
+      on: {},
+      parts: { blades: { rot: 10, opacity: 0.7 }, generator: { opacity: 0.4 } },
+    },
+  },
+};

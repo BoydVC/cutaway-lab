@@ -136,6 +136,14 @@
     "file": "narrations/mars-captions.mp4"
   },
   {
+    "id": "parachute",
+    "duration": 40.08,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/parachute-captions.mp4"
+  },
+  {
     "id": "photo",
     "duration": 39.21,
     "hasAudio": true,
@@ -198,6 +206,14 @@
     "hasVideo": true,
     "ok": true,
     "file": "narrations/thermostat-captions.mp4"
+  },
+  {
+    "id": "turbine",
+    "duration": 39.04,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/turbine-captions.mp4"
   },
   {
     "id": "volcano",

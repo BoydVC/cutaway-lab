@@ -38,7 +38,7 @@ await page.goto(URL + 'builder.html'); await page.waitForTimeout(400); await pag
 await page.goto(URL + 'worksheet.html#starship'); await page.waitForTimeout(300); await page.screenshot({ path: `${out}/worksheet.png`, fullPage: true });
 await t('a11y: stage label tracks state, buttons named, imgs labelled', async () => { await page.goto(URL + '#frog/legs'); await page.waitForTimeout(200); assert.match(await page.getAttribute('#stage', 'aria-label'), /Growing legs/); const unnamed = await page.$$eval('button', (bs) => bs.filter((b) => !b.textContent.trim() && !b.getAttribute('aria-label')).length); assert.equal(unnamed, 0); });
 await t('a11y: chart next-step focusable + Enter advances', async () => { await page.goto(URL + '#water'); await page.waitForTimeout(200); await page.focus('#chart g[data-state=evaporate]'); await page.keyboard.press('Enter'); assert.match(page.url(), /#water\/evaporate/); });
-await t('every machine walks its main path to the end in the browser', async () => { for (const id of ['starship','mars','clock','heart','bees','frog','volcano','water','football','baseball','soccer','lacrosse','basketball','hockey','bike','tennis','photo','gears','digest','circuit','elevator','flush','stoplight','lock','shutter','thermostat','zipper','sharpener']) { await page.goto(URL + '#' + id); await page.waitForTimeout(100); for (let i = 0; i < 8; i++) await page.keyboard.press('ArrowRight'); const c = await page.textContent('#caption'); assert.ok(c.length > 10, id); } });
+await t('every machine walks its main path to the end in the browser', async () => { for (const id of ['starship','mars','clock','heart','bees','frog','volcano','water','football','baseball','soccer','lacrosse','basketball','hockey','bike','tennis','photo','gears','digest','circuit','elevator','flush','stoplight','lock','shutter','thermostat','zipper','sharpener','parachute','turbine']) { await page.goto(URL + '#' + id); await page.waitForTimeout(100); for (let i = 0; i < 8; i++) await page.keyboard.press('ArrowRight'); const c = await page.textContent('#caption'); assert.ok(c.length > 10, id); } });
 await t('reduced motion: no transition', async () => { await page.emulateMedia({ reducedMotion: 'reduce' }); await page.goto(URL + '#frog'); assert.equal(await page.$eval('#stage .part', (g) => getComputedStyle(g).transitionDuration), '0s'); await page.emulateMedia({ reducedMotion: 'no-preference' }); });
 await page.goto(URL + '#frog/legs'); await page.waitForTimeout(1000); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/frog.png` });
 await t('sports: football play-action to catch', async () => { await page.goto(URL + '#football'); for (let i = 0; i < 4; i++) await page.keyboard.press('ArrowRight'); assert.match(page.url(), /catch/); });
@@ -84,6 +84,11 @@ console.log('ok zipper closed');
 await page.goto(URL + '#sharpener/sharp'); await page.waitForTimeout(700); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/sharpener.png` });
 console.log('ok sharpener sharp');
 
+await page.goto(URL + '#parachute/inflated'); await page.waitForTimeout(700); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/parachute.png` });
+console.log('ok parachute inflated');
+await page.goto(URL + '#turbine/generating'); await page.waitForTimeout(700); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/turbine.png` });
+console.log('ok turbine generating');
+
 await page.goto(URL + '#digest/absorb'); await page.waitForTimeout(800); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/digest.png` });
 console.log('ok digest absorb');
 
@@ -99,6 +104,12 @@ await page.goto(URL + '#volcano/erupt/x'); await page.waitForTimeout(1100); awai
 await page.goto(URL + '#bees/dance'); await page.waitForTimeout(1000); await page.keyboard.press('q'); await page.waitForTimeout(300); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/quiz.png` }); await page.click('#qclose'); await page.waitForTimeout(200);
 const phone = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
 await phone.goto(URL + '#starship/catch'); await phone.waitForTimeout(1000);
+await phone.goto(URL + '#heart/ventricles'); await phone.waitForTimeout(600);
+await t('phone: heart no overflow', async () => { assert.ok(await phone.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)); });
+await phone.screenshot({ path: `${out}/phone-heart-390x844.png`, fullPage: true });
+await phone.goto(URL + '#football/throw'); await phone.waitForTimeout(600);
+await t('phone: football no overflow', async () => { assert.ok(await phone.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)); });
+await phone.screenshot({ path: `${out}/phone-football-390x844.png`, fullPage: true });
 await t('phone: no horizontal overflow', async () => { assert.ok(await phone.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)); });
 await phone.screenshot({ path: `${out}/phone-390x844.png`, fullPage: true });
 await t('a11y: narrate speaks only once per state', async () => {
