@@ -8,6 +8,8 @@ export default {
     { id: 'lblSea', label: 'Ocean label',
       svg: '<text x="200" y="285" text-anchor="middle" fill="#7dd3fc" font-size="13" font-weight="700">ocean</text>' },
     { id: 'hill', label: 'Mountain', svg: '<path d="M240 300 L330 150 L460 300Z" fill="#57534e"/><path d="M315 175 L330 150 L345 175Z" fill="#f8fafc"/>' },
+    { id: 'lblHill', label: 'Mountain label',
+      svg: '<text x="330" y="200" text-anchor="middle" fill="#d6d3d1" font-size="12" font-weight="700">mountain</text>' },
     { id: 'vapor', label: 'Water vapor', job: 'is invisible water gas in the air', svg: '<g stroke="#bae6fd" stroke-width="2" fill="none" stroke-dasharray="3 4"><path d="M100 225 q6 -20 0 -40 q-6 -20 0 -40"/><path d="M140 225 q6 -20 0 -40 q-6 -20 0 -40"/><path d="M180 225 q6 -20 0 -40 q-6 -20 0 -40"/></g>', pose: { opacity: 0 } },
     { id: 'cloud', label: 'Cloud', job: 'is made of tiny water drops', svg: '<g fill="#e2e8f0"><circle cx="150" cy="70" r="20"/><circle cx="175" cy="62" r="24"/><circle cx="200" cy="72" r="18"/></g>', pose: { opacity: 0, scale: 0.5 }, explode: [0, -20] },
     { id: 'lblSun', label: 'Sun label',
