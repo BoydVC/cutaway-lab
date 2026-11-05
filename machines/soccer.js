@@ -14,6 +14,8 @@ export default {
     { id: 'striker', label: 'Striker', job: 'waits in the box for the cut-back', svg: '<circle cx="300" cy="150" r="11" fill="#1e40af" stroke="#fef08a" stroke-width="2"/><text x="300" y="154" text-anchor="middle" fill="#fef08a" font-size="11" font-weight="700">9</text>', explode: [20, -20] },
     { id: 'defender', label: 'Defender', job: 'gets pulled wide by the overlap', svg: '<circle cx="260" cy="180" r="11" fill="#b91c1c" stroke="#fecaca" stroke-width="2"/><text x="260" y="184" text-anchor="middle" fill="#fecaca" font-size="11" font-weight="700">4</text>' },
     { id: 'ball', label: 'Soccer ball', job: 'is passed into the overlap, then cut back', svg: '<circle cx="200" cy="190" r="6" fill="#f8fafc" stroke="#111"/><path d="M200 184 L200 196 M194 190 H206" stroke="#111" stroke-width="1"/>', explode: [0, -40] },
+    { id: 'lblBall', label: 'Ball label',
+      svg: '<text x="200" y="180" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="700">ball</text>' },
     { id: 'lane', label: 'Overlap lane', svg: '<path d="M120 210 Q200 230 280 160" stroke="#fbbf24" stroke-width="2" fill="none" stroke-dasharray="5 4"/>', pose: { opacity: 0 } },
   ],
   states: {
