@@ -9,7 +9,7 @@ async function t(name, fn) { try { await fn(); pass++; console.log('ok', name); 
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
 page.on('pageerror', (e) => errors.push(e.message)); page.on('console', (m) => m.type() === 'error' && errors.push(m.text()));
 await page.goto(URL);
-await t('loads first machine', async () => { assert.match(await page.textContent('#title'), /Rocket/); assert.equal(await page.locator('#picker button').count(), 8); });
+await t('loads first machine', async () => { assert.match(await page.textContent('#title'), /Rocket/); assert.equal(await page.locator('#picker button').count(), 12); });
 await t('event button advances', async () => { await page.click('#events button >> nth=0'); assert.match(await page.textContent('#caption'), /Dozens of engines/); assert.match(page.url(), /#starship\/ignition/); });
 await t('back returns', async () => { await page.click('#back'); assert.match(page.url(), /#starship\/pad/); });
 await t('arrow keys walk main path to the catch', async () => { for (let i = 0; i < 5; i++) await page.keyboard.press('ArrowRight'); assert.match(page.url(), /catch/); assert.match(await page.textContent('#events'), /The end/); });
@@ -38,9 +38,18 @@ await page.goto(URL + 'builder.html'); await page.waitForTimeout(400); await pag
 await page.goto(URL + 'worksheet.html#starship'); await page.waitForTimeout(300); await page.screenshot({ path: `${out}/worksheet.png`, fullPage: true });
 await t('a11y: stage label tracks state, buttons named, imgs labelled', async () => { await page.goto(URL + '#frog/legs'); await page.waitForTimeout(200); assert.match(await page.getAttribute('#stage', 'aria-label'), /Growing legs/); const unnamed = await page.$$eval('button', (bs) => bs.filter((b) => !b.textContent.trim() && !b.getAttribute('aria-label')).length); assert.equal(unnamed, 0); });
 await t('a11y: chart next-step focusable + Enter advances', async () => { await page.goto(URL + '#water'); await page.waitForTimeout(200); await page.focus('#chart g[data-state=evaporate]'); await page.keyboard.press('Enter'); assert.match(page.url(), /#water\/evaporate/); });
-await t('every machine walks its main path to the end in the browser', async () => { for (const id of ['starship','mars','clock','heart','bees','frog','volcano','water']) { await page.goto(URL + '#' + id); await page.waitForTimeout(100); for (let i = 0; i < 8; i++) await page.keyboard.press('ArrowRight'); const c = await page.textContent('#caption'); assert.ok(c.length > 10, id); } });
+await t('every machine walks its main path to the end in the browser', async () => { for (const id of ['starship','mars','clock','heart','bees','frog','volcano','water','football','baseball','soccer','lacrosse']) { await page.goto(URL + '#' + id); await page.waitForTimeout(100); for (let i = 0; i < 8; i++) await page.keyboard.press('ArrowRight'); const c = await page.textContent('#caption'); assert.ok(c.length > 10, id); } });
 await t('reduced motion: no transition', async () => { await page.emulateMedia({ reducedMotion: 'reduce' }); await page.goto(URL + '#frog'); assert.equal(await page.$eval('#stage .part', (g) => getComputedStyle(g).transitionDuration), '0s'); await page.emulateMedia({ reducedMotion: 'no-preference' }); });
 await page.goto(URL + '#frog/legs'); await page.waitForTimeout(1000); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/frog.png` });
+await t('sports: football play-action to catch', async () => { await page.goto(URL + '#football'); for (let i = 0; i < 4; i++) await page.keyboard.press('ArrowRight'); assert.match(page.url(), /catch/); });
+await t('sports: baseball twin killing', async () => { await page.goto(URL + '#baseball'); for (let i = 0; i < 4; i++) await page.keyboard.press('ArrowRight'); assert.match(page.url(), /twinKill/); });
+await t('sports: soccer cut-back', async () => { await page.goto(URL + '#soccer'); for (let i = 0; i < 3; i++) await page.keyboard.press('ArrowRight'); assert.match(page.url(), /cross/); });
+await t('sports: lacrosse dish', async () => { await page.goto(URL + '#lacrosse'); for (let i = 0; i < 3; i++) await page.keyboard.press('ArrowRight'); assert.match(page.url(), /dish/); });
+await page.goto(URL + '#football/throw'); await page.waitForTimeout(900); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/football.png` });
+await page.goto(URL + '#baseball/twinKill'); await page.waitForTimeout(900); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/baseball.png` });
+await page.goto(URL + '#soccer/cross'); await page.waitForTimeout(900); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/soccer.png` });
+await page.goto(URL + '#lacrosse/dish'); await page.waitForTimeout(900); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/lacrosse.png` });
+
 await page.goto(URL + '#water/precip'); await page.waitForTimeout(1000); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/water.png` });
 // screenshots
 await page.mouse.move(5, 895);

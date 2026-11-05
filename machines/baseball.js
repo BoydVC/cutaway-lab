@@ -1,0 +1,23 @@
+export default {
+  id: 'baseball', title: 'Baseball: Double Play', emoji: '⚾', topic: 'Sports',
+  blurb: 'How a 6-4-3 double play turns two outs from one ground ball: shortstop to second to first.',
+  initial: 'pitch',
+  parts: [
+    { id: 'diamond', label: 'Infield', svg: '<rect x="20" y="30" width="360" height="250" fill="#166534"/><path d="M200 60 L340 200 L200 270 L60 200 Z" fill="#a16207"/><path d="M200 60 L340 200 L200 270 L60 200 Z" fill="none" stroke="#fef3c7" stroke-width="2"/><circle cx="200" cy="200" r="20" fill="#a3a3a3" opacity=".45"/><rect x="194" y="54" width="12" height="12" fill="#fff"/><rect x="334" y="194" width="12" height="12" fill="#fff"/><rect x="194" y="264" width="12" height="12" fill="#fff"/><rect x="54" y="194" width="12" height="12" fill="#fff"/><text x="200" y="50" text-anchor="middle" fill="#fef3c7" font-size="10">2B</text><text x="355" y="215" fill="#fef3c7" font-size="10">1B</text><text x="200" y="290" text-anchor="middle" fill="#fef3c7" font-size="10">Home</text><text x="40" y="215" fill="#fef3c7" font-size="10">3B</text>' },
+    { id: 'pitcher', label: 'Pitcher', job: 'throws the pitch that starts the play', svg: '<circle cx="200" cy="200" r="8" fill="#1d4ed8"/>' },
+    { id: 'ss', label: 'Shortstop', job: 'fields the grounder and starts the double play', svg: '<circle cx="140" cy="160" r="9" fill="#1e3a8a"/><circle cx="140" cy="160" r="3" fill="#fef08a"/>', explode: [-40, -20] },
+    { id: '2b', label: 'Second baseman', job: 'steps on second, then throws to first', svg: '<circle cx="260" cy="160" r="9" fill="#1e3a8a"/><circle cx="260" cy="160" r="3" fill="#fef08a"/>', explode: [40, -20] },
+    { id: '1b', label: 'First baseman', job: 'catches the throw for the second out', svg: '<circle cx="320" cy="210" r="9" fill="#1e3a8a"/><circle cx="320" cy="210" r="3" fill="#fef08a"/>', explode: [40, 20] },
+    { id: 'batter', label: 'Batter-runner', job: 'hits the ball and runs toward first', svg: '<circle cx="210" cy="250" r="8" fill="#b91c1c"/>', explode: [0, 30] },
+    { id: 'runner', label: 'Runner on first', job: 'tries to reach second before the force out', svg: '<circle cx="300" cy="210" r="8" fill="#dc2626"/>', explode: [30, 10] },
+    { id: 'ball', label: 'Baseball', job: 'is hit on the ground to the shortstop', svg: '<circle cx="200" cy="185" r="5" fill="#f8fafc" stroke="#94a3b8"/>', explode: [0, -50] },
+  ],
+  states: {
+    pitch: { label: 'Pitch', caption: 'Runner on first, less than two outs. The pitcher delivers.', on: { HIT: 'grounder' } },
+    grounder: { label: 'Ground ball', caption: 'The batter chops a grounder toward the shortstop. Both runners take off!', on: { FIELD: 'toSecond', BOBBLE: 'safe' }, parts: { ball: { x: -50, y: -30 }, batter: { x: 40, y: -20 }, runner: { x: -30, y: -30 } } },
+    toSecond: { label: 'Flip to second', caption: 'Shortstop fields it clean and flips to the second baseman covering the bag.', on: { FORCE: 'toFirst' }, parts: { ball: { x: 50, y: -35 }, ss: { x: 20, y: 5 }, runner: { x: -40, y: -35 }, batter: { x: 70, y: -30 }, '2b': { x: -10, y: 10 } } },
+    toFirst: { label: 'Throw to first', caption: 'Second baseman touches the bag for one out, then rifles the ball to first.', on: { OUT: 'twinKill' }, parts: { ball: { x: 110, y: 10 }, runner: { opacity: 0.3, x: -40, y: -35 }, '2b': { rot: 20 }, batter: { x: 100, y: -40 }, '1b': { x: -5, y: -5 } } },
+    twinKill: { label: 'Double play!', caption: 'First baseman catches it. Two outs on one pitch — a classic 6-4-3.', on: {}, parts: { ball: { x: 120, y: 20, opacity: 0.4 }, batter: { opacity: 0.3, x: 100, y: -40 }, runner: { opacity: 0.2 } } },
+    safe: { label: 'Everybody safe', caption: 'The shortstop bobbles it. Both runners reach safely. No double play today.', on: {}, parts: { ball: { x: -40, y: -10, opacity: 0.5 }, batter: { x: 110, y: -45 }, runner: { x: -50, y: -40 } } },
+  },
+};

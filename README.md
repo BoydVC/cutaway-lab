@@ -1,6 +1,6 @@
 # 🔧 Cutaway Lab
 
-Step inside a rocket launch, a Mars sky-crane landing, a pendulum clock, a beating heart, a honeybee waggle dance, a frog's life cycle, a volcano and the water cycle. Every animated cutaway is driven by a small **state machine**, so kids can step through how a thing works and the app can check that every machine is sound (every step reachable, nothing gets stuck).
+Step inside a rocket launch, a Mars sky-crane landing, a pendulum clock, a beating heart, a honeybee waggle dance, a frog's life cycle, a volcano, the water cycle, and four sports plays (football play-action, baseball double play, soccer overlap, lacrosse fast break). Every animated cutaway is driven by a small **state machine**, so kids can step through how a thing works and the app can check that every machine is sound (every step reachable, nothing gets stuck).
 
 ![demo](screenshots/demo.gif)
 
@@ -41,6 +41,10 @@ Deep links: `#starship/staging`, `#clock/tickLeft/x` (x = exploded).
 | 🐸 Frog Life Cycle | eggs → tadpole → legs → froglet → adult | snack for a fish |
 | 🌋 Volcano Eruption | asleep → magma rises → eruption → new land | goes quiet |
 | 💧 The Water Cycle | ocean → evaporation → condensation → precipitation → collection | hot day loop |
+| 🏈 Football: Play-Action Pass | huddle → snap → fake → deep throw → catch | checkdown |
+| ⚾ Baseball: Double Play | pitch → grounder → flip to second → throw to first → twin killing | bobble / safe |
+| ⚽ Soccer: Overlap Run | build-up → overlap → pass into space → cut-back cross | cut inside |
+| 🥍 Lacrosse: Fast Break | save → outlet clear → 4-on-3 push → dish and finish | reset clear |
 
 - `src/engine.js`: the statechart engine: `validate` (unknown targets, unreachable states, livelocks, bad part refs), `step`, `mainPath`, `pose`, `toMermaid`.
 - `src/layout.js`: lays out the live statechart (main path in a column, skips and loops as nested arcs).
@@ -66,6 +70,8 @@ Register it in `machines/index.js`, then run `npm run check`.
 | ![heart](screenshots/heart.png) | ![quiz](screenshots/quiz.png) |
 | ![mars](screenshots/mars.png) | ![volcano](screenshots/volcano-exploded.png) |
 | ![frog](screenshots/frog.png) | ![water](screenshots/water.png) |
+| ![football](screenshots/football.png) | ![baseball](screenshots/baseball.png) |
+| ![soccer](screenshots/soccer.png) | ![lacrosse](screenshots/lacrosse.png) |
 
 Phone: ![phone](screenshots/phone-390x844.png)
 
