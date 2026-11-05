@@ -31,7 +31,13 @@ await t('arrow keys walk main path to the catch', async () => { for (let i = 0; 
 await t('side path reachable', async () => { await page.click('#reset'); await page.click('#events button >> nth=1'); assert.match(page.url(), new RegExp('scrubbed')); });
 await t('deep link + exploded', async () => { await page.goto(URL + '#clock/tickLeft/x'); await page.waitForTimeout(1000); assert.match(await page.textContent('#title'), /Pendulum/); assert.ok(await page.isChecked('#explode')); assert.ok(await page.locator('#stage text.lbl').count() >= 3); });
 await t('steps list highlights current', async () => { assert.match(await page.textContent('#states li.on'), /Swing left/); });
-await t('space autoplays', async () => { await page.goto(URL + '#heart'); await page.keyboard.press('Space'); await page.waitForTimeout(1800); assert.doesNotMatch(page.url(), /#heart\/fill$/); await page.keyboard.press('Space'); });
+await t('space autoplays', async () => {
+  await page.goto(URL + '#heart/fill');
+  await page.waitForTimeout(300);
+  await page.keyboard.press('Space');
+  await page.waitForFunction(() => !location.hash.endsWith('/fill') && !location.hash.endsWith('/fill/'), null, { timeout: 5000 });
+  await page.keyboard.press('Space');
+});
 await t('quiz runs to a score', async () => {
   await page.goto(URL + '#bees'); await page.keyboard.press('q'); assert.ok(await page.locator('#quiz[open]').count());
   for (let i = 0; i < 5; i++) { await page.click('#qchoices button >> nth=0'); await page.waitForTimeout(1000); }
