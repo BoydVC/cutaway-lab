@@ -45,13 +45,13 @@ export default {
       label: 'Moving up',
       caption: 'Motor turns the pulley. The car rises; the counterweight drops. Cables stay tight.',
       on: { ARRIVE: 'open' },
-      parts: { doors: { scale: 0.15, x: 14, opacity: 0.5 }, car: { y: -60 }, counter: { y: 70 }, f1: { opacity: 0.45 }, f3: { opacity: 1 } },
+      parts: { lblCW: { y: 70 }, lblCable: { opacity: 1 }, doors: { scale: 0.15, x: 14, opacity: 0.5 }, car: { y: -60 }, counter: { y: 70 }, f1: { opacity: 0.45 }, f3: { opacity: 1 } },
     },
     open: {
       label: 'Doors open',
       caption: 'At floor 3 the car stops. Doors open. Ride complete!',
       on: {},
-      parts: { car: { y: -100 }, counter: { y: 110 }, doors: { opacity: 0.2 }, f1: { opacity: 0.45 }, f3: { opacity: 1 } },
+      parts: { lblCW: { y: 110 }, car: { y: -100 }, counter: { y: 110 }, doors: { opacity: 0.2 }, f1: { opacity: 0.45 }, f3: { opacity: 1 } },
     },
     reopen: {
       label: 'Doors reopen',
