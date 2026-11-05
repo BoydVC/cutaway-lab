@@ -3,6 +3,8 @@ export default {
   blurb: 'How a signal cycles green → yellow → red, and why a sensor can jump when the road is empty.',
   initial: 'green',
   parts: [
+    { id: 'lblSkip', label: 'Skip callout',
+      svg: '<text x="200" y="40" text-anchor="middle" fill="#f87171" font-size="12" font-weight="700">skip to red</text>', pose: { opacity: 0 } },
     { id: 'lblSensor', label: 'Sensor label',
       svg: '<text x="280" y="280" text-anchor="middle" fill="#86efac" font-size="11" font-weight="700">sensor</text>' },
     { id: 'lblPole', label: 'Pole label',
@@ -57,7 +59,7 @@ export default {
       label: 'Skip to red',
       caption: 'Sensor saw no cars. Signal jumps toward red early so the other road can go.',
       on: {},
-      parts: { lblGo: { opacity: 0 }, lblSlow: { opacity: 0 }, lblStop: { opacity: 1 },  redGlow: { opacity: 1 }, sensor: { opacity: 1 } },
+      parts: { lblSkip: { opacity: 1 },  lblGo: { opacity: 0 }, lblSlow: { opacity: 0 }, lblStop: { opacity: 1 },  redGlow: { opacity: 1 }, sensor: { opacity: 1 } },
     },
   },
 };
