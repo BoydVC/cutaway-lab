@@ -11,6 +11,8 @@ export default {
       svg: '<g><rect x="108" y="150" width="6" height="40" fill="#a3a3a3"/><ellipse cx="111" cy="140" rx="14" ry="18" fill="none" stroke="#e2e8f0" stroke-width="3"/><path d="M104 130 H118 M111 122 V148" stroke="#94a3b8" stroke-width="1"/></g>', explode: [-20, -40] },
     { id: 'ball', label: 'Tennis ball', job: 'is tossed high, then kicked with topspin',
       svg: '<circle cx="130" cy="120" r="8" fill="#bef264"/><path d="M124 116 Q130 120 136 116" stroke="#365314" stroke-width="1.5" fill="none"/>', explode: [0, -50] },
+    { id: 'lblService', label: 'Service label',
+      svg: '<text x="280" y="200" text-anchor="middle" fill="#86efac" font-size="11" font-weight="700">service box</text>' },
     { id: 'lblToss', label: 'Toss label',
       svg: '<text x="260" y="80" text-anchor="middle" fill="#86efac" font-size="11" font-weight="700">toss</text>', pose: { opacity: 0 } },
     { id: 'lblBall', label: 'Ball label',

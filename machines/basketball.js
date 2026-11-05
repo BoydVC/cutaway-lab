@@ -5,6 +5,8 @@ export default {
   parts: [
     { id: 'court', label: 'Half court',
       svg: '<rect x="20" y="30" width="360" height="240" fill="#b45309"/><rect x="20" y="30" width="360" height="240" fill="none" stroke="#fde68a" stroke-width="3"/><path d="M300 30 V270" stroke="#fde68a" stroke-width="2"/><path d="M300 70 A80 80 0 0 0 300 230" fill="none" stroke="#fde68a" stroke-width="2"/><circle cx="300" cy="150" r="40" fill="none" stroke="#fde68a" stroke-width="2"/><rect x="300" y="110" width="80" height="80" fill="none" stroke="#fde68a" stroke-width="2"/><path d="M300 120 H312 M300 130 H312 M300 170 H312 M300 180 H312" stroke="#fde68a" stroke-width="2"/><rect x="368" y="130" width="6" height="40" fill="#e2e8f0"/><circle cx="365" cy="150" r="9" fill="none" stroke="#f97316" stroke-width="2"/><circle cx="365" cy="150" r="2" fill="#f97316"/>' },
+    { id: 'lblPaint', label: 'Paint label',
+      svg: '<text x="340" y="200" text-anchor="middle" fill="#fdba74" font-size="11" font-weight="700">paint</text>' },
     { id: 'lblRim', label: 'Rim label',
       svg: '<text x="320" y="80" text-anchor="middle" fill="#fb923c" font-size="12" font-weight="700">rim</text>' },
     { id: 'handler', label: 'Ball-handler', job: 'uses the screen and either attacks or passes',
