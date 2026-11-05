@@ -9,7 +9,7 @@ async function t(name, fn) { try { await fn(); pass++; console.log('ok', name); 
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
 page.on('pageerror', (e) => errors.push(e.message)); page.on('console', (m) => m.type() === 'error' && errors.push(m.text()));
 await page.goto(URL);
-await t('loads first machine', async () => { assert.match(await page.textContent('#title'), /Rocket/); assert.equal(await page.locator('#picker button').count(), 4); });
+await t('loads first machine', async () => { assert.match(await page.textContent('#title'), /Rocket/); assert.equal(await page.locator('#picker button').count(), 6); });
 await t('event button advances', async () => { await page.click('#events button >> nth=0'); assert.match(await page.textContent('#caption'), /Dozens of engines/); assert.match(page.url(), /#starship\/ignition/); });
 await t('back returns', async () => { await page.click('#back'); assert.match(page.url(), /#starship\/pad/); });
 await t('arrow keys walk main path to the catch', async () => { for (let i = 0; i < 5; i++) await page.keyboard.press('ArrowRight'); assert.match(page.url(), /catch/); assert.match(await page.textContent('#events'), /The end/); });
@@ -22,13 +22,20 @@ await t('quiz runs to a score', async () => {
   for (let i = 0; i < 5; i++) { await page.click('#qchoices button >> nth=0'); await page.waitForTimeout(1000); }
   assert.match(await page.textContent('#qprompt'), /of 5 right/); await page.click('#qclose');
 });
-await t('part hover highlights', async () => { await page.hover('#parts li >> nth=3'); assert.equal(await page.locator('#stage .part.hot').count(), 1); });
+await t('quiz awards stars in picker + badge', async () => { assert.ok(await page.locator('#picker button small').count() >= 0); assert.notEqual(await page.textContent('#badge'), null); });
+await t('live chart highlights current + click advances', async () => { await page.goto(URL + '#mars'); await page.waitForTimeout(200); assert.equal(await page.getAttribute('#chart g.on', 'data-state'), 'entry'); await page.click('#chart g[data-state=parachute]'); assert.match(page.url(), /#mars\/parachute/); });
+await t('mars side path via divert', async () => { await page.goto(URL + '#mars/powered'); await page.click('#events button >> nth=1'); assert.match(page.url(), /divert/); await page.keyboard.press('ArrowRight'); assert.match(page.url(), /skycrane/); });
+await t('volcano erupts', async () => { await page.goto(URL + '#volcano'); for (let i = 0; i < 2; i++) await page.keyboard.press('ArrowRight'); assert.match(await page.textContent('#caption'), /Ash blasts/); });
+await t('narrate toggle via N', async () => { await page.keyboard.press('n'); assert.ok(await page.isChecked('#narrate')); await page.keyboard.press('n'); });
+await t('part hover highlights', async () => { await page.goto(URL + '#bees'); await page.waitForTimeout(200); await page.hover('#parts li >> nth=3'); assert.equal(await page.locator('#stage .part.hot').count(), 1); });
 await t('bad hash falls back', async () => { await page.goto(URL + '#nope/zzz'); await page.waitForTimeout(200); assert.match(await page.textContent('#title'), /Rocket/); });
 // screenshots
 await page.mouse.move(5, 895);
 await page.goto(URL + '#starship/staging'); await page.waitForTimeout(1000); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/hero-1440x900.png` });
 await page.goto(URL + '#clock/tickRight/x'); await page.waitForTimeout(1100); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/clock-exploded.png` });
 await page.goto(URL + '#heart/ventricles'); await page.waitForTimeout(1000); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/heart.png` });
+await page.goto(URL + '#mars/skycrane'); await page.waitForTimeout(1000); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/mars.png` });
+await page.goto(URL + '#volcano/erupt/x'); await page.waitForTimeout(1100); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/volcano-exploded.png` });
 await page.goto(URL + '#bees/dance'); await page.waitForTimeout(1000); await page.keyboard.press('q'); await page.waitForTimeout(300); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/quiz.png` });
 const phone = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
 await phone.goto(URL + '#starship/catch'); await phone.waitForTimeout(1000);

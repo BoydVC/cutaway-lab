@@ -1,6 +1,6 @@
 # 🔧 Cutaway Lab
 
-Step inside a rocket launch, a pendulum clock, a beating heart and a honeybee waggle dance. Every animated cutaway is driven by a small **state machine**, so kids can step through how a thing works and the app can check that every machine is sound (every step reachable, nothing gets stuck).
+Step inside a rocket launch, a Mars sky-crane landing, a pendulum clock, a beating heart, a honeybee waggle dance and a volcano. Every animated cutaway is driven by a small **state machine**, so kids can step through how a thing works and the app can check that every machine is sound (every step reachable, nothing gets stuck).
 
 ![demo](screenshots/demo.gif)
 
@@ -13,7 +13,11 @@ npm test             # unit tests (node:test)
 npm i && npx playwright install chromium && npm run e2e   # headless browser tests + screenshots
 ```
 
-Keys: **Space** play/pause · **→ / ←** step forward/back · **E** exploded view with labels · **Q** quiz.
+Keys: **Space** play/pause · **→ / ←** step forward/back · **E** exploded view with labels · **Q** quiz · **N** read aloud.
+
+The sidebar draws the live statechart: the current step glows, loops are dashed, and you can click the next step to go there. Quiz stars are saved in the browser and earn a badge (Apprentice → Lab Scientist → Master Engineer).
+
+`npm run check` validates every machine and `npm run check -- --mermaid` prints each one as a Mermaid statechart.
 Deep links: `#starship/staging`, `#clock/tickLeft/x` (x = exploded).
 
 ## What's inside
@@ -21,11 +25,15 @@ Deep links: `#starship/staging`, `#clock/tickLeft/x` (x = exploded).
 | Machine | Main path | Side path |
 |---|---|---|
 | 🚀 Rocket Launch & Tower Catch | pad → engines light → liftoff → hot staging → boostback → tower catch | launch scrubbed |
+| 🔴 Mars Rover Sky-Crane Landing | entry → parachute → rocket descent → sky crane → touchdown | pick a safer spot |
 | 🕰️ Pendulum Clock | wound → tick ⇄ tock (loop) | run down |
 | ❤️ Heartbeat | fill → top squeeze → big squeeze (loop) | rest |
 | 🐝 Honeybee Waggle Dance | search → find flowers → dance → everyone goes | back home |
+| 🌋 Volcano Eruption | asleep → magma rises → eruption → new land | goes quiet |
 
 - `src/engine.js`: the statechart engine: `validate` (unknown targets, unreachable states, livelocks, bad part refs), `step`, `mainPath`, `pose`, `toMermaid`.
+- `src/layout.js`: lays out the live statechart (main path in a column, skips and loops as nested arcs).
+- `src/progress.js`: best quiz stars per machine and badges.
 - `src/quiz.js`: seeded quizzes built from the machine itself ("what happens next?", "which part does…?").
 - `machines/*.js`: one plain-data file per machine. Add one, `npm test` tells you if it is broken.
 
@@ -37,7 +45,7 @@ export default { id: 'volcano', title: 'Volcano', emoji: '🌋', initial: 'sleep
   states: { sleep: { label: 'Asleep', caption: '…', on: { RUMBLE: 'erupt' } }, erupt: { label: 'Eruption', caption: '…', on: {}, parts: { magma: { y: -150 } } } } };
 ```
 
-Register it in `machines/index.js`.
+Register it in `machines/index.js`, then run `npm run check`.
 
 ## Screenshots
 
@@ -45,6 +53,7 @@ Register it in `machines/index.js`.
 |---|---|
 | ![hero](screenshots/hero-1440x900.png) | ![clock](screenshots/clock-exploded.png) |
 | ![heart](screenshots/heart.png) | ![quiz](screenshots/quiz.png) |
+| ![mars](screenshots/mars.png) | ![volcano](screenshots/volcano-exploded.png) |
 
 Phone: ![phone](screenshots/phone-390x844.png)
 

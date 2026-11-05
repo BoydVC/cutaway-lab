@@ -1,6 +1,9 @@
 import { machines } from '../machines/index.js';
 import { pose, events, step, mainPath, isFinal, toMermaid, validate } from './engine.js';
 import { makeQuiz, grade } from './quiz.js';
+import { layout } from './layout.js';
+import { load, record, badge } from './progress.js';
+const store = (() => { try { localStorage.setItem('_t', '1'); return localStorage; } catch { const m = new Map(); return { getItem: (k) => m.get(k) ?? null, setItem: (k, v) => m.set(k, v) }; } })();
 const $ = (s) => document.querySelector(s);
 const S = { m: null, state: null, history: [], exploded: false, timer: null, hot: null };
 const NS = 'http://www.w3.org/2000/svg';
@@ -28,7 +31,7 @@ function render() {
   }
   document.querySelectorAll('#stage text.lbl').forEach((t) => t.remove());
   if (S.exploded) setTimeout(labels, 820);
-  $('#caption').textContent = st.caption;
+  $('#caption').textContent = st.caption; chart(); speak(st.caption);
   const path = mainPath(m), extra = Object.keys(m.states).filter((k) => !path.includes(k)), seen = new Set([...S.history, state]);
   $('#states').innerHTML = [...path, ...extra].map((k) => `<li data-state="${k}" class="${k === state ? 'on' : S.history.includes(k) ? 'done' : ''}">${m.states[k].label}${extra.includes(k) ? ' <small>(side path)</small>' : ''}</li>`).join('');
   const evs = events(m, state);
@@ -46,6 +49,22 @@ function labels() {
     t.setAttribute('x', Math.max(30, Math.min(370, b.x + b.width / 2 + p.x))); t.setAttribute('y', Math.max(12, Math.min(296, b.y + p.y - 4))); t.textContent = part.label; svg.appendChild(t);
   }
 }
+function chart() {
+  const { m, state } = S, L = layout(m), svg = $('#chart'), W = 300;
+  svg.setAttribute('viewBox', `0 0 ${W} ${L.height}`);
+  const edges = L.edges.map((e) => { const A = L.nodes[e.from], B = L.nodes[e.to];
+    const d = e.straight ? `M${A.x + 40} ${A.y + A.h} L${B.x + 40} ${B.y}` : `M${A.x + A.w} ${A.y + 11} C${A.x + A.w + 14 * e.lane + 10} ${A.y + 11} ${B.x + B.w + 14 * e.lane + 10} ${B.y + 11} ${B.x + B.w + 2} ${B.y + 11}`;
+    const lx = e.straight ? A.x + 46 : A.x + A.w + 7 * e.lane + 8, ly = e.straight ? A.y + A.h + 7 : (A.y + B.y) / 2 + 14;
+    return `<path class="${e.back ? 'back' : ''}" d="${d}"><title>${e.ev}</title></path><text class="ev" x="${lx}" y="${ly}">${nice(e.ev)}</text>`; }).join('');
+  const nodes = Object.entries(L.nodes).map(([n, r]) => `<g class="node ${n === state ? 'on' : S.history.includes(n) ? 'done' : ''}" data-state="${n}"><rect x="${r.x}" y="${r.y}" width="${r.w}" height="${r.h}"/><text x="${r.x + 8}" y="${r.y + 15}">${m.states[n].label.slice(0, 30)}</text></g>`).join('');
+  svg.innerHTML = '<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#64748b" stroke="none"/></marker></defs>' + edges + nodes;
+  svg.querySelectorAll('g.node').forEach((g) => (g.onclick = () => { const ev = Object.entries(m.states[S.state].on || {}).find(([, t]) => t === g.dataset.state); if (ev) fire(ev[0]); }));
+}
+function speak(text) { if (!$('#narrate').checked || !window.speechSynthesis) return; speechSynthesis.cancel(); speechSynthesis.speak(new SpeechSynthesisUtterance(text)); }
+function stars() {
+  const s = load(store); $('#badge').textContent = badge(s, machines.length);
+  document.querySelectorAll('#picker button').forEach((b) => { const n = s[b.dataset.id] || 0; b.querySelector('small')?.remove(); if (n) b.insertAdjacentHTML('beforeend', ` <small>${'★'.repeat(n)}</small>`); });
+}
 const nice = (e) => e.toLowerCase().replace(/_/g, ' ').replace(/^./, (c) => c.toUpperCase());
 function fire(ev) { S.history.push(S.state); S.state = step(S.m, S.state, ev); render(); }
 function back() { if (S.history.length) { S.state = S.history.pop(); render(); } }
@@ -59,7 +78,7 @@ function stop() { clearInterval(S.timer); S.timer = null; $('#play').textContent
 function quiz() {
   const q = makeQuiz(S.m, Date.now() % 1000 + 1, 5), picks = []; let i = 0; const d = $('#quiz');
   const show = () => {
-    if (i >= q.length) { const g = grade(q, picks); $('#qprompt').textContent = `${'⭐'.repeat(g.stars) || '🙂'} ${g.correct} of ${g.total} right!`; $('#qchoices').innerHTML = ''; $('#qfeedback').textContent = g.stars === 3 ? 'Perfect. You could teach this!' : 'Press Play and watch again, then retry.'; return; }
+    if (i >= q.length) { const g = grade(q, picks); record(store, S.m.id, g.stars); stars(); $('#qprompt').textContent = `${'⭐'.repeat(g.stars) || '🙂'} ${g.correct} of ${g.total} right!`; $('#qchoices').innerHTML = ''; $('#qfeedback').textContent = g.stars === 3 ? 'Perfect. You could teach this!' : 'Press Play and watch again, then retry.'; return; }
     $('#qprompt').textContent = `Q${i + 1}. ${q[i].prompt}`; $('#qfeedback').textContent = '';
     $('#qchoices').innerHTML = q[i].choices.map((c, j) => `<button type="button" data-j="${j}">${c}</button>`).join('');
     document.querySelectorAll('#qchoices button').forEach((b) => (b.onclick = () => {
@@ -76,7 +95,7 @@ $('#back').onclick = back; $('#play').onclick = play; $('#reset').onclick = () =
 $('#explode').onchange = (e) => { S.exploded = e.target.checked; render(); };
 addEventListener('keydown', (e) => {
   if ($('#quiz').open) return;
-  if (e.code === 'Space') { e.preventDefault(); play(); } else if (e.key === 'e') { $('#explode').click(); } else if (e.key === 'q') quiz();
+  if (e.code === 'Space') { e.preventDefault(); play(); } else if (e.key === 'e') { $('#explode').click(); } else if (e.key === 'q') quiz(); else if (e.key === 'n') $('#narrate').click();
   else if (e.key === 'ArrowRight') { const ev = events(S.m, S.state); if (ev.length) fire(ev[0]); } else if (e.key === 'ArrowLeft') back();
 });
 function fromHash() {
@@ -84,5 +103,5 @@ function fromHash() {
   S.exploded = x === 'x'; $('#explode').checked = S.exploded;
   pick(id, st);
 }
-addEventListener('hashchange', fromHash); fromHash();
+addEventListener('hashchange', fromHash); fromHash(); stars();
 window.__cutaway = S;

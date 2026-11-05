@@ -3,7 +3,7 @@ export default {
   blurb: 'How a giant two-stage rocket lifts off, splits in two, and the booster flies home to be caught by the tower arms.',
   initial: 'pad',
   parts: [
-    { id: 'sea', label: 'Ground', svg: '<rect x="0" y="270" width="400" height="30" fill="#2b3a2a"/>' },
+    { id: 'sea', label: 'Ground', svg: '<rect x="-300" y="270" width="1000" height="30" fill="#2b3a2a"/>' },
     { id: 'tower', label: 'Launch tower', job: 'holds the rocket and catches the booster', svg: '<rect x="250" y="60" width="18" height="210" fill="#6b7280"/><path d="M250 60 l18 20 M268 60 l-18 20 M250 120 l18 20 M268 120 l-18 20 M250 180 l18 20 M268 180 l-18 20" stroke="#9ca3af" stroke-width="2"/>', explode: [40, 0] },
     { id: 'arms', label: 'Catch arms', job: 'grab the booster out of the air', svg: '<rect x="215" y="100" width="40" height="6" fill="#f59e0b"/><rect x="215" y="112" width="40" height="6" fill="#f59e0b"/>', explode: [40, -20] },
     { id: 'booster', label: 'Booster (stage 1)', job: 'does the hard lifting off the ground', svg: '<rect x="190" y="150" width="26" height="110" rx="4" fill="#cbd5e1"/><rect x="190" y="250" width="26" height="10" fill="#475569"/>', explode: [-50, 30] },
