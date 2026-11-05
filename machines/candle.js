@@ -11,6 +11,8 @@ export default {
       svg: '<text x="200" y="70" text-anchor="middle" fill="#fde68a" font-size="13" font-weight="700">flame</text>', pose: { opacity: 0 } },
     { id: 'lblWax', label: 'Wax label',
       svg: '<text x="200" y="230" text-anchor="middle" fill="#92400e" font-size="13" font-weight="800">wax</text>' },
+    { id: 'lblDrown', label: 'Drown label',
+      svg: '<text x="280" y="180" text-anchor="middle" fill="#f87171" font-size="12" font-weight="700">drowned</text>', pose: { opacity: 0 } },
     { id: 'lblSmoke', label: 'Smoke label',
       svg: '<text x="240" y="50" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="700">smoke</text>', pose: { opacity: 0 } },
     { id: 'lblPool', label: 'Pool label',
@@ -53,7 +55,7 @@ export default {
       label: 'Drowned wick',
       caption: 'Too much melt pool. Wick soaked and drowned. Tip out wax or trim the wick.',
       on: {},
-      parts: { lblFlame: { opacity: 0 },  flame: { opacity: 0 }, pool: { opacity: 1, scale: 1.4 }, wick: { opacity: 0.5 } },
+      parts: { lblDrown: { opacity: 1 },  lblFlame: { opacity: 0 },  flame: { opacity: 0 }, pool: { opacity: 1, scale: 1.4 }, wick: { opacity: 0.5 } },
     },
   },
 };

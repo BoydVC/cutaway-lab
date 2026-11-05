@@ -15,6 +15,8 @@ export default {
       svg: '<line x1="200" y1="55" x2="230" y2="40" stroke="#fbbf24" stroke-width="4"/><circle cx="232" cy="38" r="5" fill="#f59e0b"/>', explode: [40, -20] },
     { id: 'hose', label: 'Hose', job: 'aims the agent at the base of the flames',
       svg: '<path d="M250 140 Q300 140 310 180" stroke="#334155" stroke-width="10" fill="none" stroke-linecap="round"/>', explode: [45, 20] },
+    { id: 'lblEmpty', label: 'Empty label',
+      svg: '<text x="200" y="50" text-anchor="middle" fill="#f87171" font-size="12" font-weight="700">empty</text>', pose: { opacity: 0 } },
     { id: 'lblHose', label: 'Hose label',
       svg: '<text x="300" y="160" text-anchor="middle" fill="#cbd5e1" font-size="12" font-weight="700">hose</text>' },
     { id: 'lblPin', label: 'Pin label',
@@ -55,7 +57,7 @@ export default {
       label: 'Tank empty',
       caption: 'Pressure is gone. Gauge in the red. Get another extinguisher or evacuate.',
       on: {},
-      parts: { gauge: { opacity: 0.5 }, pin: { opacity: 0.3 }, fire: { opacity: 1 } },
+      parts: { lblEmpty: { opacity: 1 },  gauge: { opacity: 0.5 }, pin: { opacity: 0.3 }, fire: { opacity: 1 } },
     },
   },
 };
