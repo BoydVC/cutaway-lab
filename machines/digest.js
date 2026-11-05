@@ -7,6 +7,8 @@ export default {
       svg: '<ellipse cx="200" cy="160" rx="90" ry="120" fill="#1e293b" stroke="#64748b" stroke-width="3"/>' },
     { id: 'mouth', label: 'Mouth', job: 'chews food into little pieces and mixes in spit',
       svg: '<ellipse cx="200" cy="55" rx="28" ry="14" fill="#fb7185" stroke="#9f1239" stroke-width="2"/><text x="200" y="60" text-anchor="middle" fill="#fff1f2" font-size="11" font-weight="700">mouth</text>', explode: [0, -35] },
+    { id: 'lblEso', label: 'Esophagus label',
+      svg: '<text x="250" y="140" text-anchor="middle" fill="#fda4af" font-size="12" font-weight="700">esophagus</text>' },
     { id: 'esophagus', label: 'Esophagus', job: 'is the tube that squeezes food down to the stomach',
       svg: '<path d="M200 70 V120" stroke="#fca5a5" stroke-width="10" stroke-linecap="round"/><text x="230" y="100" fill="#fecaca" font-size="11" font-weight="700">tube</text>', explode: [40, -10] },
     { id: 'stomach', label: 'Stomach', job: 'churns food with acid into a soupy mix',

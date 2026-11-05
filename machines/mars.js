@@ -4,6 +4,8 @@ export default {
   initial: 'entry',
   parts: [
     { id: 'ground', label: 'Mars surface', svg: '<path d="M-300 266 Q-100 258 0 270 Q100 255 200 268 T400 262 Q550 270 700 262 V300 H-300Z" fill="#b45309"/>' },
+    { id: 'lblAtmo', label: 'Atmosphere label',
+      svg: '<text x="200" y="40" text-anchor="middle" fill="#fdba74" font-size="12" font-weight="700">atmosphere</text>', pose: { opacity: 1 } },
     { id: 'shield', label: 'Heat shield', job: 'protects the rover from fiery heat', svg: '<path d="M165 60 Q200 85 235 60 Z" fill="#78350f"/>', explode: [-60, -10] },
     { id: 'shell', label: 'Back shell', job: 'holds the parachute', svg: '<path d="M170 60 L185 30 H215 L230 60Z" fill="#e5e7eb"/>', explode: [60, -10] },
     { id: 'chute', label: 'Parachute', job: 'slows the lander in the thin air', svg: '<path d="M140 20 Q200 -40 260 20 Z" fill="#f8fafc" stroke="#ef4444" stroke-width="3"/><path d="M140 20 L190 30 M260 20 L210 30" stroke="#ddd"/>', pose: { opacity: 0 } },
