@@ -3,6 +3,8 @@ export default {
   blurb: 'How a tiny egg in a pond turns into a jumping frog, and why the cycle starts again.',
   initial: 'eggs',
   parts: [
+    { id: 'lblEaten', label: 'Eaten label',
+      svg: '<text x="200" y="100" text-anchor="middle" fill="#f87171" font-size="12" font-weight="700">eaten</text>', pose: { opacity: 0 } },
     { id: 'lblPond', label: 'Pond label',
       svg: '<text x="60" y="220" text-anchor="middle" fill="#67e8f9" font-size="12" font-weight="700">pond</text>' },
     { id: 'pond', label: 'Pond', job: 'is home for eggs and tadpoles', svg: '<rect x="-300" y="200" width="1000" height="100" fill="#0e7490"/><rect x="-300" y="196" width="1000" height="6" fill="#67e8f9" opacity=".5"/>' },
@@ -26,6 +28,6 @@ export default {
     legs: { label: 'Growing legs', caption: 'Back legs grow first, then front legs. The tail starts to shrink.', on: { CHANGE: 'froglet' }, parts: { eggs: { opacity: 0 }, tadpole: { opacity: 1, x: 40, y: -10 }, legs: { opacity: 1, x: 40, y: -10 }, lblEggs: { opacity: 0 }, lblTad: { opacity: 1 }, lblLegs: { opacity: 1, x: 40 }, lblFrog: { opacity: 0 } } },
     froglet: { label: 'Froglet', caption: 'Lungs replace gills. The little froglet climbs out to breathe air.', on: { GROW_UP: 'adult' }, parts: { eggs: { opacity: 0 }, frog: { opacity: 1, scale: 0.6, x: -60, y: 14 }, lblEggs: { opacity: 0 }, lblTad: { opacity: 0 }, lblFrog: { opacity: 1 } } },
     adult: { label: 'Adult frog', caption: 'A grown frog hops and eats bugs. One day it lays eggs, and the cycle begins again.', on: {}, parts: { eggs: { opacity: 0 }, frog: { opacity: 1 }, lblEggs: { opacity: 0 }, lblTad: { opacity: 0 }, lblFrog: { opacity: 1 } } },
-    eaten: { label: 'Snack for a fish', caption: 'Most eggs get eaten. That is why frogs lay so many!', on: {}, parts: { eggs: { opacity: 0.3, scale: 0.7 } } },
+    eaten: { label: 'Snack for a fish', caption: 'Most eggs get eaten. That is why frogs lay so many!', on: {}, parts: { lblEaten: { opacity: 1 },  eggs: { opacity: 0.3, scale: 0.7 } } },
   },
 };
