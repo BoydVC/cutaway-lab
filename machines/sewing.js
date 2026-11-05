@@ -11,6 +11,8 @@ export default {
       svg: '<text x="260" y="60" text-anchor="middle" fill="#f9a8d4" font-size="12" font-weight="700">top thread</text>' },
     { id: 'presser', label: 'Presser foot', job: 'holds the fabric flat while the needle moves',
       svg: '<rect x="185" y="195" width="30" height="8" rx="2" fill="#64748b"/>', explode: [40, 0] },
+    { id: 'lblPresser', label: 'Presser label',
+      svg: '<text x="200" y="200" text-anchor="middle" fill="#67e8f9" font-size="12" font-weight="700">presser</text>' },
     { id: 'bobbin', label: 'Bobbin', job: 'holds the bottom thread that locks each stitch',
       svg: '<circle cx="200" cy="250" r="22" fill="#1e293b" stroke="#fbbf24" stroke-width="3"/><circle cx="200" cy="250" r="6" fill="#94a3b8"/><text x="200" y="285" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="700">bobbin</text>', explode: [0, 40] },
     { id: 'fabric', label: 'Fabric',
