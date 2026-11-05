@@ -13,6 +13,8 @@ export default {
       svg: '<rect x="185" y="195" width="30" height="8" rx="2" fill="#64748b"/>', explode: [40, 0] },
     { id: 'lblPresser', label: 'Presser label',
       svg: '<text x="200" y="200" text-anchor="middle" fill="#67e8f9" font-size="12" font-weight="700">presser</text>' },
+    { id: 'lblPlate', label: 'Plate label',
+      svg: '<text x="120" y="220" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="700">plate</text>' },
     { id: 'lblNeedle', label: 'Needle label',
       svg: '<text x="260" y="160" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="700">needle</text>' },
     { id: 'bobbin', label: 'Bobbin', job: 'holds the bottom thread that locks each stitch',
