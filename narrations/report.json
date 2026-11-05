@@ -32,6 +32,15 @@
     "file": "narrations/bike-captions.mp4"
   },
   {
+    "id": "candle",
+    "duration": 40.36,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/candle-captions.mp4",
+    "segments": 6
+  },
+  {
     "id": "circuit",
     "duration": 37.75,
     "hasAudio": true,
@@ -176,6 +185,15 @@
     "hasVideo": true,
     "ok": true,
     "file": "narrations/photo-captions.mp4"
+  },
+  {
+    "id": "pulley",
+    "duration": 32.18,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/pulley-captions.mp4",
+    "segments": 5
   },
   {
     "id": "sewing",

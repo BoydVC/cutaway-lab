@@ -31,5 +31,7 @@ import parachute from './parachute.js';
 import sewing from './sewing.js';
 import extinguisher from './extinguisher.js';
 import flashlight from './flashlight.js';
+import candle from './candle.js';
+import pulley from './pulley.js';
 import compass from './compass.js';
-export const machines = [starship, mars, clock, heart, bees, frog, volcano, water, football, baseball, soccer, lacrosse, basketball, hockey, bike, tennis, photo, gears, digest, circuit, elevator, flush, stoplight, lock, shutter, thermostat, zipper, sharpener, parachute, turbine, extinguisher, sewing, compass, flashlight];
+export const machines = [starship, mars, clock, heart, bees, frog, volcano, water, football, baseball, soccer, lacrosse, basketball, hockey, bike, tennis, photo, gears, digest, circuit, elevator, flush, stoplight, lock, shutter, thermostat, zipper, sharpener, parachute, turbine, extinguisher, sewing, compass, flashlight, pulley, candle];

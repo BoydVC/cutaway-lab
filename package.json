@@ -1,6 +1,6 @@
 {
   "name": "cutaway-lab",
-  "version": "0.19.0",
+  "version": "0.20.0",
   "type": "module",
   "private": true,
   "scripts": {
@@ -10,7 +10,7 @@
     "check": "node scripts/check.js",
     "gif": "node scripts/record-gif.js",
     "narrate": "node scripts/narrate.js",
-    "formal": "node formal/check.js && node formal/check-baseball.js && node formal/check-soccer.js && node formal/check-lacrosse.js && node formal/check-basketball.js && node formal/check-hockey.js && node formal/check-bike.js && node formal/check-tennis.js && node formal/check-photo.js && node formal/check-gears.js && node formal/check-digest.js && node formal/check-circuit.js && node formal/check-elevator.js && node formal/check-flush.js && node formal/check-stoplight.js && node formal/check-lock.js && node formal/check-shutter.js && node formal/check-thermostat.js && node formal/check-zipper.js && node formal/check-sharpener.js && node formal/check-parachute.js && node formal/check-turbine.js && node formal/check-extinguisher.js && node formal/check-sewing.js && node formal/check-compass.js && node formal/check-flashlight.js && node formal/check-all.js",
+    "formal": "node formal/check.js && node formal/check-baseball.js && node formal/check-soccer.js && node formal/check-lacrosse.js && node formal/check-basketball.js && node formal/check-hockey.js && node formal/check-bike.js && node formal/check-tennis.js && node formal/check-photo.js && node formal/check-gears.js && node formal/check-digest.js && node formal/check-circuit.js && node formal/check-elevator.js && node formal/check-flush.js && node formal/check-stoplight.js && node formal/check-lock.js && node formal/check-shutter.js && node formal/check-thermostat.js && node formal/check-zipper.js && node formal/check-sharpener.js && node formal/check-parachute.js && node formal/check-turbine.js && node formal/check-extinguisher.js && node formal/check-sewing.js && node formal/check-compass.js && node formal/check-flashlight.js && node formal/check-pulley.js && node formal/check-candle.js && node formal/check-all.js",
     "tlc": "bash formal/tlc-all.sh"
   },
   "license": "MIT",
