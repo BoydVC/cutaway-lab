@@ -1,6 +1,6 @@
 export default {
   id: 'pulley', title: 'Pulley', emoji: '⛓️', topic: 'Machines',
-  blurb: 'How a wheel and rope trade force for distance — lift a heavy load with less effort.',
+  blurb: 'How a fixed pulley changes the direction of your pull — you still pull with the full weight, but you can pull down instead of up.',
   initial: 'ready',
   parts: [
     { id: 'frame', label: 'Frame',
@@ -22,7 +22,7 @@ export default {
     },
     lifting: {
       label: 'Lifting',
-      caption: 'You pull down. The wheel turns. The load rises the same distance you pull.',
+      caption: 'You pull down. The wheel turns. The load rises the same distance you pull — same force, easier direction.',
       on: { PULL: 'high', SLIP: 'slip' },
       parts: { load: { y: -40 }, hand: { y: 40 }, rope: { y: -10 } },
     },

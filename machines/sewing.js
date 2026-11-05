@@ -17,6 +17,8 @@ export default {
       svg: '<g stroke="#f472b6" stroke-width="2" stroke-dasharray="6 4"><path d="M110 217 H190"/></g>', pose: { opacity: 0 } },
     { id: 'spool', label: 'Top spool', job: 'feeds the upper thread to the needle',
       svg: '<rect x="250" y="50" width="24" height="40" rx="4" fill="#f472b6"/><text x="262" y="45" text-anchor="middle" fill="#fbcfe8" font-size="11">spool</text>', explode: [40, -20] },
+    { id: 'thread', label: 'Top thread',
+      svg: '<path d="M262 90 Q240 110 200 140" fill="none" stroke="#f9a8d4" stroke-width="2"/>' },
   ],
   states: {
     threaded: {

@@ -94,6 +94,7 @@ console.log('ok extinguisher spraying');
 await page.goto(URL + '#sewing/stitch'); await page.waitForTimeout(700); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/sewing.png` });
 console.log('ok sewing stitch');
 
+
 await page.goto(URL + '#pulley/lifting'); await page.waitForTimeout(700); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/pulley.png` });
 console.log('ok pulley lifting');
 await page.goto(URL + '#candle/burning'); await page.waitForTimeout(700); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/candle.png` });

@@ -12,6 +12,7 @@ function pick(id, stateName) {
   const errs = validate(m); if (errs.length) { $('#caption').textContent = 'Broken machine: ' + errs.join('; '); return; }
   S.m = m; S.state = m.states[stateName] ? stateName : m.initial; S.history = []; stop();
   document.querySelectorAll('#picker button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.id === m.id)));
+  document.querySelector(`#picker button[data-id="${m.id}"]`)?.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
   $('#wslink').href = `worksheet.html#${m.id}`; $('#title').textContent = `${m.emoji} ${m.title}`; $('#blurb').textContent = m.blurb; $('#mermaid').textContent = toMermaid(m);
   const svg = $('#stage'); svg.innerHTML = '';
   for (const p of m.parts) {
