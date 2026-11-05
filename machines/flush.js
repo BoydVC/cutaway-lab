@@ -1,0 +1,52 @@
+export default {
+  id: 'flush', title: 'Toilet Flush', emoji: '🚽', topic: 'Machines',
+  blurb: 'How a tank, flapper, and siphon empty a bowl — and why the tank refills afterward.',
+  initial: 'ready',
+  parts: [
+    { id: 'tank', label: 'Tank', job: 'holds the water that will start the siphon',
+      svg: '<rect x="100" y="40" width="200" height="100" rx="6" fill="#1e3a5f" stroke="#7dd3fc" stroke-width="3"/><rect x="110" y="55" width="180" height="70" rx="4" fill="#0ea5e9" opacity=".45"/>', explode: [0, -35] },
+    { id: 'handle', label: 'Handle', job: 'lifts the flapper when you press it',
+      svg: '<rect x="280" y="70" width="40" height="12" rx="4" fill="#94a3b8"/><circle cx="325" cy="76" r="10" fill="#e2e8f0"/>', explode: [40, 0] },
+    { id: 'flapper', label: 'Flapper', job: 'is the rubber door that lets tank water rush into the bowl',
+      svg: '<ellipse cx="200" cy="130" rx="22" ry="10" fill="#334155" stroke="#f87171" stroke-width="2"/>', explode: [0, 20] },
+    { id: 'bowl', label: 'Bowl', job: 'holds water that the siphon will empty',
+      svg: '<path d="M120 160 H280 Q300 160 300 190 Q300 260 200 280 Q100 260 100 190 Q100 160 120 160Z" fill="#1e3a5f" stroke="#7dd3fc" stroke-width="3"/><ellipse cx="200" cy="200" rx="70" ry="30" fill="#0ea5e9" opacity=".5"/>', explode: [0, 40] },
+    { id: 'siphon', label: 'Siphon', job: 'is the S-shaped pipe that sucks the bowl empty once flow starts',
+      svg: '<path d="M240 250 Q280 250 280 220 Q280 190 250 190" stroke="#64748b" stroke-width="10" fill="none" stroke-linecap="round"/><text x="300" y="220" fill="#94a3b8" font-size="11" font-weight="700">siphon</text>', explode: [45, 20] },
+    { id: 'fill', label: 'Fill valve', job: 'refills the tank after a flush',
+      svg: '<rect x="120" y="50" width="14" height="80" fill="#94a3b8"/><circle cx="127" cy="50" r="8" fill="#22c55e"/>', pose: { opacity: 0.5 } },
+    { id: 'swirl', label: 'Swirl',
+      svg: '<path d="M160 200 Q200 170 240 200 Q200 230 160 200" stroke="#38bdf8" stroke-width="3" fill="none"/><path d="M170 210 Q200 185 230 210" stroke="#7dd3fc" stroke-width="2" fill="none"/>', pose: { opacity: 0 } },
+  ],
+  states: {
+    ready: {
+      label: 'Tank ready',
+      caption: 'Tank is full. Flapper sealed. Bowl holds a pool of water. Ready to flush.',
+      on: { PRESS: 'lift' },
+    },
+    lift: {
+      label: 'Flapper lifts',
+      caption: 'Handle lifts the flapper. Tank water rushes into the bowl.',
+      on: { RUSH: 'siphon', STUCK: 'stuck' },
+      parts: { flapper: { y: -18, rot: -25 }, handle: { rot: -20, y: 6 } },
+    },
+    siphon: {
+      label: 'Siphon starts',
+      caption: 'Bowl water rises, spills over the siphon crest, and the suck begins. Whoosh!',
+      on: { EMPTY: 'refill' },
+      parts: { flapper: { y: -10, opacity: 0.7 }, swirl: { opacity: 1 }, bowl: { opacity: 0.7 } },
+    },
+    refill: {
+      label: 'Tank refills',
+      caption: 'Bowl is empty and traps a new seal. Fill valve tops up the tank. Ready again.',
+      on: {},
+      parts: { fill: { opacity: 1 }, swirl: { opacity: 0 }, flapper: { y: 0 } },
+    },
+    stuck: {
+      label: 'Flapper stuck',
+      caption: 'Flapper did not fall back. Water keeps running. Jiggle the handle!',
+      on: {},
+      parts: { flapper: { y: -18, rot: -25, opacity: 0.8 }, handle: { rot: -10 } },
+    },
+  },
+};

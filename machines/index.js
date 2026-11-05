@@ -18,4 +18,7 @@ import photo from './photo.js';
 import gears from './gears.js';
 import digest from './digest.js';
 import circuit from './circuit.js';
-export const machines = [starship, mars, clock, heart, bees, frog, volcano, water, football, baseball, soccer, lacrosse, basketball, hockey, bike, tennis, photo, gears, digest, circuit];
+import stoplight from './stoplight.js';
+import flush from './flush.js';
+import elevator from './elevator.js';
+export const machines = [starship, mars, clock, heart, bees, frog, volcano, water, football, baseball, soccer, lacrosse, basketball, hockey, bike, tennis, photo, gears, digest, circuit, elevator, flush, stoplight];
