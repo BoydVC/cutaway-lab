@@ -16,7 +16,7 @@ export default {
     { id: 'spray', label: 'Spray',
       svg: '<g fill="#e2e8f0" opacity=".85"><ellipse cx="330" cy="200" rx="30" ry="18"/><ellipse cx="350" cy="220" rx="22" ry="12"/><ellipse cx="340" cy="235" rx="16" ry="8"/></g>', pose: { opacity: 0 } },
     { id: 'fire', label: 'Fire base',
-      svg: '<path d="M320 260 Q330 230 340 260 Q350 235 360 260" fill="#f97316"/><path d="M325 260 Q335 240 345 260" fill="#fbbf24"/>', pose: { opacity: 0.9 } },
+      svg: '<path d="M300 250 Q320 200 340 250 Q355 210 370 255 Q345 270 300 250" fill="#ea580c"/><path d="M315 250 Q330 215 345 250" fill="#fbbf24"/><text x="335" y="280" text-anchor="middle" fill="#fdba74" font-size="12" font-weight="700">fire</text>', pose: { opacity: 0.95 } },
   ],
   states: {
     ready: {
