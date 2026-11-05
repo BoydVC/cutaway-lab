@@ -5,6 +5,8 @@ export default {
   parts: [
     { id: 'tank', label: 'Tank', job: 'holds the agent under pressure',
       svg: '<rect x="150" y="80" width="100" height="180" rx="20" fill="#b91c1c" stroke="#fecaca" stroke-width="3"/>', explode: [-40, 0] },
+    { id: 'lblTank', label: 'Tank label',
+      svg: '<text x="110" y="180" text-anchor="middle" fill="#fecaca" font-size="12" font-weight="700">tank</text>' },
     { id: 'gauge', label: 'Pressure gauge', job: 'shows whether the tank still has pressure',
       svg: '<circle cx="200" cy="120" r="18" fill="#0f172a" stroke="#e2e8f0" stroke-width="2"/><path d="M200 120 L210 110" stroke="#22c55e" stroke-width="3"/><text x="200" y="155" text-anchor="middle" fill="#86efac" font-size="11">OK</text>', explode: [0, -40] },
     { id: 'handle', label: 'Handle', job: 'squeezes open the valve when the pin is out',
