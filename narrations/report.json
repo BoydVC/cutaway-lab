@@ -64,6 +64,14 @@
     "file": "narrations/elevator-captions.mp4"
   },
   {
+    "id": "extinguisher",
+    "duration": 40.87,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/extinguisher-captions.mp4"
+  },
+  {
     "id": "flush",
     "duration": 41.16,
     "hasAudio": true,
@@ -150,6 +158,14 @@
     "hasVideo": true,
     "ok": true,
     "file": "narrations/photo-captions.mp4"
+  },
+  {
+    "id": "sewing",
+    "duration": 40.65,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/sewing-captions.mp4"
   },
   {
     "id": "sharpener",

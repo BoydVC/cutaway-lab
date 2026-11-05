@@ -28,4 +28,6 @@ import sharpener from './sharpener.js';
 import zipper from './zipper.js';
 import turbine from './turbine.js';
 import parachute from './parachute.js';
-export const machines = [starship, mars, clock, heart, bees, frog, volcano, water, football, baseball, soccer, lacrosse, basketball, hockey, bike, tennis, photo, gears, digest, circuit, elevator, flush, stoplight, lock, shutter, thermostat, zipper, sharpener, parachute, turbine];
+import sewing from './sewing.js';
+import extinguisher from './extinguisher.js';
+export const machines = [starship, mars, clock, heart, bees, frog, volcano, water, football, baseball, soccer, lacrosse, basketball, hockey, bike, tennis, photo, gears, digest, circuit, elevator, flush, stoplight, lock, shutter, thermostat, zipper, sharpener, parachute, turbine, extinguisher, sewing];

@@ -1,0 +1,52 @@
+export default {
+  id: 'sewing', title: 'Sewing Machine', emoji: '🧵', topic: 'Machines',
+  blurb: 'How a needle and bobbin lock two threads into a stitch — and why the bobbin must be threaded right.',
+  initial: 'threaded',
+  parts: [
+    { id: 'arm', label: 'Arm',
+      svg: '<path d="M80 80 H280 V140 H200 V220" stroke="#94a3b8" stroke-width="18" fill="none" stroke-linecap="round"/>' },
+    { id: 'needle', label: 'Needle', job: 'pushes the top thread down through the fabric',
+      svg: '<line x1="200" y1="140" x2="200" y2="200" stroke="#e2e8f0" stroke-width="3"/><polygon points="195,200 200,215 205,200" fill="#94a3b8"/>', explode: [0, -40] },
+    { id: 'presser', label: 'Presser foot', job: 'holds the fabric flat while the needle moves',
+      svg: '<rect x="185" y="195" width="30" height="8" rx="2" fill="#64748b"/>', explode: [40, 0] },
+    { id: 'bobbin', label: 'Bobbin', job: 'holds the bottom thread that locks each stitch',
+      svg: '<circle cx="200" cy="250" r="22" fill="#1e293b" stroke="#fbbf24" stroke-width="3"/><circle cx="200" cy="250" r="6" fill="#94a3b8"/><text x="200" y="285" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="700">bobbin</text>', explode: [0, 40] },
+    { id: 'fabric', label: 'Fabric',
+      svg: '<rect x="100" y="210" width="200" height="14" rx="2" fill="#38bdf8" opacity=".5"/>' },
+    { id: 'stitch', label: 'Stitch line',
+      svg: '<g stroke="#f472b6" stroke-width="2" stroke-dasharray="6 4"><path d="M110 217 H190"/></g>', pose: { opacity: 0 } },
+    { id: 'spool', label: 'Top spool', job: 'feeds the upper thread to the needle',
+      svg: '<rect x="250" y="50" width="24" height="40" rx="4" fill="#f472b6"/><text x="262" y="45" text-anchor="middle" fill="#fbcfe8" font-size="11">spool</text>', explode: [40, -20] },
+  ],
+  states: {
+    threaded: {
+      label: 'Threaded',
+      caption: 'Top spool and bobbin are threaded. Fabric under the presser foot. Ready to sew.',
+      on: { START: 'down' },
+    },
+    down: {
+      label: 'Needle down',
+      caption: 'Needle carries top thread through the fabric toward the bobbin.',
+      on: { LOOP: 'loop', JAM: 'jam' },
+      parts: { needle: { y: 25 } },
+    },
+    loop: {
+      label: 'Bobbin loop',
+      caption: 'Bobbin hook grabs the top-thread loop and wraps bottom thread through it — a lockstitch!',
+      on: { UP: 'stitch' },
+      parts: { needle: { y: 25 }, bobbin: { rot: 40 } },
+    },
+    stitch: {
+      label: 'Stitch locked',
+      caption: 'Needle rises. Threads pull tight. One strong stitch. Feed dogs advance the fabric.',
+      on: {},
+      parts: { stitch: { opacity: 1 }, fabric: { x: 10 } },
+    },
+    jam: {
+      label: 'Thread jam',
+      caption: 'Bobbin was mis-threaded. Threads tangle under the plate. Stop, clear, re-thread.',
+      on: {},
+      parts: { needle: { y: 20, opacity: 0.6 }, bobbin: { opacity: 0.5 } },
+    },
+  },
+};

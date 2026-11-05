@@ -1,0 +1,52 @@
+export default {
+  id: 'extinguisher', title: 'Fire Extinguisher', emoji: '🧯', topic: 'Machines',
+  blurb: 'How a pressurized tank shoots extinguishing agent — and why you aim at the base of the fire.',
+  initial: 'ready',
+  parts: [
+    { id: 'tank', label: 'Tank', job: 'holds the agent under pressure',
+      svg: '<rect x="150" y="80" width="100" height="180" rx="20" fill="#b91c1c" stroke="#fecaca" stroke-width="3"/>', explode: [-40, 0] },
+    { id: 'gauge', label: 'Pressure gauge', job: 'shows whether the tank still has pressure',
+      svg: '<circle cx="200" cy="120" r="18" fill="#0f172a" stroke="#e2e8f0" stroke-width="2"/><path d="M200 120 L210 110" stroke="#22c55e" stroke-width="3"/><text x="200" y="155" text-anchor="middle" fill="#86efac" font-size="11">OK</text>', explode: [0, -40] },
+    { id: 'handle', label: 'Handle', job: 'squeezes open the valve when the pin is out',
+      svg: '<path d="M170 70 L200 50 L230 70" stroke="#94a3b8" stroke-width="8" fill="none" stroke-linecap="round"/>', explode: [0, -30] },
+    { id: 'pin', label: 'Safety pin', job: 'keeps the handle from being squeezed by accident',
+      svg: '<line x1="200" y1="55" x2="230" y2="40" stroke="#fbbf24" stroke-width="4"/><circle cx="232" cy="38" r="5" fill="#f59e0b"/>', explode: [40, -20] },
+    { id: 'hose', label: 'Hose', job: 'aims the agent at the base of the flames',
+      svg: '<path d="M250 140 Q300 140 310 180" stroke="#334155" stroke-width="10" fill="none" stroke-linecap="round"/>', explode: [45, 20] },
+    { id: 'spray', label: 'Spray',
+      svg: '<g fill="#e2e8f0" opacity=".85"><ellipse cx="330" cy="200" rx="30" ry="18"/><ellipse cx="350" cy="220" rx="22" ry="12"/><ellipse cx="340" cy="235" rx="16" ry="8"/></g>', pose: { opacity: 0 } },
+    { id: 'fire', label: 'Fire base',
+      svg: '<path d="M320 260 Q330 230 340 260 Q350 235 360 260" fill="#f97316"/><path d="M325 260 Q335 240 345 260" fill="#fbbf24"/>', pose: { opacity: 0.9 } },
+  ],
+  states: {
+    ready: {
+      label: 'Ready',
+      caption: 'Gauge in the green. Pin in place. Remember PASS: Pull, Aim, Squeeze, Sweep.',
+      on: { PULL: 'armed' },
+    },
+    armed: {
+      label: 'Pin pulled',
+      caption: 'Safety pin is out. Aim the hose at the base of the fire, not the flames.',
+      on: { AIM: 'aimed', EMPTY: 'empty' },
+      parts: { pin: { x: 30, y: -20, opacity: 0.5 } },
+    },
+    aimed: {
+      label: 'Aimed at base',
+      caption: 'Hose points at the fuel, not the pretty flames. Squeeze the handle.',
+      on: { SQUEEZE: 'spraying' },
+      parts: { pin: { opacity: 0 }, hose: { rot: 10 }, handle: { y: 6 } },
+    },
+    spraying: {
+      label: 'Sweeping spray',
+      caption: 'Agent blasts out. Sweep side to side at the base until the fire is out.',
+      on: {},
+      parts: { pin: { opacity: 0 }, hose: { rot: 10 }, handle: { y: 8 }, spray: { opacity: 1 }, fire: { opacity: 0.2 } },
+    },
+    empty: {
+      label: 'Tank empty',
+      caption: 'Pressure is gone. Gauge in the red. Get another extinguisher or evacuate.',
+      on: {},
+      parts: { gauge: { opacity: 0.5 }, pin: { opacity: 0.3 }, fire: { opacity: 1 } },
+    },
+  },
+};
