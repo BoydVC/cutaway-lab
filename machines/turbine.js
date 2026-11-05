@@ -56,7 +56,7 @@ export default {
       label: 'Storm brake',
       caption: 'Wind is too strong! Brakes lock the blades so the turbine is not damaged.',
       on: {},
-      parts: { blades: { rot: 10, opacity: 0.7 }, generator: { opacity: 0.4 } },
+      parts: { lblStorm: { opacity: 1 },  blades: { rot: 10, opacity: 0.7 }, generator: { opacity: 0.4 } },
     },
   },
 };
