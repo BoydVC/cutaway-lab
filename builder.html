@@ -1,0 +1,6 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cutaway Lab: build your own machine</title><link rel="stylesheet" href="src/style.css">
+<style>.b{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:14px 20px}textarea{width:100%;height:62vh;background:#0f172a;color:#e5e7eb;border-radius:12px;border:1px solid #334155;font:13px/1.4 ui-monospace,monospace;padding:10px}#errs li{color:#fca5a5}#ok{color:#86efac}@media(max-width:760px){.b{grid-template-columns:1fr}}</style></head>
+<body><header><h1>🧪 Build your own machine</h1><p class="tag">Edit the JSON on the left. The checker tells you right away if a step is stuck or unreachable.</p></header>
+<div class="b"><div><textarea id="src" spellcheck="false" aria-label="machine JSON"></textarea><div class="row ctl"><button id="tpl">Start from template</button><button id="share">🔗 Copy share link</button><a href="index.html" style="color:#a5b4fc">← back to the lab</a></div></div>
+<div><h2 id="title"></h2><p id="ok"></p><ul id="errs"></ul><svg id="stage" viewBox="0 0 400 300" style="width:100%;background:linear-gradient(#0f172a,#1e3a5f);border-radius:12px"></svg><p id="caption"></p><div id="events" class="row"></div><pre id="mermaid"></pre></div></div>
+<script type="module" src="src/builder.js"></script></body></html>

@@ -1,0 +1,108 @@
+{
+  "title": "Cutaway Lab demo",
+  "url": "http://127.0.0.1:4430/#starship",
+  "aspects": [
+    "16:9"
+  ],
+  "fps": 10,
+  "denyNames": [
+    "Charlotte",
+    "Victor",
+    "Miranda",
+    "Boyd",
+    "Spalding",
+    "Char",
+    "Vic"
+  ],
+  "steps": [
+    {
+      "action": "caption",
+      "text": "Every cutaway is a real state machine",
+      "frames": 10
+    },
+    {
+      "action": "hold",
+      "frames": 5
+    },
+    {
+      "action": "click",
+      "selector": "#events button",
+      "frames": 7
+    },
+    {
+      "action": "click",
+      "selector": "#events button",
+      "frames": 7
+    },
+    {
+      "action": "click",
+      "selector": "#events button",
+      "frames": 7
+    },
+    {
+      "action": "caption",
+      "text": "Sports: play-action pass",
+      "frames": 6
+    },
+    {
+      "action": "goto",
+      "url": "http://127.0.0.1:4430/#football/throw",
+      "frames": 8
+    },
+    {
+      "action": "caption",
+      "text": "Heartbeat with chambers + valves",
+      "frames": 6
+    },
+    {
+      "action": "goto",
+      "url": "http://127.0.0.1:4430/#heart/ventricles",
+      "frames": 8
+    },
+    {
+      "action": "caption",
+      "text": "Simple circuit lights up",
+      "frames": 6
+    },
+    {
+      "action": "goto",
+      "url": "http://127.0.0.1:4430/#circuit/lit",
+      "frames": 8
+    },
+    {
+      "action": "caption",
+      "text": "Space to play \u00b7 E exploded \u00b7 Q quiz",
+      "frames": 8
+    },
+    {
+      "action": "goto",
+      "url": "http://127.0.0.1:4430/#elevator/open",
+      "frames": 8
+    },
+    {
+      "action": "caption",
+      "text": "Flashlight circuit closes",
+      "frames": 6
+    },
+    {
+      "action": "goto",
+      "url": "http://127.0.0.1:4430/#flashlight/on",
+      "frames": 8
+    },
+    {
+      "action": "caption",
+      "text": "Compass finds north",
+      "frames": 6
+    },
+    {
+      "action": "goto",
+      "url": "http://127.0.0.1:4430/#compass/north",
+      "frames": 8
+    },
+    {
+      "action": "caption",
+      "text": "36 machines. Build your own.",
+      "frames": 10
+    }
+  ]
+}

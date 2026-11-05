@@ -1,0 +1,41 @@
+// Kid-authored machines: parse JSON safely, strip anything script-like from SVG, validate, share via URL.
+import { validate } from './engine.js';
+export const TEMPLATE = {
+  id: 'my-volcano-cake', title: 'Baking Soda Volcano', emoji: '🧁', initial: 'ready',
+  parts: [
+    { id: 'cup', label: 'Cup', job: 'holds the baking soda', svg: '<path d="M155 265 L172 155 H228 L245 265Z" fill="#94a3b8"/><ellipse cx="200" cy="155" rx="28" ry="5" fill="#cbd5e1"/>' },
+    { id: 'foam', label: 'Foam', job: 'is made of gas bubbles', svg: '<g fill="#f472b6"><ellipse cx="200" cy="158" rx="32" ry="14"/><circle cx="184" cy="150" r="9"/><circle cx="200" cy="146" r="11"/><circle cx="216" cy="150" r="9"/><circle cx="192" cy="138" r="7"/><circle cx="210" cy="136" r="8"/><circle cx="175" cy="142" r="5" opacity=".7"/><circle cx="225" cy="142" r="5" opacity=".7"/></g>', pose: { opacity: 0, scale: 0.5, y: 10 } },
+  ],
+  states: {
+    ready: { label: 'Ready', caption: 'Baking soda waits in the cup.', on: { POUR_VINEGAR: 'fizz' } },
+    fizz: { label: 'Fizz!', caption: 'Vinegar meets baking soda and makes carbon dioxide gas. Foam everywhere!', on: { WAIT: 'done' }, parts: { foam: { opacity: 1, scale: 1.35, y: -6 } } },
+    done: { label: 'All done', caption: 'The gas escapes and the foam settles down.', on: {}, parts: { foam: { opacity: 0.55, y: 4, scale: 1.5 } } },
+  },
+};
+const ALLOWED = /^(g|path|rect|circle|ellipse|line|polyline|polygon|text|tspan)$/i;
+export function sanitizeSvg(svg) {
+  if (typeof svg !== 'string') return '';
+  if (svg.length > 4000) svg = svg.slice(0, 4000);
+  let bad = false;
+  const out = svg.replace(/<\/?([a-zA-Z][\w-]*)([^>]*)>/g, (tag, name, attrs) => {
+    if (!ALLOWED.test(name)) { bad = true; return ''; }
+    if (/\son\w+\s*=|javascript:|href|style\s*=/i.test(attrs)) { bad = true; attrs = attrs.replace(/\s(on\w+|href|xlink:href|style)\s*=\s*("[^"]*"|'[^']*'|\S+)/gi, ''); }
+    return tag.startsWith('</') ? `</${name}>` : `<${name}${attrs}>`;
+  });
+  return { svg: out.replace(/javascript:/gi, ''), stripped: bad };
+}
+export function parseMachine(text) {
+  let m; try { m = JSON.parse(text); } catch (e) { return { errors: [`That is not valid JSON yet: ${e.message}`] }; }
+  const errors = validate(m); const warnings = [];
+  if (!errors.length) for (const p of m.parts) { const s = sanitizeSvg(p.svg); p.svg = s.svg; if (s.stripped) warnings.push(`part ${p.id}: removed unsafe SVG`); }
+  return { machine: m, errors, warnings };
+}
+const b64 = (s) => (typeof btoa === 'function' ? btoa(unescape(encodeURIComponent(s))) : Buffer.from(s, 'utf8').toString('base64'));
+const unb64 = (s) => (typeof atob === 'function' ? decodeURIComponent(escape(atob(s))) : Buffer.from(s, 'base64').toString('utf8'));
+export const MAX_SHARE = 12000; // chars; keeps #m= URLs under common browser limits
+export function encodeShare(text) {
+  const out = b64(JSON.stringify(JSON.parse(text))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  if (out.length > MAX_SHARE) throw new Error(`Share link too long (${out.length} chars). Simplify your drawings and try again.`);
+  return out;
+}
+export const decodeShare = (s) => { try { return JSON.stringify(JSON.parse(unb64(s.replace(/-/g, '+').replace(/_/g, '/'))), null, 2); } catch { return JSON.stringify(TEMPLATE, null, 2); } };

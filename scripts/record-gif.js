@@ -6,6 +6,10 @@ fs.rmSync('.shots/video', { recursive: true, force: true });
 const b = await chromium.launch(); const ctx = await b.newContext({ viewport: { width: 1280, height: 800 }, recordVideo: { dir: '.shots/video', size: { width: 1280, height: 800 } } });
 const p = await ctx.newPage(); await p.goto(URL + '#starship'); await p.waitForTimeout(800);
 await p.keyboard.press('Space'); await p.waitForTimeout(9000);
+await p.click('#topics button[data-topic="Sports"]'); await p.waitForTimeout(500);
+await p.click('#picker button >> nth=0'); await p.waitForTimeout(800);
+for (let i = 0; i < 2; i++) { await p.keyboard.press('ArrowRight'); await p.waitForTimeout(900); }
+await p.click('#topics button[data-topic="All"]'); await p.waitForTimeout(400);
 await p.click('#picker button >> nth=1'); await p.waitForTimeout(600); await p.keyboard.press('e'); await p.waitForTimeout(1500);
 for (let i = 0; i < 3; i++) { await p.keyboard.press('ArrowRight'); await p.waitForTimeout(1000); }
 await p.click('#picker button >> nth=3'); await p.waitForTimeout(600); await p.keyboard.press('q'); await p.waitForTimeout(1200);

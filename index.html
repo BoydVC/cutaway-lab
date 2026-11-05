@@ -1,14 +1,15 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Cutaway Lab: how things work</title><link rel="stylesheet" href="src/style.css"></head>
-<body><header><h1>🔧 Cutaway Lab</h1><p class="tag">Step inside machines, rockets and animals. Every picture is a real state machine.</p></header>
+<body><header><h1>🔧 Cutaway Lab</h1><p class="tag">Step inside machines, rockets and animals. Every picture is a real state machine.</p><p id="badge" aria-live="polite"></p><p class="links"><a href="builder.html">🧪 Build your own</a> · <a id="wslink" href="worksheet.html">🖨 Printable worksheet</a></p></header>
+<div id="topics" class="topics" role="toolbar" aria-label="Filter by topic"></div>
 <nav id="picker" aria-label="Pick a machine"></nav>
 <main><section class="stage-wrap"><h2 id="title"></h2><p id="blurb"></p>
 <svg id="stage" viewBox="0 0 400 300" role="img" aria-label="cutaway diagram"></svg>
 <p id="caption" aria-live="polite"></p>
 <div id="events" class="row"></div>
-<div class="row ctl"><button id="back">◀ Back</button><button id="play">▶ Play (Space)</button><button id="reset">⟲ Start over</button><label><input type="checkbox" id="explode"> Exploded view (E)</label><button id="quizbtn">🎯 Quiz me (Q)</button></div>
+<div class="row ctl"><button id="back">◀ Back</button><button id="play">▶ Play (Space)</button><button id="reset">⟲ Start over</button><label><input type="checkbox" id="explode"> Exploded view (E)</label><button id="quizbtn">🎯 Quiz me (Q)</button><label><input type="checkbox" id="narrate"> Read aloud (N)</label></div>
 </section>
-<aside><h3>The steps</h3><ol id="states"></ol><h3>The parts</h3><ul id="parts"></ul><details><summary>Statechart source</summary><pre id="mermaid"></pre></details></aside>
+<aside><h3>The steps</h3><svg id="chart" aria-label="live statechart"></svg><ol id="states"></ol><h3>The parts</h3><ul id="parts"></ul><details><summary>Statechart source</summary><pre id="mermaid"></pre></details></aside>
 </main>
 <dialog id="quiz"><form method="dialog"><h3 id="qprompt"></h3><div id="qchoices"></div><p id="qfeedback"></p><menu><button value="close" id="qclose">Close</button></menu></form></dialog>
 <script type="module" src="src/app.js"></script></body></html>
