@@ -3,6 +3,8 @@ export default {
   blurb: 'How a tiny egg in a pond turns into a jumping frog, and why the cycle starts again.',
   initial: 'eggs',
   parts: [
+    { id: 'lblPond', label: 'Pond label',
+      svg: '<text x="60" y="220" text-anchor="middle" fill="#67e8f9" font-size="12" font-weight="700">pond</text>' },
     { id: 'pond', label: 'Pond', job: 'is home for eggs and tadpoles', svg: '<rect x="-300" y="200" width="1000" height="100" fill="#0e7490"/><rect x="-300" y="196" width="1000" height="6" fill="#67e8f9" opacity=".5"/>' },
     { id: 'lily', label: 'Lily pad', svg: '<ellipse cx="300" cy="198" rx="44" ry="9" fill="#16a34a"/>' },
     { id: 'lblEggs', label: 'Eggs label',

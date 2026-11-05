@@ -19,6 +19,8 @@ export default {
     { id: 'lblRain', label: 'Rain label',
       svg: '<text x="200" y="150" text-anchor="middle" fill="#7dd3fc" font-size="12" font-weight="700">rain</text>', pose: { opacity: 0 } },
     { id: 'rain', label: 'Rain', job: 'falls when drops get too heavy', svg: '<g stroke="#7dd3fc" stroke-width="2"><path d="M160 95 l-4 12 M175 100 l-4 12 M190 95 l-4 12 M205 100 l-4 12 M168 115 l-4 12 M196 115 l-4 12"/></g>', pose: { opacity: 0 } },
+    { id: 'lblRiver', label: 'River label',
+      svg: '<text x="300" y="240" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="700">river</text>', pose: { opacity: 0 } },
     { id: 'river', label: 'River', job: 'carries water back to the ocean', svg: '<path d="M330 200 Q300 230 260 236 L250 240" stroke="#38bdf8" stroke-width="6" fill="none"/>', pose: { opacity: 0.25 } },
   ],
   states: {
@@ -26,6 +28,6 @@ export default {
     evaporate: { label: 'Evaporation', caption: 'Sunlight heats the water. Some turns into invisible vapor and floats up.', on: { COOL: 'condense' }, parts: { vapor: { opacity: 1 } } },
     condense: { label: 'Condensation', caption: 'High up it is cold, so the vapor turns into tiny drops. Lots of drops make a cloud.', on: { BLOW: 'precip', HOT_DAY: 'evaporate' }, parts: { lblRain: { opacity: 0 }, lblCloud: { opacity: 1 },  cloud: { opacity: 1, scale: 1 }, vapor: { opacity: 0.4 } } },
     precip: { label: 'Precipitation', caption: 'Wind blows the cloud to the mountain. Drops join, get heavy, and fall as rain or snow.', on: { FLOW: 'collect' }, parts: { lblRain: { opacity: 1, x: 140, y: 40 }, lblCloud: { opacity: 1, x: 140, y: 30 },  cloud: { opacity: 1, scale: 1.1, x: 140, y: 40 }, rain: { opacity: 1, x: 140, y: 40 } } },
-    collect: { label: 'Collection', caption: 'Rain runs into rivers that flow back to the ocean. Then it all starts again!', on: {}, parts: { river: { opacity: 1 }, cloud: { opacity: 0.3, x: 140, y: 40 } } },
+    collect: { label: 'Collection', caption: 'Rain runs into rivers that flow back to the ocean. Then it all starts again!', on: {}, parts: { lblRiver: { opacity: 1 },  river: { opacity: 1 }, cloud: { opacity: 0.3, x: 140, y: 40 } } },
   },
 };
