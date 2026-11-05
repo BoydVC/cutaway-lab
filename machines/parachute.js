@@ -13,6 +13,8 @@ export default {
       svg: '<text x="200" y="270" text-anchor="middle" fill="#fde68a" font-size="13" font-weight="700">jumper</text>' },
     { id: 'lines', label: 'Suspension lines', job: 'connect the canopy to the harness',
       svg: '<g stroke="#e2e8f0" stroke-width="2"><path d="M120 100 L180 200"/><path d="M160 95 L190 200"/><path d="M240 95 L210 200"/><path d="M280 100 L220 200"/></g>', pose: { opacity: 0 }, explode: [40, 0] },
+    { id: 'lblLines', label: 'Lines label',
+      svg: '<text x="280" y="160" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="700">lines</text>' },
     { id: 'harness', label: 'Harness', job: 'holds the person under the canopy',
       svg: '<rect x="175" y="200" width="50" height="40" rx="6" fill="#334155" stroke="#94a3b8" stroke-width="2"/><circle cx="200" cy="190" r="12" fill="#fbbf24"/>', explode: [0, 40] },
     { id: 'ground', label: 'Ground',

@@ -1,6 +1,6 @@
 # Cutaway Lab v1.0 quality pass
 
-Fleet locked at **36** machines. Desk **1440×900** + phone **390×844** rendered; OCR privacy clean (deny-list word-boundary). `screenshots/demo.gif` refreshed and OCR-clean (26 frames).
+Fleet locked at **36** machines. Desk **1440×900** + phone **390×844** rendered; OCR privacy clean (75 quality desk+phone frames + demo.gif; deny-list word-boundary).
 
 ## Layout / chrome
 - Topic chips (All · Space · Machines · Animals & Bodies · Earth Science · Sports); nowrap scroll
