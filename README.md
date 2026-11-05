@@ -77,6 +77,9 @@ Phone: ![phone](screenshots/phone-390x844.png)
 
 Regenerate the GIF: `node scripts/record-gif.js` (needs ffmpeg).
 
+## Narrated videos
+`npm run narrate` walks every machine, speaks each caption with local [Piper](https://github.com/rhasspy/piper) TTS, burns subtitles, and writes `narrations/<id>-captions.mp4` (30–60s, verified audio track). Needs `PIPER_BIN` / `PIPER_MODEL` (defaults point at a local install under the TokenMax box).
+
 Visual polish (v0.5): the heart shows chambers, valves and blood-flow arrows; chart labels are ≥12px; the builder foam sits on the cup rim.
 
 Accessibility: the diagram's label follows the current step, the chart's next steps are keyboard-focusable (Enter), and `prefers-reduced-motion` turns off animation and slows autoplay.

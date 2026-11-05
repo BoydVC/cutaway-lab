@@ -32,5 +32,10 @@ export function parseMachine(text) {
 }
 const b64 = (s) => (typeof btoa === 'function' ? btoa(unescape(encodeURIComponent(s))) : Buffer.from(s, 'utf8').toString('base64'));
 const unb64 = (s) => (typeof atob === 'function' ? decodeURIComponent(escape(atob(s))) : Buffer.from(s, 'base64').toString('utf8'));
-export const encodeShare = (text) => b64(JSON.stringify(JSON.parse(text))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+export const MAX_SHARE = 12000; // chars; keeps #m= URLs under common browser limits
+export function encodeShare(text) {
+  const out = b64(JSON.stringify(JSON.parse(text))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  if (out.length > MAX_SHARE) throw new Error(`Share link too long (${out.length} chars). Simplify your drawings and try again.`);
+  return out;
+}
 export const decodeShare = (s) => { try { return JSON.stringify(JSON.parse(unb64(s.replace(/-/g, '+').replace(/_/g, '/'))), null, 2); } catch { return JSON.stringify(TEMPLATE, null, 2); } };

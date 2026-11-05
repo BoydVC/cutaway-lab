@@ -1,6 +1,6 @@
 {
   "name": "cutaway-lab",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "type": "module",
   "private": true,
   "scripts": {
@@ -8,7 +8,8 @@
     "test": "node --test test/*.test.js",
     "e2e": "node e2e/run.js",
     "check": "node scripts/check.js",
-    "gif": "node scripts/record-gif.js"
+    "gif": "node scripts/record-gif.js",
+    "narrate": "node scripts/narrate.js"
   },
   "license": "MIT",
   "devDependencies": {

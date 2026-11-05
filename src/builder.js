@@ -16,6 +16,6 @@ function draw() {
   const a = $('#again'); if (a) a.onclick = () => { state = m.initial; draw(); };
 }
 $('#tpl').onclick = () => { $('#src').value = JSON.stringify(TEMPLATE, null, 2); run(); };
-$('#share').onclick = async () => { const url = location.href.split('#')[0] + '#m=' + encodeShare($('#src').value); history.replaceState(null, '', url); try { await navigator.clipboard.writeText(url); } catch {} $('#ok').textContent = '🔗 Link is in the address bar.'; };
+$('#share').onclick = async () => { try { const url = location.href.split('#')[0] + '#m=' + encodeShare($('#src').value); history.replaceState(null, '', url); try { await navigator.clipboard.writeText(url); } catch {} $('#ok').textContent = '🔗 Link is in the address bar.'; } catch (e) { $('#ok').textContent = ''; $('#errs').innerHTML = `<li>${e.message}</li>`; } };
 $('#src').oninput = () => { clearTimeout(run.t); run.t = setTimeout(run, 250); };
 const h = location.hash.match(/^#m=(.+)/); $('#src').value = h ? decodeShare(h[1]) : JSON.stringify(TEMPLATE, null, 2); run();

@@ -6,7 +6,7 @@ export function layout(m, w = 300, rowH = 34) {
   while (q.length) { const n = q.shift(); for (const t of Object.values(m.states[n].on || {})) if (!(t in depth)) { depth[t] = depth[n] + 1; q.push(t); } }
   const main = mainPath(m), order = [...main, ...Object.keys(m.states).filter((k) => !main.includes(k)).sort((a, b) => depth[a] - depth[b])];
   const row = Object.fromEntries(order.map((n, i) => [n, i]));
-  const nodes = {}; order.forEach((n, i) => { nodes[n] = { x: 8, y: 8 + i * rowH, w: 200, h: 26 }; });
+  const nodes = {}; order.forEach((n, i) => { nodes[n] = { x: 8, y: 8 + i * rowH, w: 220, h: 26 }; });
   const edges = [];
   for (const [n, s] of Object.entries(m.states)) for (const [ev, t] of Object.entries(s.on || {})) {
     const span = row[t] - row[n];
