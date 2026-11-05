@@ -7,6 +7,10 @@ export default {
       svg: '<rect x="40" y="70" width="320" height="180" rx="10" fill="#14532d" stroke="#86efac" stroke-width="2"/><g stroke="#166534" stroke-width="1" opacity=".5"><path d="M60 100 H340 M60 130 H340 M60 160 H340 M60 190 H340 M60 220 H340"/></g>' },
     { id: 'battery', label: 'Battery', job: 'pushes electrons around the loop',
       svg: '<rect x="60" y="125" width="48" height="70" rx="4" fill="#1e293b" stroke="#e2e8f0" stroke-width="2"/><rect x="60" y="125" width="48" height="22" fill="#f87171"/><rect x="60" y="173" width="48" height="22" fill="#60a5fa"/><text x="84" y="141" text-anchor="middle" fill="#fff" font-size="12" font-weight="800">+</text><text x="84" y="189" text-anchor="middle" fill="#fff" font-size="12" font-weight="800">−</text><text x="84" y="215" text-anchor="middle" fill="#94a3b8" font-size="11">9V</text>', explode: [-45, 0] },
+    { id: 'lblBatt', label: 'Battery label',
+      svg: '<text x="80" y="120" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="700">battery</text>' },
+    { id: 'lblCurrent', label: 'Current label',
+      svg: '<text x="200" y="60" text-anchor="middle" fill="#86efac" font-size="12" font-weight="700">current</text>', pose: { opacity: 0 } },
     { id: 'switch', label: 'Switch', job: 'opens or closes the path for current',
       svg: '<circle cx="170" cy="115" r="7" fill="#e2e8f0"/><circle cx="230" cy="115" r="7" fill="#e2e8f0"/><line id="lever" x1="170" y1="115" x2="222" y2="95" stroke="#fbbf24" stroke-width="5" stroke-linecap="round"/><text x="200" y="88" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="700">switch</text>', explode: [0, -45] },
     { id: 'bulb', label: 'Bulb', job: 'glows when current runs through its filament',
@@ -34,17 +38,17 @@ export default {
       on: { FLOW: 'flow', SHORT: 'short' },
       parts: { switch: { rot: 18, y: 12 } },
     },
-    flow: {
+    flow: { /*patched*/
       label: 'Current flows',
       caption: 'Current runs through the bulb. The filament starts to heat.',
       on: { GLOW: 'lit' },
-      parts: { switch: { rot: 18, y: 12 }, current: { opacity: 0.85 }, glow: { opacity: 0.35 }, bulb: { opacity: 0.55 } },
+      parts: { lblCurrent: { opacity: 1 }, switch: { rot: 18, y: 12 }, current: { opacity: 0.85 }, glow: { opacity: 0.35 }, bulb: { opacity: 0.55 } },
     },
     lit: {
       label: 'Bulb lit',
       caption: 'Bright! The loop works. Open the switch anytime to stop the current.',
       on: {},
-      parts: { switch: { rot: 18, y: 12 }, current: { opacity: 1 }, glow: { opacity: 1 }, bulb: { opacity: 0.3 } },
+      parts: { lblCurrent: { opacity: 1 }, switch: { rot: 18, y: 12 }, current: { opacity: 1 }, glow: { opacity: 1 }, bulb: { opacity: 0.3 } },
     },
     short: {
       label: 'Short circuit',
