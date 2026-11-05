@@ -10,7 +10,7 @@ export default {
     { id: 'lblTower', label: 'Tower label',
       svg: '<text x="320" y="80" text-anchor="middle" fill="#93c5fd" font-size="13" font-weight="700">tower</text>' },
     { id: 'lblBooster', label: 'Booster label',
-      svg: '<text x="200" y="250" text-anchor="middle" fill="#fde68a" font-size="13" font-weight="700">booster</text>' },
+      svg: '<text x="155" y="240" text-anchor="middle" fill="#fde68a" font-size="13" font-weight="700">booster</text>' },
     { id: 'lblShip', label: 'Ship label',
       svg: '<text x="155" y="110" text-anchor="middle" fill="#fda4af" font-size="13" font-weight="700">ship</text>', pose: { opacity: 0 } },
     { id: 'arms', label: 'Catch arms', job: 'grab the booster out of the air', svg: '<rect x="210" y="96" width="44" height="7" rx="2" fill="#f59e0b"/><rect x="210" y="110" width="44" height="7" rx="2" fill="#f59e0b"/><circle cx="214" cy="99.5" r="2" fill="#78350f"/><circle cx="214" cy="113.5" r="2" fill="#78350f"/>', explode: [40, -20] },
@@ -23,7 +23,7 @@ export default {
   states: {
     pad: { label: 'On the pad', caption: 'The rocket stands next to the tower, full of super-cold fuel.', on: { IGNITE: 'ignition', SCRUB: 'scrubbed' } , parts: { lblFuel: { opacity: 1 },  lblShip: { opacity: 0 }, lblBooster: { opacity: 1 }, lblTower: { opacity: 1 } }},
     ignition: { label: 'Engines light', caption: 'Dozens of engines light. Clamps hold the rocket down for a moment.', on: { RELEASE: 'liftoff' }, parts: { lblFuel: { opacity: 0.6 },  lblShip: { opacity: 0.5 }, lblBooster: { opacity: 1 },  flame: { opacity: 1 } } },
-    liftoff: { label: 'Liftoff', caption: 'The clamps let go and the rocket climbs. It gets lighter as fuel burns.', on: { CLIMB: 'staging' }, parts: { lblArms: { opacity: 0 },  lblShip: { opacity: 1, y: -50 }, lblBooster: { opacity: 1, y: -55 },  flame: { opacity: 1, y: -60 }, booster: { y: -60 }, ship: { y: -60 } } },
+    liftoff: { label: 'Liftoff', caption: 'The clamps let go and the rocket climbs. It gets lighter as fuel burns.', on: { CLIMB: 'staging' }, parts: { lblArms: { opacity: 0 },  lblShip: { opacity: 1, y: -50 }, lblBooster: { opacity: 1, y: -55, x: -55 },  flame: { opacity: 1, y: -60 }, booster: { y: -60 }, ship: { y: -60 } } },
     staging: { label: 'Hot staging', caption: 'High up, the ship lights its own engines and pushes off the booster.', on: { SEPARATE: 'boostback' }, parts: { lblArms: { opacity: 0 },  lblShip: { opacity: 1, y: -45, x: 55 }, lblBooster: { opacity: 1, y: -55, x: -40 },  booster: { y: -70, x: -30, rot: -10 }, ship: { y: -60, x: 45, rot: 8 }, flame: { opacity: 1, y: -70, x: -30, rot: -10, scale: 0.6 } } },
     boostback: { label: 'Boostback', caption: 'The booster flips around and burns its engines to fly back to the tower.', on: { DESCEND: 'catch' }, parts: { booster: { y: -90, x: 0, rot: 180 }, ship: { y: -200, x: 120, opacity: 0.3, scale: 0.5 }, flame: { opacity: 0 } } },
     catch: { label: 'Tower catch', caption: 'The arms close and catch the booster in mid-air, so it can fly again.', on: {}, parts: { lblArms: { opacity: 1 },  lblShip: { opacity: 0 }, lblBooster: { opacity: 1 }, lblTower: { opacity: 1 },  booster: { y: -40, x: 20 }, arms: { y: 50 }, ship: { opacity: 0 } } },
