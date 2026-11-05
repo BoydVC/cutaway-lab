@@ -13,6 +13,8 @@ export default {
       svg: '<text x="280" y="250" text-anchor="middle" fill="#93c5fd" font-size="13" font-weight="700">driven</text>' },
     { id: 'lblRatio', label: 'Ratio label',
       svg: '<text x="200" y="50" text-anchor="middle" fill="#c4b5fd" font-size="12" font-weight="700">1:2 twist</text>', pose: { opacity: 0 } },
+    { id: 'lblTeeth', label: 'Teeth label',
+      svg: '<text x="195" y="150" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="700">teeth</text>', pose: { opacity: 0.8 } },
     { id: 'lblMesh', label: 'Mesh label',
       svg: '<text x="195" y="100" text-anchor="middle" fill="#86efac" font-size="12" font-weight="700">mesh</text>', pose: { opacity: 0 } },
     { id: 'driven', label: 'Driven gear', job: 'is bigger, turns the other way, and has more twist power',

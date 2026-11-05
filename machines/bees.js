@@ -5,6 +5,8 @@ export default {
   parts: [
     { id: 'sun', label: 'Sun', job: 'is the compass the bees use for direction', svg: '<circle cx="350" cy="40" r="22" fill="#fde047"/>' },
     { id: 'hive', label: 'Hive', job: 'is where the dance happens', svg: '<rect x="30" y="170" width="90" height="100" rx="12" fill="#d97706"/><path d="M30 200 h90 M30 230 h90" stroke="#92400e" stroke-width="3"/>', explode: [-10, 10] },
+    { id: 'lblAngle', label: 'Angle label',
+      svg: '<text x="200" y="140" text-anchor="middle" fill="#fde047" font-size="11" font-weight="700">angle = direction</text>', pose: { opacity: 0 } },
     { id: 'lblScout', label: 'Scout label',
       svg: '<text x="200" y="180" text-anchor="middle" fill="#fde047" font-size="11" font-weight="700">scout</text>' },
     { id: 'lblSun', label: 'Sun label',
@@ -22,7 +24,7 @@ export default {
   states: {
     search: { label: 'Scout searches', caption: 'A scout bee flies out exploring for flowers.', on: { FIND: 'found', GIVE_UP: 'home' }, parts: { scout: { x: 120, y: -60 } } },
     found: { label: 'Finds flowers', caption: 'Jackpot! The scout sips nectar and remembers where the patch is compared to the sun.', on: { RETURN: 'dance' }, parts: { scout: { x: 250, y: 60 } } },
-    dance: { label: 'Waggle dance', caption: 'Back in the hive she waggles in a line. The angle points the way; the waggle time tells how far.', on: { FOLLOW: 'harvest' }, parts: { scout: { x: 0, y: 40, rot: 35 }, foragers: { opacity: 1 }, waggle: { opacity: 1 } } },
+    dance: { label: 'Waggle dance', caption: 'Back in the hive she waggles in a line. The angle points the way; the waggle time tells how far.', on: { FOLLOW: 'harvest' }, parts: { lblAngle: { opacity: 1 },  scout: { x: 0, y: 40, rot: 35 }, foragers: { opacity: 1 }, waggle: { opacity: 1 } } },
     harvest: { label: 'Everyone goes', caption: 'The other bees fly straight to the flowers. Teamwork turns nectar into honey.', on: {}, parts: { foragers: { x: 250, y: 30, opacity: 1 }, scout: { x: 250, y: 60 } } },
     home: { label: 'Back home', caption: 'No flowers today, so the scout heads home to rest.', on: {} },
   },
