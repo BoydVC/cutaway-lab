@@ -17,6 +17,8 @@ export default {
       svg: '<path d="M120 160 H280 Q300 160 300 190 Q300 260 200 280 Q100 260 100 190 Q100 160 120 160Z" fill="#1e3a5f" stroke="#7dd3fc" stroke-width="3"/><ellipse cx="200" cy="200" rx="70" ry="30" fill="#0ea5e9" opacity=".5"/>', explode: [0, 40] },
     { id: 'lblBowl', label: 'Bowl label',
       svg: '<text x="200" y="280" text-anchor="middle" fill="#7dd3fc" font-size="12" font-weight="700">bowl</text>' },
+    { id: 'lblPull', label: 'Pull label',
+      svg: '<text x="320" y="250" text-anchor="middle" fill="#86efac" font-size="12" font-weight="700">pull ↓</text>', pose: { opacity: 0 } },
     { id: 'siphon', label: 'Siphon', job: 'is the S-shaped pipe that pulls the bowl empty once flow starts',
       svg: '<path d="M240 250 Q280 250 280 220 Q280 190 250 190" stroke="#64748b" stroke-width="10" fill="none" stroke-linecap="round"/><text x="300" y="220" fill="#94a3b8" font-size="11" font-weight="700">siphon</text>', explode: [45, 20] },
     { id: 'fill', label: 'Fill valve', job: 'refills the tank after a flush',
@@ -36,11 +38,11 @@ export default {
       on: { RUSH: 'siphon', STUCK: 'stuck' },
       parts: { flapper: { y: -18, rot: -25 }, handle: { rot: -20, y: 6 } },
     },
-    siphon: {
+    siphon: { /*pull*/
       label: 'Siphon starts',
       caption: 'Bowl water rises, spills over the siphon crest, and the suck begins. Whoosh!',
       on: { EMPTY: 'refill' },
-      parts: { flapper: { y: -10, opacity: 0.7 }, swirl: { opacity: 1 }, bowl: { opacity: 0.7 } },
+      parts: { lblPull: { opacity: 1 },  flapper: { y: -10, opacity: 0.7 }, swirl: { opacity: 1 }, bowl: { opacity: 0.7 } },
     },
     refill: {
       label: 'Tank refills',
