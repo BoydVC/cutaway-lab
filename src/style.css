@@ -27,4 +27,4 @@ nav button small{color:#facc15}
 :focus-visible{outline:3px solid #facc15;outline-offset:2px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 
-.topics{display:flex;gap:6px;padding:0 20px 6px;flex-wrap:wrap}.topics button{background:#0f172a;color:#cbd5e1;border:1px solid #334155;border-radius:999px;padding:4px 10px;font-size:13px;cursor:pointer}.topics button[aria-pressed=true]{background:#312e81;border-color:#a5b4fc;color:#e0e7ff}
+.topics{display:flex;gap:6px;padding:0 20px 6px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin}.topics button{background:#0f172a;color:#cbd5e1;border:1px solid #334155;border-radius:999px;padding:4px 10px;font-size:13px;cursor:pointer}.topics button[aria-pressed=true]{background:#312e81;border-color:#a5b4fc;color:#e0e7ff}
