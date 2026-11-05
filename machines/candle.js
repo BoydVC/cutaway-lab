@@ -11,6 +11,8 @@ export default {
       svg: '<text x="200" y="70" text-anchor="middle" fill="#fde68a" font-size="13" font-weight="700">flame</text>', pose: { opacity: 0 } },
     { id: 'lblWax', label: 'Wax label',
       svg: '<text x="200" y="230" text-anchor="middle" fill="#92400e" font-size="13" font-weight="800">wax</text>' },
+    { id: 'lblWick', label: 'Wick label',
+      svg: '<text x="240" y="130" text-anchor="middle" fill="#a8a29e" font-size="12" font-weight="700">wick</text>' },
     { id: 'flame', label: 'Flame', job: 'burns wax vapor to make light and heat',
       svg: '<ellipse cx="200" cy="95" rx="14" ry="22" fill="#fbbf24"/><ellipse cx="200" cy="100" rx="7" ry="12" fill="#fef9c3"/>', pose: { opacity: 0 } },
     { id: 'pool', label: 'Melt pool',

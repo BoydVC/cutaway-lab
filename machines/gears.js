@@ -11,6 +11,8 @@ export default {
       svg: '<text x="120" y="250" text-anchor="middle" fill="#fde68a" font-size="13" font-weight="700">driver</text>' },
     { id: 'lblDriven', label: 'Driven label',
       svg: '<text x="280" y="250" text-anchor="middle" fill="#93c5fd" font-size="13" font-weight="700">driven</text>' },
+    { id: 'lblMesh', label: 'Mesh label',
+      svg: '<text x="195" y="100" text-anchor="middle" fill="#86efac" font-size="12" font-weight="700">mesh</text>', pose: { opacity: 0 } },
     { id: 'driven', label: 'Driven gear', job: 'is bigger, turns the other way, and has more twist power',
       svg: '<g><circle cx="250" cy="150" r="55" fill="#0f172a" stroke="#fbbf24" stroke-width="4"/><circle cx="250" cy="150" r="10" fill="#94a3b8"/><g stroke="#fbbf24" stroke-width="6" stroke-linecap="round"><path d="M250 90 V105 M250 195 V210 M190 150 H205 M295 150 H310 M205 105 L215 115 M285 185 L295 195 M205 195 L215 185 M285 115 L295 105"/></g><text x="250" y="155" text-anchor="middle" fill="#fef3c7" font-size="12" font-weight="800">24T</text></g>', explode: [40, 0] },
     { id: 'arrowIn', label: 'Input spin',
@@ -23,8 +25,8 @@ export default {
   states: {
     rest: { label: 'Gears at rest', caption: 'Two gears mesh. The small one has 12 teeth; the big one has 24.', on: { TURN: 'turn' } },
     turn: { label: 'Driver turns', caption: 'You spin the small driver clockwise. Its teeth push the big gear.', on: { MESH: 'mesh', SLIP: 'slip' }, parts: { driver: { rot: 30 }, arrowIn: { opacity: 1 } } },
-    mesh: { label: 'Teeth mesh', caption: 'Every tooth of the driver pushes one tooth of the driven gear the other way.', on: { RATIO: 'ratio' }, parts: { driver: { rot: 60 }, driven: { rot: -30 }, arrowIn: { opacity: 1 }, arrowOut: { opacity: 1 } } },
-    ratio: { label: 'Torque wins', caption: 'Two driver turns make one driven turn — half the speed, twice the twist. That is a gear ratio!', on: {}, parts: { driver: { rot: 120 }, driven: { rot: -60 }, arrowIn: { opacity: 0.6 }, arrowOut: { opacity: 1 }, label: { opacity: 1 } } },
+    mesh: { label: 'Teeth mesh', caption: 'Every tooth of the driver pushes one tooth of the driven gear the other way.', on: { RATIO: 'ratio' }, parts: { lblMesh: { opacity: 1 }, driver: { rot: 60 }, driven: { rot: -30 }, arrowIn: { opacity: 1 }, arrowOut: { opacity: 1 } } },
+    ratio: { label: 'Torque wins', caption: 'Two driver turns make one driven turn — half the speed, twice the twist. That is a gear ratio!', on: {}, parts: { lblMesh: { opacity: 0.7 }, driver: { rot: 120 }, driven: { rot: -60 }, arrowIn: { opacity: 0.6 }, arrowOut: { opacity: 1 }, label: { opacity: 1 } } },
     slip: { label: 'Teeth skip', caption: 'Gears are too far apart. Teeth skip and nothing useful turns. Move them closer.', on: {}, parts: { driven: { x: 20, opacity: 0.7 }, arrowIn: { opacity: 0.4 } } },
   },
 };

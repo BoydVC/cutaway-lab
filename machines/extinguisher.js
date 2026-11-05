@@ -18,11 +18,11 @@ export default {
     { id: 'lblPin', label: 'Pin label',
       svg: '<text x="140" y="80" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="700">pin</text>' },
     { id: 'lblBase', label: 'Base label',
-      svg: '<text x="335" y="295" text-anchor="middle" fill="#fb923c" font-size="12" font-weight="700">aim here</text>', pose: { opacity: 0 } },
+      svg: '<text x="280" y="230" text-anchor="middle" fill="#fb923c" font-size="12" font-weight="700">aim ↓</text>', pose: { opacity: 0 } },
     { id: 'spray', label: 'Spray',
       svg: '<g fill="#e2e8f0" opacity=".85"><ellipse cx="330" cy="200" rx="30" ry="18"/><ellipse cx="350" cy="220" rx="22" ry="12"/><ellipse cx="340" cy="235" rx="16" ry="8"/></g>', pose: { opacity: 0 } },
     { id: 'fire', label: 'Fire base',
-      svg: '<path d="M300 250 Q320 200 340 250 Q355 210 370 255 Q345 270 300 250" fill="#ea580c"/><path d="M315 250 Q330 215 345 250" fill="#fbbf24"/><text x="335" y="280" text-anchor="middle" fill="#fdba74" font-size="12" font-weight="700">fire</text>', pose: { opacity: 0.95 } },
+      svg: '<path d="M300 250 Q320 200 340 250 Q355 210 370 255 Q345 270 300 250" fill="#ea580c"/><path d="M315 250 Q330 215 345 250" fill="#fbbf24"/><text x="360" y="290" text-anchor="middle" fill="#fdba74" font-size="12" font-weight="700">fire</text>', pose: { opacity: 0.95 } },
   ],
   states: {
     ready: {
