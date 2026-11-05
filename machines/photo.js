@@ -22,7 +22,7 @@ export default {
     { id: 'stomata', label: 'Stomata', job: 'tiny doors that let air in and oxygen out',
       svg: '<g fill="#86efac"><ellipse cx="260" cy="150" rx="8" ry="4"/><ellipse cx="290" cy="130" rx="8" ry="4"/><ellipse cx="250" cy="175" rx="8" ry="4"/></g>', explode: [40, 10] },
     { id: 'lblStomata', label: 'Stomata label',
-      svg: '<text x="335" y="155" text-anchor="middle" fill="#86efac" font-size="13" font-weight="800">stomata</text>' },
+      svg: '<text x="310" y="115" text-anchor="middle" fill="#86efac" font-size="12" font-weight="800">stomata</text>' },
     { id: 'co2', label: 'Carbon dioxide', job: 'comes in from the air through stomata',
       svg: '<g fill="#94a3b8" font-size="12" font-weight="700"><text x="330" y="100">CO₂</text><text x="340" y="130">CO₂</text></g>', pose: { opacity: 0.3 } },
     { id: 'o2', label: 'Oxygen', job: 'is the leftover gas the leaf breathes out',

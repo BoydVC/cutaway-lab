@@ -125,6 +125,20 @@ await phone.evaluate(() => scrollTo(0, 0)); await phone.screenshot({ path: `${ou
 await phone.goto(URL + '#football/throw'); await phone.waitForTimeout(600);
 await t('phone: football no overflow', async () => { assert.ok(await phone.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)); });
 await phone.screenshot({ path: `${out}/phone-football-390x844.png`, fullPage: true });
+
+await t('phone: circuit no overflow', async () => {
+  const ph = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
+  await ph.goto(URL + '#circuit/flow'); await ph.waitForTimeout(400);
+  const w = await ph.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+  assert.ok(w <= 2, 'circuit overflow '+w); await ph.close();
+});
+await t('phone: shutter no overflow', async () => {
+  const ph = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
+  await ph.goto(URL + '#shutter/expose'); await ph.waitForTimeout(400);
+  const w = await ph.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+  assert.ok(w <= 2, 'shutter overflow '+w); await ph.close();
+});
+
 await t('phone: no horizontal overflow', async () => { assert.ok(await phone.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)); });
 await phone.goto(URL + '#heart/ventricles'); await phone.waitForTimeout(700); await phone.evaluate(() => scrollTo(0, 0)); await phone.screenshot({ path: `${out}/phone-390x844.png` });
 await t('a11y: narrate speaks only once per state', async () => {
