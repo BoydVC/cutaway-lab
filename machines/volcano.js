@@ -5,6 +5,8 @@ export default {
   parts: [
     { id: 'crust', label: 'Rock layers', svg: '<rect x="-300" y="230" width="1000" height="70" fill="#57534e"/>' },
     { id: 'chamber', label: 'Magma chamber', job: 'stores melted rock under the volcano', svg: '<ellipse cx="200" cy="265" rx="60" ry="18" fill="#ea580c"/>', explode: [0, 20] },
+    { id: 'lblVent', label: 'Vent label',
+      svg: '<text x="260" y="160" text-anchor="middle" fill="#fdba74" font-size="12" font-weight="700">vent</text>' },
     { id: 'lblMagma', label: 'Magma label',
       svg: '<text x="110" y="270" text-anchor="middle" fill="#fdba74" font-size="12" font-weight="700">magma</text>', pose: { opacity: 1 } },
     { id: 'lblLava', label: 'Lava label',
