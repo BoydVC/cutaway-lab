@@ -21,4 +21,4 @@ Fleet locked at **36** machines (no new machines after `v0.20-pulley-candle`). E
 - Narrations: **36** `narrations/*-captions.mp4`
 
 ## Tests
-- unit **602** · e2e **36** · TLC/formal **28** · OCR clean
+- unit **639** · e2e **36** · TLC/formal **28** · OCR clean
