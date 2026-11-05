@@ -16,7 +16,7 @@ export default {
     { id: 'lblBall', label: 'Ball-handler label',
       svg: '<text x="120" y="200" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="700">ball</text>' },
     { id: 'lblScreen', label: 'Screener label',
-      svg: '<text x="220" y="160" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="700">screen</text>' },
+      svg: '<text x="250" y="130" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="700">screen</text>' },
     { id: 'screener', label: 'Screener', job: 'sets a solid screen, then rolls to the rim',
       svg: '<circle cx="220" cy="150" r="12" fill="#1e40af" stroke="#fb923c" stroke-width="2"/><text x="220" y="154" text-anchor="middle" fill="#fb923c" font-size="11" font-weight="700">4</text>', explode: [0, -25] },
     { id: 'defender1', label: 'On-ball defender', job: 'gets caught on the screen',

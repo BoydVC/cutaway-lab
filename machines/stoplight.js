@@ -14,7 +14,7 @@ export default {
     { id: 'housing', label: 'Housing', job: 'holds the three lamps in order',
       svg: '<rect x="160" y="50" width="80" height="200" rx="12" fill="#1e293b" stroke="#94a3b8" stroke-width="3"/>', explode: [50, 0] },
     { id: 'lblHousing', label: 'Housing label',
-      svg: '<text x="120" y="250" text-anchor="middle" fill="#cbd5e1" font-size="12" font-weight="700">signal</text>' },
+      svg: '<text x="165" y="250" text-anchor="middle" fill="#cbd5e1" font-size="12" font-weight="700">signal</text>' },
     { id: 'lblGo', label: 'Go label',
       svg: '<text x="280" y="100" fill="#86efac" font-size="13" font-weight="700">GO</text>', pose: { opacity: 0 } },
     { id: 'lblSlow', label: 'Slow label',
