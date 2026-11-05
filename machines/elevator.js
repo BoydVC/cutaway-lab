@@ -28,16 +28,18 @@ export default {
     { id: 'f2', label: 'Floor 2',
       svg: '<text x="270" y="155" fill="#94a3b8" font-size="13" font-weight="700">2</text>', pose: { opacity: 0.5 } },
     { id: 'f1', label: 'Floor 1',
-      svg: '<text x="270" y="215" fill="#facc15" font-size="13" font-weight="800">1</text>', pose: { opacity: 1 } },
+      svg: '<text x="270" y="215" fill="#94a3b8" font-size="13" font-weight="700">1</text>', pose: { opacity: 1 } },
     { id: 'fG', label: 'Ground',
       svg: '<text x="270" y="275" fill="#94a3b8" font-size="13" font-weight="700">G</text>', pose: { opacity: 0.5 } },
+    { id: 'floorHi', label: 'Floor highlight',
+      svg: '<circle cx="270" cy="210" r="14" fill="#facc15" opacity=".4"/>', pose: { opacity: 1 } },
   ],
   states: {
     idle: {
       label: 'Waiting',
       caption: 'The car sits at floor 1. Doors are open. Push a button to call a floor.',
       on: { CALL: 'closing' },
-      parts: { f1: { opacity: 1 }, f3: { opacity: 0.45 } },
+      parts: { floorHi: { opacity: 1, y: 0 }, f1: { opacity: 1 }, f3: { opacity: 0.45 } },
     },
     closing: {
       label: 'Doors closing',
@@ -49,13 +51,13 @@ export default {
       label: 'Moving up',
       caption: 'Motor turns the pulley. The car rises; the counterweight drops. Cables stay tight.',
       on: { ARRIVE: 'open' },
-      parts: { lblCW: { y: 70 }, lblCable: { opacity: 1 }, doors: { scale: 0.15, x: 14, opacity: 0.5 }, car: { y: -60 }, counter: { y: 70 }, f1: { opacity: 0.45 }, f3: { opacity: 1 } },
+      parts: { floorHi: { opacity: 1, y: -120 }, lblCW: { y: 70 }, lblCable: { opacity: 1 }, doors: { scale: 0.15, x: 14, opacity: 0.5 }, car: { y: -60 }, counter: { y: 70 }, f1: { opacity: 0.45 }, f3: { opacity: 1 } },
     },
     open: {
       label: 'Doors open',
       caption: 'At floor 3 the car stops. Doors open. Ride complete!',
       on: {},
-      parts: { lblCW: { y: 110 }, car: { y: -100 }, counter: { y: 110 }, doors: { opacity: 0.2 }, f1: { opacity: 0.45 }, f3: { opacity: 1 } },
+      parts: { floorHi: { opacity: 1, y: -120 }, lblCW: { y: 110 }, car: { y: -100 }, counter: { y: 110 }, doors: { opacity: 0.2 }, f1: { opacity: 0.45 }, f3: { opacity: 1 } },
     },
     reopen: {
       label: 'Doors reopen',
