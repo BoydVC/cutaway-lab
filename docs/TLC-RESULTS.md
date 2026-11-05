@@ -1,7 +1,13 @@
 # TLC results (2026-11-05)
 
-All checked specs: Model checking completed. No error has been found.
+All **36** checked specs: Model checking completed. No error has been found.
 
-Elevator, Flush, Stoplight, DoorLock, Shutter, Thermostat, Zipper, Sharpener, Parachute, Turbine, Circuit — each 4–5 distinct states, FinalSticky holds.
+## Original fleet (8)
+Starship, MarsLanding, PendulumClock, Heartbeat, BeeDance, FrogCycle, Volcano, WaterCycle
 
-Jar: foundry-verify pass8 tla2tools.jar
+## Sports + machines (28)
+FootballPlay, BaseballPlay, SoccerPlay, LacrossePlay, BasketballPlay, HockeyBreakout, BikeDrive, TennisServe, Photosynthesis, GearTrain, Digestion, Circuit, Elevator, Flush, Stoplight, DoorLock, Shutter, Thermostat, Zipper, Sharpener, Parachute, Turbine, Extinguisher, Sewing, Compass, Flashlight, Pulley, Candle
+
+Each 3–7 distinct states; FinalSticky holds on terminal states.
+
+Jar: `/workspace/tokenmax/project-nov5/tla/tla2tools.jar`
