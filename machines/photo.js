@@ -4,7 +4,7 @@ export default {
   initial: 'idle',
   parts: [
     { id: 'lblClose', label: 'Close label',
-      svg: '<text x="200" y="50" text-anchor="middle" fill="#f87171" font-size="12" font-weight="700">stomata closed</text>', pose: { opacity: 0 } },
+      svg: '<text x="200" y="50" text-anchor="middle" fill="#f87171" font-size="12" font-weight="700">wilt</text>', pose: { opacity: 0 } },
     { id: 'lblLeaf', label: 'Leaf label',
       svg: '<text x="80" y="160" text-anchor="middle" fill="#86efac" font-size="12" font-weight="700">leaf</text>' },
     { id: 'sun', label: 'Sunlight', job: 'gives the energy the leaf needs',
@@ -35,6 +35,6 @@ export default {
     light: { label: 'Catch light', caption: 'Chlorophyll grabs sunlight. Energy is stored for the recipe.', on: { SIP: 'sip' }, parts: { sun: { scale: 1.15 }, leaf: { scale: 1.04 } } },
     sip: { label: 'Sip water + air', caption: 'Roots push water up. Stomata open and carbon dioxide drifts in.', on: { COOK: 'cook', CLOSE: 'wilt' }, parts: { h2o: { opacity: 1, y: -80 }, co2: { opacity: 1, x: -40 }, stomata: { scale: 1.3 } } },
     cook: { label: 'Cook sugar', caption: 'Light + water + CO₂ become sugar. Oxygen is the leftover — out it goes!', on: {}, parts: { lblSugar: { opacity: 1 },  sugar: { opacity: 1, scale: 1.2 }, o2: { opacity: 1, x: -30, y: -20 }, co2: { opacity: 0.2 }, h2o: { opacity: 0.3 }, leaf: { scale: 1.06 } } },
-    wilt: { label: 'Stomata close', caption: 'Too dry today. Leaf closes its doors to save water. Cooking pauses.', on: {}, parts: { stomata: { scale: 0.6, opacity: 0.5 }, co2: { opacity: 0.1 }, h2o: { opacity: 0.2 } } },
+    wilt: { label: 'Stomata close', caption: 'Too dry today. Leaf closes its doors to save water. Cooking pauses.', on: {}, parts: { lblClose: { opacity: 1 },  stomata: { scale: 0.6, opacity: 0.5 }, co2: { opacity: 0.1 }, h2o: { opacity: 0.2 } } },
   },
 };
