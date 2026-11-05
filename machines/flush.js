@@ -17,6 +17,8 @@ export default {
       svg: '<path d="M120 160 H280 Q300 160 300 190 Q300 260 200 280 Q100 260 100 190 Q100 160 120 160Z" fill="#1e3a5f" stroke="#7dd3fc" stroke-width="3"/><ellipse cx="200" cy="200" rx="70" ry="30" fill="#0ea5e9" opacity=".5"/>', explode: [0, 40] },
     { id: 'lblBowl', label: 'Bowl label',
       svg: '<text x="200" y="280" text-anchor="middle" fill="#7dd3fc" font-size="12" font-weight="700">bowl</text>' },
+    { id: 'lblFill', label: 'Fill label',
+      svg: '<text x="110" y="100" text-anchor="middle" fill="#7dd3fc" font-size="11" font-weight="700">refill</text>', pose: { opacity: 0 } },
     { id: 'lblPull', label: 'Pull label',
       svg: '<text x="320" y="250" text-anchor="middle" fill="#86efac" font-size="12" font-weight="700">pull ↓</text>', pose: { opacity: 0 } },
     { id: 'siphon', label: 'Siphon', job: 'is the S-shaped pipe that pulls the bowl empty once flow starts',
@@ -48,7 +50,7 @@ export default {
       label: 'Tank refills',
       caption: 'Bowl is empty and traps a new seal. Fill valve tops up the tank. Ready again.',
       on: {},
-      parts: { fill: { opacity: 1 }, swirl: { opacity: 0 }, flapper: { y: 0 } },
+      parts: { lblFill: { opacity: 1 },  fill: { opacity: 1 }, swirl: { opacity: 0 }, flapper: { y: 0 } },
     },
     stuck: {
       label: 'Flapper stuck',

@@ -7,6 +7,8 @@ export default {
       svg: '<rect x="140" y="40" width="120" height="260" rx="4" fill="#0f172a" stroke="#475569" stroke-width="3"/><g stroke="#334155" stroke-width="1"><path d="M140 100 H260 M140 160 H260 M140 220 H260"/></g>' },
     { id: 'counter', label: 'Counterweight', job: 'balances the car so the motor does less work',
       svg: '<rect x="90" y="60" width="36" height="50" rx="3" fill="#64748b" stroke="#94a3b8" stroke-width="2"/><text x="108" y="90" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="700">·</text>', explode: [-40, 0] },
+    { id: 'lblDoor', label: 'Door label',
+      svg: '<text x="200" y="250" text-anchor="middle" fill="#7dd3fc" font-size="11" font-weight="700">doors</text>' },
     { id: 'lblCW', label: 'Counterweight label',
       svg: '<text x="70" y="210" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="700">counterweight</text>' },
     { id: 'cable', label: 'Cables', job: 'hold the car and the counterweight over a pulley',
