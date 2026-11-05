@@ -12,7 +12,7 @@ export default {
     { id: 'lblAperture', label: 'Aperture label',
       svg: '<text x="110" y="100" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="700">aperture</text>' },
     { id: 'lblBlades', label: 'Blades label',
-      svg: '<text x="290" y="100" text-anchor="middle" fill="#fde68a" font-size="13" font-weight="700">blades</text>' },
+      svg: '<text x="95" y="155" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="700">blades</text>' },
     { id: 'lblSensor', label: 'Sensor label',
       svg: '<text x="200" y="220" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="700">sensor</text>' },
     { id: 'aperture', label: 'Aperture', job: 'is the hole size that lets more or less light in',
@@ -22,7 +22,7 @@ export default {
     { id: 'light', label: 'Light burst',
       svg: '<circle cx="200" cy="155" r="40" fill="#fde047" opacity=".7"/><circle cx="200" cy="155" r="60" fill="#facc15" opacity=".25"/>', pose: { opacity: 0 } },
     { id: 'button', label: 'Shutter button', job: 'starts the open-close cycle when you press it',
-      svg: '<rect x="300" y="90" width="36" height="20" rx="6" fill="#f87171"/><text x="318" y="80" text-anchor="middle" fill="#fecaca" font-size="11" font-weight="700">shutter</text>', explode: [40, -20] },
+      svg: '<rect x="305" y="85" width="40" height="22" rx="6" fill="#f87171"/><text x="325" y="75" text-anchor="middle" fill="#fecaca" font-size="11" font-weight="700">button</text>', explode: [40, -20] },
   ],
   states: {
     ready: {
