@@ -14,7 +14,7 @@ export default {
     { id: 'lblLava', label: 'Lava label',
       svg: '<text x="95" y="180" text-anchor="middle" fill="#fb923c" font-size="13" font-weight="700">lava</text>', pose: { opacity: 0 } },
     { id: 'lblAsh', label: 'Ash label',
-      svg: '<text x="310" y="30" text-anchor="middle" fill="#cbd5e1" font-size="12" font-weight="700">ash</text>', pose: { opacity: 0 } },
+      svg: '<text x="300" y="25" text-anchor="middle" fill="#e2e8f0" font-size="13" font-weight="700">ash cloud</text>', pose: { opacity: 0 } },
     { id: 'mountain', label: 'Volcano cone', job: 'is built from layers of old lava and ash', svg: '<path d="M80 230 L180 90 H220 L320 230Z" fill="#78716c"/>' },
     { id: 'vent', label: 'Vent', job: 'is the pipe magma climbs up', svg: '<rect x="194" y="92" width="12" height="160" fill="#c2410c"/>', pose: { opacity: 0.3 }, explode: [70, 0] },
     { id: 'ash', label: 'Ash cloud', job: 'shoots tiny bits of rock into the sky', svg: '<g fill="#a8a29e"><circle cx="200" cy="70" r="16"/><circle cx="188" cy="50" r="14"/><circle cx="214" cy="46" r="18"/><circle cx="196" cy="28" r="12"/><circle cx="232" cy="30" r="11"/><circle cx="174" cy="34" r="9"/><circle cx="220" cy="14" r="8"/><circle cx="160" cy="55" r="7" fill="#78716c"/><circle cx="245" cy="48" r="6" fill="#78716c"/></g>', pose: { opacity: 0, scale: 0.3 } },

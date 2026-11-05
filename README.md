@@ -4,7 +4,7 @@ Step inside rockets, bodies, sports plays, and everyday machines. Every animated
 
 ![demo](screenshots/demo.gif)
 
-**36 machines · zero runtime deps · quizzes · narrated videos · formal TLC models · 719 unit / 60 e2e / 36 TLC**
+**36 machines · zero runtime deps · quizzes · narrated videos · formal TLC models · 720 unit / 60 e2e / 36 TLC**
 
 ## Quickstart (2 minutes)
 

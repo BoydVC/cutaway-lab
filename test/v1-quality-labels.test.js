@@ -72,4 +72,11 @@ describe('v1.0 quality labels', () => {
     const tlas = fs.readdirSync('formal').filter((f) => f.endsWith('.tla'));
     assert.equal(tlas.length, 36, tlas.join(','));
   });
+
+  it('tlc-all.sh enumerates every formal/*.tla', async () => {
+    const fs = await import('node:fs');
+    const sh = fs.readFileSync('formal/tlc-all.sh', 'utf8');
+    const tlas = fs.readdirSync('formal').filter((f) => f.endsWith('.tla')).map((f) => f.replace(/\.tla$/, ''));
+    for (const mod of tlas) assert.match(sh, new RegExp(`\\b${mod}\\b`), `tlc-all missing ${mod}`);
+  });
 });

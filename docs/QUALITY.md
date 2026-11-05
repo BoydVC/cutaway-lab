@@ -3,7 +3,7 @@
 Fleet **36**. Desk 1440×900 + phone 390×844. OCR clean.
 
 ## Guards / tests
-**719** unit · **60** e2e · **36** TLC · lbl* + ≥2 texts + quiz 5
+**720** unit · **60** e2e · **36** TLC · lbl* + ≥2 texts + quiz 5
 
 ## Side-path callouts (on-stage)
 SCRUB · eaten · safer spot · dead cells · jammed · tangle · stuck · blocked · sensor fault · snag · tip broke · thread jam · SHORT · slip · rope slipped · storm brake · empty · drowned · skewed · teeth skip · wilt · washed out · toss fault · skip to red · sports checkdown/safe/cut/reset/switch/chip
