@@ -63,8 +63,11 @@ describe('v1.0 quality labels', () => {
     const a = s.parts.find((p) => p.id === 'lblAperture').svg;
     const b = s.parts.find((p) => p.id === 'lblBlades').svg;
     const ax = Number((a.match(/\bx="(\d+)/) || [])[1]);
+    const ay = Number((a.match(/\by="(\d+)/) || [])[1]);
     const bx = Number((b.match(/\bx="(\d+)/) || [])[1]);
-    assert.ok(Math.abs(ax - bx) >= 40, `aperture x=${ax} blades x=${bx} overlap`);
+    const by = Number((b.match(/\by="(\d+)/) || [])[1]);
+    const dist = Math.hypot(ax - bx, ay - by);
+    assert.ok(dist >= 40, `aperture ${ax},${ay} blades ${bx},${by} dist=${dist}`);
   });
 
   it('every fleet machine has a TLC model (36)', async () => {
