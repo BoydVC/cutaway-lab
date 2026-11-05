@@ -19,7 +19,7 @@ function pick(id, stateName) {
     const g = document.createElementNS(NS, 'g'); g.classList.add('part'); if (p.origin === 'top' || p.id === 'pendulum') g.classList.add('origin-top');
     g.dataset.part = p.id; g.innerHTML = p.svg + `<title>${p.label}</title>`; svg.appendChild(g);
   }
-  $('#parts').innerHTML = m.parts.map((p) => `<li data-part="${p.id}"><b>${p.label}</b>${p.job ? ' ' + p.job : ''}</li>`).join('');
+  $('#parts').innerHTML = m.parts.filter((p) => !p.id.startsWith('lbl')).map((p) => `<li data-part="${p.id}"><b>${p.label}</b>${p.job ? ' ' + p.job : ''}</li>`).join('');
   document.querySelectorAll('#parts li').forEach((li) => { li.onmouseenter = () => hot(li.dataset.part); li.onmouseleave = () => hot(null); });
   render();
 }
