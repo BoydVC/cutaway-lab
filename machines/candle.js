@@ -22,7 +22,9 @@ export default {
     unlit: {
       label: 'Unlit',
       caption: 'Cold wax. Dry wick. No flame yet. Bring a match.',
-      on: { LIGHT: 'lighting' }, parts: { lblFlame: { opacity: 0 } }},
+      on: { LIGHT: 'lighting' },
+      parts: { lblFlame: { opacity: 0 } },
+    },
     lighting: {
       label: 'Lighting',
       caption: 'Flame catches the wick. Heat melts a little wax. Capillary action starts.',
