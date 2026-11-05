@@ -3,6 +3,8 @@ export default {
   blurb: 'How a signal cycles green → yellow → red, and why a sensor can jump when the road is empty.',
   initial: 'green',
   parts: [
+    { id: 'lblPole', label: 'Pole label',
+      svg: '<text x="120" y="250" text-anchor="middle" fill="#94a3b8" font-size="12" font-weight="700">pole</text>' },
     { id: 'pole', label: 'Pole',
       svg: '<rect x="185" y="40" width="30" height="260" rx="4" fill="#334155"/>' },
     { id: 'housing', label: 'Housing', job: 'holds the three lamps in order',
