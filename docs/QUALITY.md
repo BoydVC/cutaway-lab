@@ -22,3 +22,10 @@ Fleet locked at **36** machines (no new machines after `v0.20-pulley-candle`). E
 
 ## Tests
 - unit **639** · e2e **36** · TLC/formal **28** · OCR clean
+
+## Box paths (report)
+
+- Best GIF: `/workspace/tokenmax/project-nov5/cutaway-lab/screenshots/demo.gif`
+- Hero: `/workspace/tokenmax/project-nov5/cutaway-lab/screenshots/hero-1440x900.png`
+- Narrated MP4s: `/workspace/tokenmax/project-nov5/cutaway-lab/narrations/*-captions.mp4` (36)
+- PR: https://github.com/BoydVC/cutaway-lab/pull/20
