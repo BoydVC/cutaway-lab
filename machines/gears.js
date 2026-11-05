@@ -13,6 +13,8 @@ export default {
       svg: '<text x="280" y="250" text-anchor="middle" fill="#93c5fd" font-size="13" font-weight="700">driven</text>' },
     { id: 'lblRatio', label: 'Ratio label',
       svg: '<text x="200" y="50" text-anchor="middle" fill="#c4b5fd" font-size="12" font-weight="700">1:2 twist</text>', pose: { opacity: 0 } },
+    { id: 'lblSkip', label: 'Skip label',
+      svg: '<text x="200" y="50" text-anchor="middle" fill="#f87171" font-size="12" font-weight="700">teeth skip</text>', pose: { opacity: 0 } },
     { id: 'lblTeeth', label: 'Teeth label',
       svg: '<text x="195" y="150" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="700">teeth</text>', pose: { opacity: 0.8 } },
     { id: 'lblMesh', label: 'Mesh label',
@@ -31,6 +33,6 @@ export default {
     turn: { label: 'Driver turns', caption: 'You spin the small driver clockwise. Its teeth push the big gear.', on: { MESH: 'mesh', SLIP: 'slip' }, parts: { driver: { rot: 30 }, arrowIn: { opacity: 1 } } },
     mesh: { label: 'Teeth mesh', caption: 'Every tooth of the driver pushes one tooth of the driven gear the other way.', on: { RATIO: 'ratio' }, parts: { lblMesh: { opacity: 1 }, driver: { rot: 60 }, driven: { rot: -30 }, arrowIn: { opacity: 1 }, arrowOut: { opacity: 1 } } },
     ratio: { label: 'Torque wins', caption: 'Two driver turns make one driven turn — half the speed, twice the twist. That is a gear ratio!', on: {}, parts: { lblMesh: { opacity: 0.7 }, driver: { rot: 120 }, driven: { rot: -60 }, arrowIn: { opacity: 0.6 }, arrowOut: { opacity: 1 }, label: { opacity: 1 } } },
-    slip: { label: 'Teeth skip', caption: 'Gears are too far apart. Teeth skip and nothing useful turns. Move them closer.', on: {}, parts: { driven: { x: 20, opacity: 0.7 }, arrowIn: { opacity: 0.4 } } },
+    slip: { label: 'Teeth skip', caption: 'Gears are too far apart. Teeth skip and nothing useful turns. Move them closer.', on: {}, parts: { lblSkip: { opacity: 1 },  driven: { x: 20, opacity: 0.7 }, arrowIn: { opacity: 0.4 } } },
   },
 };

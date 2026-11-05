@@ -7,6 +7,8 @@ export default {
       svg: '<circle cx="200" cy="155" r="100" fill="#1e293b" stroke="#94a3b8" stroke-width="4"/>' },
     { id: 'dial', label: 'Dial', job: 'marks north, south, east, and west',
       svg: '<text x="200" y="72" text-anchor="middle" fill="#f87171" font-size="16" font-weight="800">N</text><text x="200" y="248" text-anchor="middle" fill="#e2e8f0" font-size="14" font-weight="700">S</text><text x="100" y="160" text-anchor="middle" fill="#e2e8f0" font-size="14" font-weight="700">W</text><text x="300" y="160" text-anchor="middle" fill="#e2e8f0" font-size="14" font-weight="700">E</text>', explode: [0, -40] },
+    { id: 'lblSkew', label: 'Skew label',
+      svg: '<text x="340" y="80" text-anchor="middle" fill="#f87171" font-size="12" font-weight="700">skewed!</text>', pose: { opacity: 0 } },
     { id: 'lblBearing', label: 'Bearing label',
       svg: '<text x="200" y="290" text-anchor="middle" fill="#a5b4fc" font-size="12" font-weight="700">bearing</text>', pose: { opacity: 0 } },
     { id: 'lblPivot', label: 'Pivot label',
@@ -45,7 +47,7 @@ export default {
       label: 'Skewed by metal',
       caption: 'A nearby magnet or phone pulls the needle off north. Move away from metal!',
       on: {},
-      parts: { needle: { rot: 55 }, magnet: { opacity: 1 } },
+      parts: { lblSkew: { opacity: 1 },  needle: { rot: 55 }, magnet: { opacity: 1 } },
     },
   },
 };
