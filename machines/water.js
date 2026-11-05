@@ -5,6 +5,8 @@ export default {
   parts: [
     { id: 'sun', label: 'Sun', job: 'heats the water so it rises', svg: '<circle cx="50" cy="40" r="22" fill="#fde047"/><g stroke="#fde047" stroke-width="3" stroke-linecap="round"><path d="M50 8 v8 M50 64 v8 M12 40 h8 M80 40 h8 M22 14 l6 6 M72 60 l6 6 M22 66 l6 -6 M72 14 l6 -6"/></g>' },
     { id: 'sea', label: 'Ocean', job: 'holds most of Earth\u2019s water', svg: '<rect x="-300" y="230" width="640" height="70" fill="#0369a1"/>' },
+    { id: 'seaLbl', label: 'Ocean label',
+      svg: '<text x="200" y="285" text-anchor="middle" fill="#7dd3fc" font-size="13" font-weight="700">ocean</text>' },
     { id: 'hill', label: 'Mountain', svg: '<path d="M240 300 L330 150 L460 300Z" fill="#57534e"/><path d="M315 175 L330 150 L345 175Z" fill="#f8fafc"/>' },
     { id: 'vapor', label: 'Water vapor', job: 'is invisible water gas in the air', svg: '<g stroke="#bae6fd" stroke-width="2" fill="none" stroke-dasharray="3 4"><path d="M100 225 q6 -20 0 -40 q-6 -20 0 -40"/><path d="M140 225 q6 -20 0 -40 q-6 -20 0 -40"/><path d="M180 225 q6 -20 0 -40 q-6 -20 0 -40"/></g>', pose: { opacity: 0 } },
     { id: 'cloud', label: 'Cloud', job: 'is made of tiny water drops', svg: '<g fill="#e2e8f0"><circle cx="150" cy="70" r="20"/><circle cx="175" cy="62" r="24"/><circle cx="200" cy="72" r="18"/></g>', pose: { opacity: 0, scale: 0.5 }, explode: [0, -20] },
