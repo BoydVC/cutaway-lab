@@ -4,6 +4,8 @@ export default {
   initial: 'entry',
   parts: [
     { id: 'ground', label: 'Mars surface', svg: '<path d="M-300 266 Q-100 258 0 270 Q100 255 200 268 T400 262 Q550 270 700 262 V300 H-300Z" fill="#b45309"/>' },
+    { id: 'lblDivert', label: 'Divert label',
+      svg: '<text x="320" y="60" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="700">safer spot</text>', pose: { opacity: 0 } },
     { id: 'lblSurface', label: 'Surface label',
       svg: '<text x="200" y="295" text-anchor="middle" fill="#fb923c" font-size="12" font-weight="700">Mars</text>' },
     { id: 'lblAtmo', label: 'Atmosphere label',
@@ -27,6 +29,6 @@ export default {
     powered: { label: 'Rocket descent', caption: 'The sky crane drops free and fires its rockets to slow down even more.', on: { HOVER: 'skycrane', ABORT_TO_SAFE: 'divert' }, parts: { lblShield: { opacity: 0 },  lblAtmo: { opacity: 0.4 },  lblCrane: { opacity: 1, y: 70 }, lblRover: { opacity: 1, y: -40 },  chute: { opacity: 0, y: -60 }, shell: { y: -80, x: 120, opacity: 0 }, shield: { opacity: 0 }, crane: { opacity: 1, y: 70 }, rover: { y: 80 } } },
     skycrane: { label: 'Sky crane lowers rover', caption: 'Hovering, the crane lowers the rover on cables, wheels down.', on: { TOUCHDOWN: 'landed' }, parts: { lblShield: { opacity: 0 },  lblAtmo: { opacity: 0 },  lblCrane: { opacity: 1 }, lblRover: { opacity: 1 },  shield: { opacity: 0 }, shell: { opacity: 0 }, crane: { opacity: 1, y: 70 }, cables: { opacity: 1, y: 70 }, rover: { y: 150 } } },
     landed: { label: 'Touchdown!', caption: 'Wheels touch, cables cut, and the crane flies away. The rover is on Mars!', on: {}, parts: { lblShield: { opacity: 0 },  lblAtmo: { opacity: 0 },  lblCrane: { opacity: 0 }, lblRover: { opacity: 1 },  shield: { opacity: 0 }, shell: { opacity: 0 }, crane: { opacity: 0, y: -40, x: 150 }, rover: { y: 155 } } },
-    divert: { label: 'Pick a safer spot', caption: 'The lander sees big rocks and steers to a flatter spot before landing.', on: { HOVER: 'skycrane' }, parts: { shield: { opacity: 0 }, shell: { opacity: 0 }, crane: { opacity: 1, y: 70, x: -40 }, rover: { y: 80, x: -40 } } },
+    divert: { label: 'Pick a safer spot', caption: 'The lander sees big rocks and steers to a flatter spot before landing.', on: { HOVER: 'skycrane' }, parts: { lblDivert: { opacity: 1 },  shield: { opacity: 0 }, shell: { opacity: 0 }, crane: { opacity: 1, y: 70, x: -40 }, rover: { y: 80, x: -40 } } },
   },
 };
