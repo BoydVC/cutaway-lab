@@ -14,7 +14,7 @@ export default {
     { id: 'lblDrown', label: 'Drown label',
       svg: '<text x="280" y="180" text-anchor="middle" fill="#f87171" font-size="12" font-weight="700">drowned</text>', pose: { opacity: 0 } },
     { id: 'lblSmoke', label: 'Smoke label',
-      svg: '<text x="240" y="50" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="700">smoke</text>', pose: { opacity: 0 } },
+      svg: '<text x="240" y="50" text-anchor="middle" fill="#cbd5e1" font-size="11" font-weight="700">smoke</text>', pose: { opacity: 0 } },
     { id: 'lblPool', label: 'Pool label',
       svg: '<text x="260" y="160" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="700">melt pool</text>', pose: { opacity: 0 } },
     { id: 'lblWick', label: 'Wick label',

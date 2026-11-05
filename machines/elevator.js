@@ -12,7 +12,7 @@ export default {
     { id: 'lblDoor', label: 'Door label',
       svg: '<text x="200" y="250" text-anchor="middle" fill="#7dd3fc" font-size="11" font-weight="700">doors</text>' },
     { id: 'lblCW', label: 'Counterweight label',
-      svg: '<text x="70" y="210" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="700">counterweight</text>' },
+      svg: '<text x="70" y="210" text-anchor="middle" fill="#cbd5e1" font-size="11" font-weight="700">counterweight</text>' },
     { id: 'cable', label: 'Cables', job: 'hold the car and the counterweight over a pulley',
       svg: '<path d="M108 60 V40 H200 V70" stroke="#cbd5e1" stroke-width="3" fill="none"/><circle cx="200" cy="40" r="10" fill="#94a3b8" stroke="#e2e8f0" stroke-width="2"/>' },
     { id: 'lblCable', label: 'Cable label',
