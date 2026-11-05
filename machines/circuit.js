@@ -13,6 +13,8 @@ export default {
       svg: '<circle cx="310" cy="150" r="26" fill="#0f172a" stroke="#94a3b8" stroke-width="3"/><path d="M298 150 Q310 132 322 150 Q310 168 298 150" stroke="#64748b" stroke-width="2.5" fill="none"/><rect x="300" y="176" width="20" height="16" rx="2" fill="#94a3b8"/><text x="310" y="215" text-anchor="middle" fill="#94a3b8" font-size="11">bulb</text>', explode: [45, 0] },
     { id: 'wire', label: 'Wires', job: 'are the paths electrons travel on',
       svg: '<path d="M108 140 H170 M230 115 H310 M310 176 V230 H84 V195" stroke="#94a3b8" stroke-width="5" fill="none" stroke-linecap="round"/>' },
+    { id: 'lblWire', label: 'Wire label',
+      svg: '<text x="200" y="250" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="700">wire</text>' },
     { id: 'current', label: 'Current',
       svg: '<g fill="#38bdf8"><circle cx="140" cy="140" r="5"/><circle cx="200" cy="115" r="5"/><circle cx="270" cy="115" r="5"/><circle cx="310" cy="200" r="5"/><circle cx="180" cy="230" r="5"/><circle cx="84" cy="170" r="5"/></g>', pose: { opacity: 0 } },
     { id: 'glow', label: 'Light',

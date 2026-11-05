@@ -6,7 +6,7 @@ export default {
     { id: 'sun', label: 'Sunlight', job: 'gives the energy the leaf needs',
       svg: '<circle cx="70" cy="60" r="28" fill="#fde047"/><g stroke="#facc15" stroke-width="3" stroke-linecap="round"><path d="M70 18 V8 M70 112 V102 M28 60 H18 M122 60 H112 M40 30 L32 22 M100 90 L108 98 M40 90 L32 98 M100 30 L108 22"/></g>' },
     { id: 'lblSun', label: 'Sunlight label',
-      svg: '<text x="60" y="100" text-anchor="middle" fill="#fde047" font-size="13" font-weight="700">sunlight</text>' },
+      svg: '<text x="60" y="90" text-anchor="middle" fill="#fde047" font-size="12" font-weight="700">sunlight</text>' },
     { id: 'lblSugar', label: 'Sugar label',
       svg: '<text x="280" y="220" text-anchor="middle" fill="#86efac" font-size="13" font-weight="700">sugar</text>', pose: { opacity: 0 } },
     { id: 'leaf', label: 'Leaf', job: 'is the solar panel that runs the recipe',
