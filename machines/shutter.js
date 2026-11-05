@@ -3,6 +3,8 @@ export default {
   blurb: 'How blades open for a blink of light, expose the sensor, then close — and why too much light washes out.',
   initial: 'ready',
   parts: [
+    { id: 'lblWash', label: 'Wash callout',
+      svg: '<text x="200" y="40" text-anchor="middle" fill="#f87171" font-size="12" font-weight="700">washed out</text>', pose: { opacity: 0 } },
     { id: 'body', label: 'Camera body',
       svg: '<rect x="70" y="70" width="260" height="180" rx="14" fill="#1e293b" stroke="#94a3b8" stroke-width="3"/><circle cx="200" cy="155" r="70" fill="#0f172a" stroke="#475569" stroke-width="4"/>' },
     { id: 'blades', label: 'Shutter blades', job: 'open for a set time so light can reach the sensor',
@@ -50,7 +52,7 @@ export default {
       label: 'Washed out',
       caption: 'Too much light for too long. The picture is bright white. Use a faster shutter next time.',
       on: {},
-      parts: { blades: { scale: 0.2, opacity: 0.3 }, light: { opacity: 1 }, sensor: { opacity: 0.3 } },
+      parts: { lblWash: { opacity: 1 },  blades: { scale: 0.2, opacity: 0.3 }, light: { opacity: 1 }, sensor: { opacity: 0.3 } },
     },
   },
 };

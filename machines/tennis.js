@@ -3,6 +3,8 @@ export default {
   blurb: 'How a kick serve toss, trophy pose, racket drop, and brush-up contact make the ball jump wide. Generic green and yellow — no tour logos.',
   initial: 'ready',
   parts: [
+    { id: 'lblFault', label: 'Fault callout',
+      svg: '<text x="200" y="40" text-anchor="middle" fill="#f87171" font-size="12" font-weight="700">toss fault</text>', pose: { opacity: 0 } },
     { id: 'court', label: 'Service box',
       svg: '<rect x="40" y="40" width="320" height="220" fill="#3f6212"/><rect x="40" y="40" width="320" height="220" fill="none" stroke="#e2e8f0" stroke-width="3"/><path d="M200 40 V260" stroke="#e2e8f0" stroke-width="2"/><path d="M40 150 H360" stroke="#e2e8f0" stroke-width="2"/><rect x="40" y="150" width="160" height="110" fill="none" stroke="#fde047" stroke-width="2" stroke-dasharray="6 4"/>' },
     { id: 'server', label: 'Server', job: 'tosses, coils, and brushes up the back of the ball',
@@ -32,6 +34,6 @@ export default {
     trophy: { label: 'Trophy pose', caption: 'Racket up, elbow bent — like holding a trophy. Shoulders coil.', on: { DROP: 'drop' }, parts: { racket: { y: -55, x: 10, rot: -20 }, ball: { y: -80, x: 25 }, server: { rot: -10 } } },
     drop: { label: 'Racket drop', caption: 'Racket drops behind the back like a scratching motion, then accelerates up.', on: { BRUSH: 'brush' }, parts: { racket: { y: -20, x: -5, rot: 40 }, ball: { y: -60, x: 30 }, server: { rot: 5 } } },
     brush: { label: 'Brush-up contact', caption: 'Strings brush up the back of the ball. Heavy topspin — it kicks wide off the court!', on: {}, parts: { ball: { x: 160, y: 40 }, arc: { opacity: 1 }, racket: { y: -70, x: 40, rot: -50 }, server: { rot: 15 } } },
-    fault: { label: 'Toss fault', caption: 'Toss went behind the head. Server catches it and starts over — no swing.', on: {}, parts: { ball: { x: -20, y: -40 }, racket: { opacity: 0.7 } } },
+    fault: { label: 'Toss fault', caption: 'Toss went behind the head. Server catches it and starts over — no swing.', on: {}, parts: { lblFault: { opacity: 1 },  ball: { x: -20, y: -40 }, racket: { opacity: 0.7 } } },
   },
 };
