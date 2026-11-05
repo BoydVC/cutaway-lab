@@ -7,6 +7,8 @@ export default {
       svg: '<rect x="70" y="70" width="260" height="180" rx="14" fill="#1e293b" stroke="#94a3b8" stroke-width="3"/><circle cx="200" cy="155" r="70" fill="#0f172a" stroke="#475569" stroke-width="4"/>' },
     { id: 'blades', label: 'Shutter blades', job: 'open for a set time so light can reach the sensor',
       svg: '<g fill="#334155" stroke="#64748b" stroke-width="2"><path d="M200 155 L200 95 A60 60 0 0 1 250 125Z"/><path d="M200 155 L250 125 A60 60 0 0 1 250 185Z"/><path d="M200 155 L250 185 A60 60 0 0 1 200 215Z"/><path d="M200 155 L200 215 A60 60 0 0 1 150 185Z"/><path d="M200 155 L150 185 A60 60 0 0 1 150 125Z"/><path d="M200 155 L150 125 A60 60 0 0 1 200 95Z"/></g>', explode: [0, -40] },
+    { id: 'lblAperture', label: 'Aperture label',
+      svg: '<text x="200" y="100" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="700">aperture</text>' },
     { id: 'lblBlades', label: 'Blades label',
       svg: '<text x="200" y="100" text-anchor="middle" fill="#fde68a" font-size="13" font-weight="700">blades</text>' },
     { id: 'lblSensor', label: 'Sensor label',
