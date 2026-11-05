@@ -1,0 +1,20 @@
+export default {
+  id: 'clock', title: 'Pendulum Clock', emoji: '🕰️', topic: 'Machines',
+  blurb: 'How a swinging pendulum lets a falling weight turn the gears one tiny tick at a time.',
+  initial: 'wound',
+  parts: [
+    { id: 'case', label: 'Clock case', svg: '<rect x="120" y="20" width="160" height="260" rx="10" fill="#7c4a24"/><rect x="132" y="32" width="136" height="236" rx="6" fill="#3b2412"/>' },
+    { id: 'face', label: 'Clock face', job: 'shows the time', svg: '<circle cx="200" cy="80" r="44" fill="#fef3c7" stroke="#d97706" stroke-width="3"/>', explode: [0, -10] },
+    { id: 'hand', label: 'Minute hand', job: 'points to the minutes', svg: '<rect x="198" y="44" width="4" height="38" fill="#111"/>', pose: { x: 0 }, explode: [0, -10] },
+    { id: 'wheel', label: 'Escape wheel', job: 'lets the gears move one tooth per tick', svg: '<g transform="translate(200 150)"><circle r="22" fill="#fbbf24"/><path d="M0 -26 L5 -18 L-5 -18Z M26 0 L18 5 L18 -5Z M0 26 L-5 18 L5 18Z M-26 0 L-18 -5 L-18 5Z" fill="#f59e0b"/></g>', explode: [70, 0] },
+    { id: 'anchor', label: 'Anchor', job: 'locks and unlocks the escape wheel', svg: '<path d="M175 120 L200 110 L225 120" stroke="#9ca3af" stroke-width="6" fill="none"/>', explode: [-70, -10] },
+    { id: 'pendulum', label: 'Pendulum', job: 'swings back and forth at a steady beat', svg: '<g><rect x="198" y="120" width="4" height="110" fill="#d1d5db"/><circle cx="200" cy="235" r="16" fill="#fcd34d"/></g>', explode: [-70, 10] },
+    { id: 'weight', label: 'Weight', job: 'gives the clock its energy by slowly falling', svg: '<rect x="245" y="120" width="16" height="40" rx="3" fill="#a3a3a3"/><line x1="253" y1="40" x2="253" y2="120" stroke="#ddd"/>', explode: [50, 30] },
+  ],
+  states: {
+    wound: { label: 'Wound up', caption: 'Someone winds the clock, lifting the heavy weight to the top.', on: { RELEASE: 'tickLeft', LEAVE: 'stopped' } },
+    tickLeft: { label: 'Swing left: tick', caption: 'The pendulum swings left. The anchor lets the wheel slip one tooth: tick!', on: { SWING: 'tickRight' }, parts: { pendulum: { rot: 12, x: 0 }, anchor: { rot: -6 }, wheel: { rot: 15 }, weight: { y: 10 }, hand: { rot: 6 } } },
+    tickRight: { label: 'Swing right: tock', caption: 'It swings back right and the other side of the anchor catches the next tooth: tock!', on: { RUN_DOWN: 'stopped', SWING: 'tickLeft' }, parts: { pendulum: { rot: -12 }, anchor: { rot: 6 }, wheel: { rot: 30 }, weight: { y: 20 }, hand: { rot: 12 } } },
+    stopped: { label: 'Run down', caption: 'The weight reaches the bottom. No more energy, so the clock stops until it is wound again.', on: {}, parts: { weight: { y: 100 } } },
+  },
+};
