@@ -17,6 +17,8 @@ export default {
       svg: '<text x="200" y="100" text-anchor="middle" fill="#e2e8f0" font-size="13" font-weight="700">blade</text>' },
     { id: 'lblPencil', label: 'Pencil label',
       svg: '<text x="55" y="130" text-anchor="middle" fill="#fb923c" font-size="13" font-weight="700">pencil</text>' },
+    { id: 'lblCrank', label: 'Crank label',
+      svg: '<text x="330" y="110" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="700">crank</text>' },
     { id: 'crank', label: 'Crank', job: 'is the handle you turn to spin the blade',
       svg: '<line x1="250" y1="160" x2="310" y2="120" stroke="#fbbf24" stroke-width="6" stroke-linecap="round"/><circle cx="310" cy="120" r="12" fill="#f59e0b"/>', explode: [50, -20] },
     { id: 'pencil', label: 'Pencil', job: 'is held still while the blade spins around it',
