@@ -18,7 +18,7 @@ export default {
     { id: 'arrowOut', label: 'Output spin',
       svg: '<path d="M250 70 A55 55 0 0 0 200 95" stroke="#fbbf24" stroke-width="3" fill="none"/><polygon points="200,88 188,100 208,102" fill="#fbbf24"/>', pose: { opacity: 0 } },
     { id: 'label', label: 'Gear ratio', job: 'shows how speed trades for twist',
-      svg: '<text x="200" y="255" text-anchor="middle" fill="#cbd5e1" font-size="13" font-weight="700">ratio 1:2 · more twist</text>', pose: { opacity: 0 } },
+      svg: '<text x="200" y="255" text-anchor="middle" fill="#cbd5e1" font-size="13" font-weight="700">1:2 more twist</text>', pose: { opacity: 0 } },
   ],
   states: {
     rest: { label: 'Gears at rest', caption: 'Two gears mesh. The small one has 12 teeth; the big one has 24.', on: { TURN: 'turn' } },

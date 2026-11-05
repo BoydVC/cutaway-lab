@@ -31,6 +31,8 @@ export default {
       svg: '<path d="M232 88 V60 Q232 40 260 36 Q290 32 310 45" stroke="#b91c1c" stroke-width="10" fill="none" stroke-linecap="round"/><text x="280" y="32" fill="#fecaca" font-size="12" font-weight="700">aorta</text>' },
     { id: 'lungs', label: 'Lungs', job: 'swap old air for fresh oxygen',
       svg: '<g><path d="M20 70 C5 100 5 160 25 190 C45 210 70 200 75 170 C80 130 70 90 55 70 C40 55 30 55 20 70Z" fill="#fda4af"/><path d="M380 70 C395 100 395 160 375 190 C355 210 330 200 325 170 C320 130 330 90 345 70 C360 55 370 55 380 70Z" fill="#fda4af"/><path d="M70 120 Q110 100 150 108" stroke="#fb7185" stroke-width="4" fill="none"/><path d="M330 120 Q290 100 250 108" stroke="#fb7185" stroke-width="4" fill="none"/><circle cx="45" cy="120" r="10" fill="#fb7185" opacity=".45"/><circle cx="355" cy="120" r="10" fill="#fb7185" opacity=".45"/></g>' },
+    { id: 'lblLungs', label: 'Lungs label',
+      svg: '<text x="40" y="200" text-anchor="middle" fill="#fda4af" font-size="12" font-weight="700">lungs</text>' },
     // flow arrows (paths that look like arrows)
     { id: 'flowBody', label: 'Blood from body',
       svg: '<g fill="#38bdf8"><path d="M95 40 L115 55 L95 55Z"/><circle cx="108" cy="48" r="5"/></g>', pose: { opacity: 0 } },
