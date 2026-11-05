@@ -7,6 +7,8 @@ export default {
       svg: '<path d="M80 80 H280 V140 H200 V220" stroke="#94a3b8" stroke-width="18" fill="none" stroke-linecap="round"/>' },
     { id: 'needle', label: 'Needle', job: 'pushes the top thread down through the fabric',
       svg: '<line x1="200" y1="140" x2="200" y2="200" stroke="#e2e8f0" stroke-width="3"/><polygon points="195,200 200,215 205,200" fill="#94a3b8"/>', explode: [0, -40] },
+    { id: 'lblTop', label: 'Top thread label',
+      svg: '<text x="260" y="60" text-anchor="middle" fill="#f9a8d4" font-size="12" font-weight="700">top thread</text>' },
     { id: 'presser', label: 'Presser foot', job: 'holds the fabric flat while the needle moves',
       svg: '<rect x="185" y="195" width="30" height="8" rx="2" fill="#64748b"/>', explode: [40, 0] },
     { id: 'bobbin', label: 'Bobbin', job: 'holds the bottom thread that locks each stitch',
