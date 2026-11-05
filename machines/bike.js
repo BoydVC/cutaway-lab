@@ -11,6 +11,8 @@ export default {
       svg: '<circle cx="320" cy="210" r="42" fill="none" stroke="#94a3b8" stroke-width="5"/><circle cx="320" cy="210" r="6" fill="#334155"/><g stroke="#475569" stroke-width="1.5"><path d="M320 168 V252 M278 210 H362 M290 180 L350 240 M290 240 L350 180"/></g>', explode: [30, 10] },
     { id: 'chainring', label: 'Chainring', job: 'is the big gear the pedals turn',
       svg: '<circle cx="160" cy="200" r="28" fill="#1e293b" stroke="#fbbf24" stroke-width="3"/><circle cx="160" cy="200" r="8" fill="#334155"/><g stroke="#fbbf24" stroke-width="2"><path d="M160 172 V228 M132 200 H188 M140 180 L180 220 M140 220 L180 180"/></g>', explode: [-40, 0] },
+    { id: 'lblRing', label: 'Chainring label',
+      svg: '<text x="140" y="200" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="700">chainring</text>' },
     { id: 'pedal', label: 'Pedal', job: 'is where your foot pushes',
       svg: '<rect x="148" y="228" width="24" height="8" rx="2" fill="#e2e8f0"/><path d="M160 200 V228" stroke="#94a3b8" stroke-width="3"/>', explode: [-20, 30] },
     { id: 'chain', label: 'Chain', job: 'pulls the rear cassette when the chainring turns',
