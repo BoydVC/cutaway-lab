@@ -3,6 +3,8 @@ export default {
   blurb: 'How a swinging pendulum lets a falling weight turn the gears one tiny tick at a time.',
   initial: 'wound',
   parts: [
+    { id: 'lblTick', label: 'Tick label',
+      svg: '<text x="320" y="80" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="700">tick</text>', pose: { opacity: 0 } },
     { id: 'case', label: 'Clock case', svg: '<rect x="120" y="20" width="160" height="260" rx="10" fill="#7c4a24"/><rect x="132" y="32" width="136" height="236" rx="6" fill="#3b2412"/>' },
     { id: 'face', label: 'Clock face', job: 'shows the time', svg: '<circle cx="200" cy="80" r="44" fill="#fef3c7" stroke="#d97706" stroke-width="3"/>', explode: [0, -10] },
     { id: 'hand', label: 'Minute hand', job: 'points to the minutes', svg: '<rect x="198" y="44" width="4" height="38" fill="#111"/>', pose: { x: 0 }, explode: [0, -10] },
@@ -19,7 +21,7 @@ export default {
   ],
   states: {
     wound: { label: 'Wound up', caption: 'Someone winds the clock, lifting the heavy weight to the top.', on: { RELEASE: 'tickLeft', LEAVE: 'stopped' } },
-    tickLeft: { label: 'Swing left: tick', caption: 'The pendulum swings left. The anchor lets the wheel slip one tooth: tick!', on: { SWING: 'tickRight' }, parts: { pendulum: { rot: 12, x: 0 }, anchor: { rot: -6 }, wheel: { rot: 15 }, weight: { y: 10 }, hand: { rot: 6 } } },
+    tickLeft: { /*tick*/ label: 'Swing left: tick', caption: 'The pendulum swings left. The anchor lets the wheel slip one tooth: tick!', on: { SWING: 'tickRight' }, parts: { lblTick: { opacity: 1 },  pendulum: { rot: 12, x: 0 }, anchor: { rot: -6 }, wheel: { rot: 15 }, weight: { y: 10 }, hand: { rot: 6 } } },
     tickRight: { label: 'Swing right: tock', caption: 'It swings back right and the other side of the anchor catches the next tooth: tock!', on: { RUN_DOWN: 'stopped', SWING: 'tickLeft' }, parts: { pendulum: { rot: -12 }, anchor: { rot: 6 }, wheel: { rot: 30 }, weight: { y: 20 }, hand: { rot: 12 } } },
     stopped: { label: 'Run down', caption: 'The weight reaches the bottom. No more energy, so the clock stops until it is wound again.', on: {}, parts: { weight: { y: 100 } } },
   },

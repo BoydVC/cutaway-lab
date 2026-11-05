@@ -3,6 +3,8 @@ export default {
   blurb: 'How a leaf catches sunlight, drinks water and air, and builds sugar — then breathes out oxygen.',
   initial: 'idle',
   parts: [
+    { id: 'lblLeaf', label: 'Leaf label',
+      svg: '<text x="80" y="160" text-anchor="middle" fill="#86efac" font-size="12" font-weight="700">leaf</text>' },
     { id: 'sun', label: 'Sunlight', job: 'gives the energy the leaf needs',
       svg: '<circle cx="70" cy="60" r="28" fill="#fde047"/><g stroke="#facc15" stroke-width="3" stroke-linecap="round"><path d="M70 18 V8 M70 112 V102 M28 60 H18 M122 60 H112 M40 30 L32 22 M100 90 L108 98 M40 90 L32 98 M100 30 L108 22"/></g>' },
     { id: 'lblSun', label: 'Sunlight label',

@@ -5,6 +5,8 @@ export default {
   parts: [
     { id: 'tower', label: 'Tower', job: 'holds the nacelle high where the wind is stronger',
       svg: '<rect x="190" y="120" width="20" height="180" fill="#64748b"/><rect x="160" y="290" width="80" height="16" fill="#475569"/>', explode: [0, 40] },
+    { id: 'lblYaw', label: 'Yaw label',
+      svg: '<text x="200" y="120" text-anchor="middle" fill="#c4b5fd" font-size="11" font-weight="700">yaw</text>', pose: { opacity: 0.7 } },
     { id: 'lblWind', label: 'Wind label',
       svg: '<text x="80" y="80" text-anchor="middle" fill="#7dd3fc" font-size="12" font-weight="700">wind →</text>' },
     { id: 'lblTower', label: 'Tower label',
