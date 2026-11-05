@@ -1,0 +1,50 @@
+export default {
+  id: 'zipper', title: 'Zipper', emoji: '🧷', topic: 'Machines',
+  blurb: 'How a slider wedges teeth together on the way up and pries them apart on the way down.',
+  initial: 'open',
+  parts: [
+    { id: 'tapeL', label: 'Left tape',
+      svg: '<rect x="120" y="40" width="36" height="260" rx="4" fill="#1e3a5f"/>' },
+    { id: 'tapeR', label: 'Right tape',
+      svg: '<rect x="244" y="40" width="36" height="260" rx="4" fill="#1e3a5f"/>' },
+    { id: 'teethL', label: 'Left teeth', job: 'are the little hooks on one side of the tape',
+      svg: '<g fill="#94a3b8"><rect x="150" y="60" width="18" height="10" rx="2"/><rect x="150" y="78" width="18" height="10" rx="2"/><rect x="150" y="96" width="18" height="10" rx="2"/><rect x="150" y="114" width="18" height="10" rx="2"/><rect x="150" y="132" width="18" height="10" rx="2"/><rect x="150" y="150" width="18" height="10" rx="2"/><rect x="150" y="168" width="18" height="10" rx="2"/><rect x="150" y="186" width="18" height="10" rx="2"/><rect x="150" y="204" width="18" height="10" rx="2"/><rect x="150" y="222" width="18" height="10" rx="2"/><rect x="150" y="240" width="18" height="10" rx="2"/><rect x="150" y="258" width="18" height="10" rx="2"/></g>', explode: [-40, 0] },
+    { id: 'teethR', label: 'Right teeth', job: 'mesh with the left teeth when the slider climbs',
+      svg: '<g fill="#cbd5e1"><rect x="232" y="60" width="18" height="10" rx="2"/><rect x="232" y="78" width="18" height="10" rx="2"/><rect x="232" y="96" width="18" height="10" rx="2"/><rect x="232" y="114" width="18" height="10" rx="2"/><rect x="232" y="132" width="18" height="10" rx="2"/><rect x="232" y="150" width="18" height="10" rx="2"/><rect x="232" y="168" width="18" height="10" rx="2"/><rect x="232" y="186" width="18" height="10" rx="2"/><rect x="232" y="204" width="18" height="10" rx="2"/><rect x="232" y="222" width="18" height="10" rx="2"/><rect x="232" y="240" width="18" height="10" rx="2"/><rect x="232" y="258" width="18" height="10" rx="2"/></g>', explode: [40, 0] },
+    { id: 'slider', label: 'Slider', job: 'is the wedge that forces teeth together or apart',
+      svg: '<path d="M160 250 H240 L230 280 H170Z" fill="#fbbf24" stroke="#fde68a" stroke-width="2"/><rect x="185" y="255" width="30" height="40" rx="4" fill="#f59e0b"/><text x="200" y="295" text-anchor="middle" fill="#0f172a" font-size="11" font-weight="800">pull</text>', explode: [0, 40] },
+    { id: 'joined', label: 'Joined teeth',
+      svg: '<g fill="#38bdf8"><rect x="180" y="60" width="40" height="10" rx="2"/><rect x="180" y="78" width="40" height="10" rx="2"/><rect x="180" y="96" width="40" height="10" rx="2"/><rect x="180" y="114" width="40" height="10" rx="2"/><rect x="180" y="132" width="40" height="10" rx="2"/></g>', pose: { opacity: 0 } },
+  ],
+  states: {
+    open: {
+      label: 'Fully open',
+      caption: 'Slider is at the bottom. Left and right teeth are apart. Nothing holds the sides together.',
+      on: { PULL_UP: 'meshing' },
+    },
+    meshing: {
+      label: 'Teeth meshing',
+      caption: 'As you pull up, the slider wedges each pair of teeth together.',
+      on: { KEEP: 'half', SNAG: 'snag' },
+      parts: { slider: { y: -80 }, joined: { opacity: 0.7 }, teethL: { x: 8 }, teethR: { x: -8 } },
+    },
+    half: {
+      label: 'Halfway closed',
+      caption: 'Top teeth are locked. Bottom teeth still open. Keep pulling to finish.',
+      on: { PULL_UP: 'closed' },
+      parts: { slider: { y: -140 }, joined: { opacity: 1 }, teethL: { x: 12 }, teethR: { x: -12 } },
+    },
+    closed: {
+      label: 'Zipped shut',
+      caption: 'All teeth meshed. The two tapes act like one strong seam.',
+      on: {},
+      parts: { slider: { y: -200 }, joined: { opacity: 1 }, teethL: { x: 14, opacity: 0.3 }, teethR: { x: -14, opacity: 0.3 } },
+    },
+    snag: {
+      label: 'Fabric snag',
+      caption: 'Cloth got in the slider. Teeth will not mesh. Back the slider up and clear the fabric.',
+      on: {},
+      parts: { slider: { y: -60, rot: 8 }, joined: { opacity: 0.3 } },
+    },
+  },
+};

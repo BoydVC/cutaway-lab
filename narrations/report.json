@@ -144,6 +144,14 @@
     "file": "narrations/photo-captions.mp4"
   },
   {
+    "id": "sharpener",
+    "duration": 38.84,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/sharpener-captions.mp4"
+  },
+  {
     "id": "shutter",
     "duration": 41.48,
     "hasAudio": true,
@@ -206,5 +214,13 @@
     "hasVideo": true,
     "ok": true,
     "file": "narrations/water-captions.mp4"
+  },
+  {
+    "id": "zipper",
+    "duration": 37.26,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/zipper-captions.mp4"
   }
 ]
