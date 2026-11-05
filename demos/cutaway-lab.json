@@ -81,7 +81,27 @@
     },
     {
       "action": "caption",
-      "text": "32 machines. Build your own.",
+      "text": "Flashlight circuit closes",
+      "frames": 6
+    },
+    {
+      "action": "goto",
+      "url": "http://127.0.0.1:4430/#flashlight/on",
+      "frames": 8
+    },
+    {
+      "action": "caption",
+      "text": "Compass finds north",
+      "frames": 6
+    },
+    {
+      "action": "goto",
+      "url": "http://127.0.0.1:4430/#compass/north",
+      "frames": 8
+    },
+    {
+      "action": "caption",
+      "text": "36 machines. Build your own.",
       "frames": 10
     }
   ]
