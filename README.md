@@ -98,6 +98,8 @@ export default { id: 'volcano', title: 'Volcano', emoji: '🌋', initial: 'sleep
 
 Register it in `machines/index.js`, then `npm run check`.
 
+See also [`docs/QUALITY.md`](docs/QUALITY.md) for the v1.0 visual/science pass.
+
 ## Screenshots
 
 | | |
