@@ -1,0 +1,52 @@
+export default {
+  id: 'thermostat', title: 'Thermostat', emoji: '🌡️', topic: 'Machines',
+  blurb: 'How a sensor compares room temperature to your setpoint and turns heat on or off.',
+  initial: 'idle',
+  parts: [
+    { id: 'panel', label: 'Panel',
+      svg: '<rect x="100" y="60" width="200" height="220" rx="16" fill="#1e293b" stroke="#94a3b8" stroke-width="3"/>' },
+    { id: 'display', label: 'Display', job: 'shows the current temperature and your setpoint',
+      svg: '<rect x="120" y="90" width="160" height="70" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/><text x="200" y="135" text-anchor="middle" fill="#e2e8f0" font-size="28" font-weight="800">68°</text>', explode: [0, -40] },
+    { id: 'setpoint', label: 'Setpoint', job: 'is the temperature you asked for',
+      svg: '<text x="200" y="185" text-anchor="middle" fill="#facc15" font-size="14" font-weight="700">set 70°</text>', explode: [0, 0] },
+    { id: 'sensor', label: 'Temp sensor', job: 'measures how warm the room is right now',
+      svg: '<circle cx="200" cy="220" r="14" fill="#22c55e" stroke="#86efac" stroke-width="2"/><text x="200" y="250" text-anchor="middle" fill="#86efac" font-size="12">sensor</text>', explode: [0, 40] },
+    { id: 'relay', label: 'Heat relay', job: 'switches the furnace on or off',
+      svg: '<rect x="130" y="255" width="140" height="18" rx="4" fill="#334155"/><text x="200" y="268" text-anchor="middle" fill="#94a3b8" font-size="11">relay OFF</text>', explode: [-40, 20] },
+    { id: 'relayOn', label: 'Relay on',
+      svg: '<rect x="130" y="255" width="140" height="18" rx="4" fill="#854d0e"/><text x="200" y="268" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="700">relay ON</text>', pose: { opacity: 0 } },
+    { id: 'flame', label: 'Furnace',
+      svg: '<path d="M200 200 Q190 180 200 160 Q210 180 200 200" fill="#f97316"/><path d="M200 200 Q185 175 200 150 Q215 175 200 200" fill="#fbbf24" opacity=".7"/>', pose: { opacity: 0 } },
+  ],
+  states: {
+    idle: {
+      label: 'Watching',
+      caption: 'Room is 68°. You want 70°. The sensor keeps checking.',
+      on: { COOL: 'call' },
+    },
+    call: {
+      label: 'Call for heat',
+      caption: 'Room is below the setpoint. The thermostat closes the relay to call the furnace.',
+      on: { FIRE: 'heating', FAULT: 'fault' },
+      parts: { relayOn: { opacity: 1 }, relay: { opacity: 0 } },
+    },
+    heating: {
+      label: 'Heating',
+      caption: 'Furnace runs. Warm air raises the room toward 70°.',
+      on: { REACH: 'satisfied' },
+      parts: { flame: { opacity: 1 }, relayOn: { opacity: 1 }, relay: { opacity: 0 } },
+    },
+    satisfied: {
+      label: 'Setpoint reached',
+      caption: 'Room hits 70°. Relay opens. Furnace stops. Back to watching.',
+      on: {},
+      parts: { flame: { opacity: 0 }, display: {} },
+    },
+    fault: {
+      label: 'Sensor fault',
+      caption: 'Sensor reading makes no sense. Thermostat refuses to call for heat. Check the wiring.',
+      on: {},
+      parts: { sensor: { opacity: 0.4 } },
+    },
+  },
+};

@@ -38,7 +38,7 @@ await page.goto(URL + 'builder.html'); await page.waitForTimeout(400); await pag
 await page.goto(URL + 'worksheet.html#starship'); await page.waitForTimeout(300); await page.screenshot({ path: `${out}/worksheet.png`, fullPage: true });
 await t('a11y: stage label tracks state, buttons named, imgs labelled', async () => { await page.goto(URL + '#frog/legs'); await page.waitForTimeout(200); assert.match(await page.getAttribute('#stage', 'aria-label'), /Growing legs/); const unnamed = await page.$$eval('button', (bs) => bs.filter((b) => !b.textContent.trim() && !b.getAttribute('aria-label')).length); assert.equal(unnamed, 0); });
 await t('a11y: chart next-step focusable + Enter advances', async () => { await page.goto(URL + '#water'); await page.waitForTimeout(200); await page.focus('#chart g[data-state=evaporate]'); await page.keyboard.press('Enter'); assert.match(page.url(), /#water\/evaporate/); });
-await t('every machine walks its main path to the end in the browser', async () => { for (const id of ['starship','mars','clock','heart','bees','frog','volcano','water','football','baseball','soccer','lacrosse','basketball','hockey','bike','tennis','photo','gears','digest','circuit','elevator','flush','stoplight']) { await page.goto(URL + '#' + id); await page.waitForTimeout(100); for (let i = 0; i < 8; i++) await page.keyboard.press('ArrowRight'); const c = await page.textContent('#caption'); assert.ok(c.length > 10, id); } });
+await t('every machine walks its main path to the end in the browser', async () => { for (const id of ['starship','mars','clock','heart','bees','frog','volcano','water','football','baseball','soccer','lacrosse','basketball','hockey','bike','tennis','photo','gears','digest','circuit','elevator','flush','stoplight','lock','shutter','thermostat']) { await page.goto(URL + '#' + id); await page.waitForTimeout(100); for (let i = 0; i < 8; i++) await page.keyboard.press('ArrowRight'); const c = await page.textContent('#caption'); assert.ok(c.length > 10, id); } });
 await t('reduced motion: no transition', async () => { await page.emulateMedia({ reducedMotion: 'reduce' }); await page.goto(URL + '#frog'); assert.equal(await page.$eval('#stage .part', (g) => getComputedStyle(g).transitionDuration), '0s'); await page.emulateMedia({ reducedMotion: 'no-preference' }); });
 await page.goto(URL + '#frog/legs'); await page.waitForTimeout(1000); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/frog.png` });
 await t('sports: football play-action to catch', async () => { await page.goto(URL + '#football'); for (let i = 0; i < 4; i++) await page.keyboard.press('ArrowRight'); assert.match(page.url(), /catch/); });
@@ -71,6 +71,13 @@ await page.goto(URL + '#flush/siphon'); await page.waitForTimeout(800); await pa
 console.log('ok flush siphon');
 await page.goto(URL + '#stoplight/green'); await page.waitForTimeout(800); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/stoplight.png` });
 console.log('ok stoplight green');
+
+await page.goto(URL + '#lock/open'); await page.waitForTimeout(700); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/lock.png` });
+console.log('ok lock open');
+await page.goto(URL + '#shutter/expose'); await page.waitForTimeout(700); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/shutter.png` });
+console.log('ok shutter expose');
+await page.goto(URL + '#thermostat/heating'); await page.waitForTimeout(700); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/thermostat.png` });
+console.log('ok thermostat heating');
 
 await page.goto(URL + '#digest/absorb'); await page.waitForTimeout(800); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/digest.png` });
 console.log('ok digest absorb');

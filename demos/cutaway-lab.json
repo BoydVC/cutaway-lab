@@ -5,124 +5,6 @@
     "16:9"
   ],
   "fps": 10,
-  "steps": [
-    {
-      "action": "caption",
-      "text": "Every cutaway is a real state machine",
-      "frames": 10
-    },
-    {
-      "action": "hold",
-      "frames": 6
-    },
-    {
-      "action": "click",
-      "selector": "#events button",
-      "frames": 8
-    },
-    {
-      "action": "click",
-      "selector": "#events button",
-      "frames": 8
-    },
-    {
-      "action": "click",
-      "selector": "#events button",
-      "frames": 8
-    },
-    {
-      "action": "caption",
-      "text": "Space to play \u00b7 E exploded \u00b7 Q quiz",
-      "frames": 8
-    },
-    {
-      "action": "click",
-      "selector": "#picker button:nth-child(4)",
-      "frames": 8
-    },
-    {
-      "action": "caption",
-      "text": "Heartbeat: chambers, valves, flow",
-      "frames": 8
-    },
-    {
-      "action": "click",
-      "selector": "#events button",
-      "frames": 7
-    },
-    {
-      "action": "click",
-      "selector": "#events button",
-      "frames": 7
-    },
-    {
-      "action": "click",
-      "selector": "#picker button:nth-child(9)",
-      "frames": 8
-    },
-    {
-      "action": "caption",
-      "text": "Sports plays \u2014 play-action pass",
-      "frames": 8
-    },
-    {
-      "action": "click",
-      "selector": "#play",
-      "frames": 6
-    },
-    {
-      "action": "hold",
-      "frames": 18
-    },
-    {
-      "action": "click",
-      "selector": "#picker button:nth-child(13)",
-      "frames": 8
-    },
-    {
-      "action": "caption",
-      "text": "Pick and roll as a state machine",
-      "frames": 8
-    },
-    {
-      "action": "click",
-      "selector": "#events button",
-      "frames": 7
-    },
-    {
-      "action": "click",
-      "selector": "#events button",
-      "frames": 7
-    },
-    {
-      "action": "click",
-      "selector": "#picker button:nth-child(15)",
-      "frames": 8
-    },
-    {
-      "action": "caption",
-      "text": "Bicycle drivetrain: pedal to wheel",
-      "frames": 8
-    },
-    {
-      "action": "click",
-      "selector": "#play",
-      "frames": 6
-    },
-    {
-      "action": "hold",
-      "frames": 16
-    },
-    {
-      "action": "click",
-      "selector": "#play",
-      "frames": 4
-    },
-    {
-      "action": "hold",
-      "frames": 6
-    }
-  ],
   "denyNames": [
     "Charlotte",
     "Victor",
@@ -131,5 +13,76 @@
     "Spalding",
     "Char",
     "Vic"
+  ],
+  "steps": [
+    {
+      "action": "caption",
+      "text": "Every cutaway is a real state machine",
+      "frames": 10
+    },
+    {
+      "action": "hold",
+      "frames": 5
+    },
+    {
+      "action": "click",
+      "selector": "#events button",
+      "frames": 7
+    },
+    {
+      "action": "click",
+      "selector": "#events button",
+      "frames": 7
+    },
+    {
+      "action": "click",
+      "selector": "#events button",
+      "frames": 7
+    },
+    {
+      "action": "caption",
+      "text": "Sports: play-action pass",
+      "frames": 6
+    },
+    {
+      "action": "goto",
+      "url": "http://127.0.0.1:4430/#football/throw",
+      "frames": 8
+    },
+    {
+      "action": "caption",
+      "text": "Heartbeat with chambers + valves",
+      "frames": 6
+    },
+    {
+      "action": "goto",
+      "url": "http://127.0.0.1:4430/#heart/ventricles",
+      "frames": 8
+    },
+    {
+      "action": "caption",
+      "text": "Simple circuit lights up",
+      "frames": 6
+    },
+    {
+      "action": "goto",
+      "url": "http://127.0.0.1:4430/#circuit/lit",
+      "frames": 8
+    },
+    {
+      "action": "caption",
+      "text": "Space to play \u00b7 E exploded \u00b7 Q quiz",
+      "frames": 8
+    },
+    {
+      "action": "goto",
+      "url": "http://127.0.0.1:4430/#elevator/open",
+      "frames": 8
+    },
+    {
+      "action": "caption",
+      "text": "26 machines. Build your own.",
+      "frames": 10
+    }
   ]
 }

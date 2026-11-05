@@ -21,4 +21,7 @@ import circuit from './circuit.js';
 import stoplight from './stoplight.js';
 import flush from './flush.js';
 import elevator from './elevator.js';
-export const machines = [starship, mars, clock, heart, bees, frog, volcano, water, football, baseball, soccer, lacrosse, basketball, hockey, bike, tennis, photo, gears, digest, circuit, elevator, flush, stoplight];
+import thermostat from './thermostat.js';
+import shutter from './shutter.js';
+import lock from './lock.js';
+export const machines = [starship, mars, clock, heart, bees, frog, volcano, water, football, baseball, soccer, lacrosse, basketball, hockey, bike, tennis, photo, gears, digest, circuit, elevator, flush, stoplight, lock, shutter, thermostat];

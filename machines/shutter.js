@@ -1,0 +1,50 @@
+export default {
+  id: 'shutter', title: 'Camera Shutter', emoji: '📷', topic: 'Machines',
+  blurb: 'How blades open for a blink of light, expose the sensor, then close — and why too much light washes out.',
+  initial: 'ready',
+  parts: [
+    { id: 'body', label: 'Camera body',
+      svg: '<rect x="70" y="70" width="260" height="180" rx="14" fill="#1e293b" stroke="#94a3b8" stroke-width="3"/><circle cx="200" cy="155" r="70" fill="#0f172a" stroke="#475569" stroke-width="4"/>' },
+    { id: 'blades', label: 'Shutter blades', job: 'open for a set time so light can reach the sensor',
+      svg: '<g fill="#334155" stroke="#64748b" stroke-width="2"><path d="M200 155 L200 95 A60 60 0 0 1 250 125Z"/><path d="M200 155 L250 125 A60 60 0 0 1 250 185Z"/><path d="M200 155 L250 185 A60 60 0 0 1 200 215Z"/><path d="M200 155 L200 215 A60 60 0 0 1 150 185Z"/><path d="M200 155 L150 185 A60 60 0 0 1 150 125Z"/><path d="M200 155 L150 125 A60 60 0 0 1 200 95Z"/></g>', explode: [0, -40] },
+    { id: 'aperture', label: 'Aperture', job: 'is the hole size that lets more or less light in',
+      svg: '<circle cx="200" cy="155" r="18" fill="#020617" stroke="#38bdf8" stroke-width="2"/>', explode: [0, 0] },
+    { id: 'sensor', label: 'Sensor', job: 'records the light that hits it while the shutter is open',
+      svg: '<rect x="160" y="130" width="80" height="50" rx="4" fill="#112" stroke="#22d3ee" stroke-width="2" opacity=".5"/>', pose: { opacity: 0.3 }, explode: [0, 45] },
+    { id: 'light', label: 'Light burst',
+      svg: '<circle cx="200" cy="155" r="40" fill="#fde047" opacity=".7"/><circle cx="200" cy="155" r="60" fill="#facc15" opacity=".25"/>', pose: { opacity: 0 } },
+    { id: 'button', label: 'Shutter button', job: 'starts the open-close cycle when you press it',
+      svg: '<rect x="300" y="90" width="36" height="20" rx="6" fill="#f87171"/><text x="318" y="80" text-anchor="middle" fill="#fecaca" font-size="11" font-weight="700">shutter</text>', explode: [40, -20] },
+  ],
+  states: {
+    ready: {
+      label: 'Ready',
+      caption: 'Blades closed. Sensor dark. Press the shutter button to take a picture.',
+      on: { PRESS: 'open' },
+    },
+    open: {
+      label: 'Blades open',
+      caption: 'Blades spring open. Light floods the sensor for a fraction of a second.',
+      on: { EXPOSE: 'expose', OVEREXPOSE: 'wash' },
+      parts: { blades: { scale: 0.35, opacity: 0.4 }, light: { opacity: 0.6 }, sensor: { opacity: 0.8 }, aperture: { scale: 1.4 } },
+    },
+    expose: {
+      label: 'Exposing',
+      caption: 'Sensor soaks up the scene. Timing is everything — bright day needs a faster blink.',
+      on: { CLOSE: 'done' },
+      parts: { blades: { scale: 0.35, opacity: 0.4 }, light: { opacity: 1 }, sensor: { opacity: 1 }, aperture: { scale: 1.4 } },
+    },
+    done: {
+      label: 'Picture taken',
+      caption: 'Blades closed. The sensor saved the light as a photo. Ready for the next shot!',
+      on: {},
+      parts: { sensor: { opacity: 0.6 } },
+    },
+    wash: {
+      label: 'Washed out',
+      caption: 'Too much light for too long. The picture is bright white. Use a faster shutter next time.',
+      on: {},
+      parts: { blades: { scale: 0.2, opacity: 0.3 }, light: { opacity: 1 }, sensor: { opacity: 0.3 } },
+    },
+  },
+};
