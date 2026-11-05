@@ -45,7 +45,7 @@ function labels() {
   for (const g of svg.querySelectorAll('.part')) {
     const part = S.m.parts.find((p) => p.id === g.dataset.part); if (!part.explode) continue;
     const b = g.getBBox(), p = pose(S.m, S.state, part.id, true);
-    const t = document.createElementNS(NS, 'text'); t.classList.add('lbl'); t.setAttribute('text-anchor', 'middle');
+    const t = document.createElementNS(NS, 'text'); t.classList.add('lbl'); t.setAttribute('text-anchor', 'middle'); t.setAttribute('font-size', '12');
     t.setAttribute('x', Math.max(30, Math.min(370, b.x + b.width / 2 + p.x))); t.setAttribute('y', Math.max(12, Math.min(296, b.y + p.y - 4))); t.textContent = part.label; svg.appendChild(t);
   }
 }
@@ -55,8 +55,8 @@ function chart() {
   const edges = L.edges.map((e) => { const A = L.nodes[e.from], B = L.nodes[e.to];
     const d = e.straight ? `M${A.x + 40} ${A.y + A.h} L${B.x + 40} ${B.y}` : `M${A.x + A.w} ${A.y + 11} C${A.x + A.w + 14 * e.lane + 10} ${A.y + 11} ${B.x + B.w + 14 * e.lane + 10} ${B.y + 11} ${B.x + B.w + 2} ${B.y + 11}`;
     const lx = e.straight ? A.x + 46 : A.x + A.w + 7 * e.lane + 8, ly = e.straight ? A.y + A.h + 7 : (A.y + B.y) / 2 + 14;
-    return `<path class="${e.back ? 'back' : ''}" d="${d}"><title>${e.ev}</title></path><text class="ev" x="${lx}" y="${ly}">${nice(e.ev)}</text>`; }).join('');
-  const nodes = Object.entries(L.nodes).map(([n, r]) => `<g class="node ${n === state ? 'on' : S.history.includes(n) ? 'done' : ''}" data-state="${n}" role="button" tabindex="${Object.values(m.states[state].on || {}).includes(n) ? 0 : -1}" aria-label="${m.states[n].label}${n === state ? ' (you are here)' : ''}"><rect x="${r.x}" y="${r.y}" width="${r.w}" height="${r.h}"/><text x="${r.x + 8}" y="${r.y + 15}">${m.states[n].label.slice(0, 30)}</text></g>`).join('');
+    return `<path class="${e.back ? 'back' : ''}" d="${d}"><title>${e.ev}</title></path><text class="ev" x="${lx}" y="${ly}" font-size="12">${nice(e.ev)}</text>`; }).join('');
+  const nodes = Object.entries(L.nodes).map(([n, r]) => `<g class="node ${n === state ? 'on' : S.history.includes(n) ? 'done' : ''}" data-state="${n}" role="button" tabindex="${Object.values(m.states[state].on || {}).includes(n) ? 0 : -1}" aria-label="${m.states[n].label}${n === state ? ' (you are here)' : ''}"><rect x="${r.x}" y="${r.y}" width="${r.w}" height="${r.h}"/><text x="${r.x + 8}" y="${r.y + 18}" font-size="13">${m.states[n].label.slice(0, 28)}</text></g>`).join('');
   svg.innerHTML = '<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#64748b" stroke="none"/></marker></defs>' + edges + nodes;
   svg.querySelectorAll('g.node').forEach((g) => (g.onkeydown = (e) => { if (e.key === 'Enter') { e.stopPropagation(); g.onclick(); } }, g.onclick = () => { const ev = Object.entries(m.states[S.state].on || {}).find(([, t]) => t === g.dataset.state); if (ev) fire(ev[0]); }));
 }

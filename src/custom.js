@@ -3,13 +3,13 @@ import { validate } from './engine.js';
 export const TEMPLATE = {
   id: 'my-volcano-cake', title: 'Baking Soda Volcano', emoji: '🧁', initial: 'ready',
   parts: [
-    { id: 'cup', label: 'Cup', job: 'holds the baking soda', svg: '<path d="M160 260 L175 160 H225 L240 260Z" fill="#94a3b8"/>' },
-    { id: 'foam', label: 'Foam', job: 'is made of gas bubbles', svg: '<ellipse cx="200" cy="165" rx="40" ry="14" fill="#f472b6"/>', pose: { opacity: 0, scale: 0.4 } },
+    { id: 'cup', label: 'Cup', job: 'holds the baking soda', svg: '<path d="M155 265 L172 155 H228 L245 265Z" fill="#94a3b8"/><ellipse cx="200" cy="155" rx="28" ry="5" fill="#cbd5e1"/>' },
+    { id: 'foam', label: 'Foam', job: 'is made of gas bubbles', svg: '<g fill="#f472b6"><ellipse cx="200" cy="158" rx="30" ry="14"/><circle cx="184" cy="150" r="9"/><circle cx="200" cy="146" r="11"/><circle cx="216" cy="150" r="9"/><circle cx="192" cy="138" r="7"/><circle cx="210" cy="136" r="8"/></g>', pose: { opacity: 0, scale: 0.5, y: 10 } },
   ],
   states: {
     ready: { label: 'Ready', caption: 'Baking soda waits in the cup.', on: { POUR_VINEGAR: 'fizz' } },
-    fizz: { label: 'Fizz!', caption: 'Vinegar meets baking soda and makes carbon dioxide gas. Foam everywhere!', on: { WAIT: 'done' }, parts: { foam: { opacity: 1, scale: 1.4, y: -14 } } },
-    done: { label: 'All done', caption: 'The gas escapes and the foam settles down.', on: {}, parts: { foam: { opacity: 0.4, y: 40, scale: 1.6 } } },
+    fizz: { label: 'Fizz!', caption: 'Vinegar meets baking soda and makes carbon dioxide gas. Foam everywhere!', on: { WAIT: 'done' }, parts: { foam: { opacity: 1, scale: 1.2, y: -18 } } },
+    done: { label: 'All done', caption: 'The gas escapes and the foam settles down.', on: {}, parts: { foam: { opacity: 0.45, y: 28, scale: 1.35 } } },
   },
 };
 const ALLOWED = /^(g|path|rect|circle|ellipse|line|polyline|polygon|text|tspan)$/i;

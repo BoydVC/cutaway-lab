@@ -71,6 +71,8 @@ Phone: ![phone](screenshots/phone-390x844.png)
 
 Regenerate the GIF: `node scripts/record-gif.js` (needs ffmpeg).
 
+Visual polish (v0.5): the heart shows chambers, valves and blood-flow arrows; chart labels are ≥12px; the builder foam sits on the cup rim.
+
 Accessibility: the diagram's label follows the current step, the chart's next steps are keyboard-focusable (Enter), and `prefers-reduced-motion` turns off animation and slows autoplay.
 
 MIT licensed. Diagrams are simplified for kids; not engineering or medical references.
