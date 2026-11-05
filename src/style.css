@@ -21,3 +21,4 @@ dialog{background:#1e293b;color:#e5e7eb;border:2px solid #facc15;border-radius:1
 #chart text{fill:#e5e7eb;font-size:11px}#chart path{fill:none;stroke:#64748b;stroke-width:1.5;marker-end:url(#arr)}#chart path.back{stroke-dasharray:4 3}#chart g.node{cursor:pointer}
 nav button small{color:#facc15}
 #chart text.ev{font-size:8px;fill:#94a3b8}
+.links{margin:4px 0 0}.links a{color:#a5b4fc}

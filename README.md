@@ -20,6 +20,15 @@ The sidebar draws the live statechart: the current step glows, loops are dashed,
 `npm run check` validates every machine and `npm run check -- --mermaid` prints each one as a Mermaid statechart.
 Deep links: `#starship/staging`, `#clock/tickLeft/x` (x = exploded).
 
+## Build your own + print a worksheet
+
+- **`builder.html`**: kids write a machine as JSON and the checker flags stuck or unreachable steps as they type. Share links put the whole machine in the URL (`#m=…`). Unsafe SVG (scripts, event handlers, links, images) is removed before it renders.
+- **`worksheet.html#<machine>`**: a printable sheet with put-the-steps-in-order, match-the-part and a 4-question quiz. The answer key is hidden when printed.
+
+| | |
+|---|---|
+| ![builder](screenshots/builder.png) | ![worksheet](screenshots/worksheet.png) |
+
 ## What's inside
 
 | Machine | Main path | Side path |

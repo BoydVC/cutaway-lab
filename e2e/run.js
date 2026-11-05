@@ -29,6 +29,13 @@ await t('volcano erupts', async () => { await page.goto(URL + '#volcano'); for (
 await t('narrate toggle via N', async () => { await page.keyboard.press('n'); assert.ok(await page.isChecked('#narrate')); await page.keyboard.press('n'); });
 await t('part hover highlights', async () => { await page.goto(URL + '#bees'); await page.waitForTimeout(200); await page.hover('#parts li >> nth=3'); assert.equal(await page.locator('#stage .part.hot').count(), 1); });
 await t('bad hash falls back', async () => { await page.goto(URL + '#nope/zzz'); await page.waitForTimeout(200); assert.match(await page.textContent('#title'), /Rocket/); });
+await t('worksheet renders + answer key hidden in print', async () => { await page.goto(URL + 'worksheet.html#volcano'); await page.waitForTimeout(300); assert.match(await page.textContent('h1'), /Volcano/); await page.emulateMedia({ media: 'print' }); assert.equal(await page.isVisible('.key'), false); await page.emulateMedia({ media: 'screen' }); });
+await t('builder: template works and plays', async () => { await page.goto(URL + 'builder.html'); await page.waitForTimeout(400); assert.match(await page.textContent('#ok'), /works/); await page.click('#events button >> nth=0'); assert.match(await page.textContent('#caption'), /carbon dioxide/); });
+await t('builder: broken machine shows errors', async () => { const v = await page.inputValue('#src'); await page.fill('#src', v.replace('"WAIT": "done"', '"WAIT": "nowhere"')); await page.waitForTimeout(500); assert.match(await page.textContent('#errs'), /nowhere/); });
+await t('builder: share link restores machine', async () => { await page.click('#tpl'); await page.click('#share'); const u = page.url(); assert.match(u, /#m=/); await page.goto('about:blank'); await page.goto(u); await page.waitForTimeout(400); assert.match(await page.textContent('#title'), /Baking Soda/); });
+await t('builder: injected script never runs', async () => { const evil = JSON.stringify({ id: 'e', title: 'E', initial: 'a', parts: [{ id: 'p', label: 'P', svg: '<image href=x onerror="window.__pwned=1"/><circle r=\"4\" onload="window.__pwned=1"/>' }], states: { a: { label: 'A', caption: 'a', on: {} } } }); await page.fill('#src', evil); await page.waitForTimeout(600); assert.equal(await page.evaluate(() => window.__pwned), undefined); });
+await page.goto(URL + 'builder.html'); await page.waitForTimeout(400); await page.click('#events button >> nth=0'); await page.waitForTimeout(900); await page.screenshot({ path: `${out}/builder.png` });
+await page.goto(URL + 'worksheet.html#starship'); await page.waitForTimeout(300); await page.screenshot({ path: `${out}/worksheet.png`, fullPage: true });
 // screenshots
 await page.mouse.move(5, 895);
 await page.goto(URL + '#starship/staging'); await page.waitForTimeout(1000); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/hero-1440x900.png` });
@@ -41,6 +48,6 @@ const phone = await browser.newPage({ viewport: { width: 390, height: 844 }, dev
 await phone.goto(URL + '#starship/catch'); await phone.waitForTimeout(1000);
 await t('phone: no horizontal overflow', async () => { assert.ok(await phone.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)); });
 await phone.screenshot({ path: `${out}/phone-390x844.png`, fullPage: true });
-await t('no console errors', async () => assert.deepEqual(errors, []));
+await t('no console errors', async () => assert.deepEqual(errors, [], errors.join(' | ')));
 await browser.close(); srv.kill();
 console.log(`e2e: ${pass} passed, ${fail} failed`); process.exit(fail ? 1 : 0);
