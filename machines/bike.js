@@ -19,6 +19,8 @@ export default {
       svg: '<text x="100" y="230" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">pedal</text>' },
     { id: 'chain', label: 'Chain', job: 'pulls the rear cassette when the chainring turns',
       svg: '<path d="M180 185 Q250 160 300 195" stroke="#a3a3a3" stroke-width="4" fill="none"/><path d="M180 215 Q250 240 300 220" stroke="#a3a3a3" stroke-width="4" fill="none"/>', explode: [0, -35] },
+    { id: 'lblGear', label: 'Gear label',
+      svg: '<text x="280" y="200" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="700">sprocket</text>' },
     { id: 'lblChain', label: 'Chain label',
       svg: '<text x="200" y="250" text-anchor="middle" fill="#fde68a" font-size="13" font-weight="700">chain</text>' },
     { id: 'lblWheel', label: 'Wheel label',
