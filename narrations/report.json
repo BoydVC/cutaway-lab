@@ -17,7 +17,7 @@
   },
   {
     "id": "bees",
-    "duration": 39.0,
+    "duration": 39,
     "hasAudio": true,
     "hasVideo": true,
     "ok": true,
@@ -48,6 +48,15 @@
     "file": "narrations/clock-captions.mp4"
   },
   {
+    "id": "compass",
+    "duration": 33.73,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/compass-captions.mp4",
+    "segments": 5
+  },
+  {
     "id": "digest",
     "duration": 40.41,
     "hasAudio": true,
@@ -70,6 +79,15 @@
     "hasVideo": true,
     "ok": true,
     "file": "narrations/extinguisher-captions.mp4"
+  },
+  {
+    "id": "flashlight",
+    "duration": 38.76,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/flashlight-captions.mp4",
+    "segments": 6
   },
   {
     "id": "flush",

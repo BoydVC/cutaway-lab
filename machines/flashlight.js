@@ -1,0 +1,50 @@
+export default {
+  id: 'flashlight', title: 'Flashlight', emoji: '🔦', topic: 'Machines',
+  blurb: 'How a switch completes a circuit from battery to bulb — and why dead batteries mean no light.',
+  initial: 'off',
+  parts: [
+    { id: 'body', label: 'Body',
+      svg: '<rect x="120" y="80" width="160" height="180" rx="16" fill="#1e293b" stroke="#94a3b8" stroke-width="3"/>' },
+    { id: 'battery', label: 'Batteries', job: 'store the energy that pushes electrons',
+      svg: '<rect x="155" y="140" width="90" height="50" rx="4" fill="#334155" stroke="#e2e8f0" stroke-width="2"/><rect x="155" y="140" width="90" height="16" fill="#f87171"/><text x="200" y="175" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">AA</text>', explode: [-45, 0] },
+    { id: 'switch', label: 'Switch', job: 'opens or closes the path for current',
+      svg: '<rect x="175" y="100" width="50" height="18" rx="4" fill="#475569"/><circle cx="185" cy="109" r="7" fill="#94a3b8"/>', explode: [0, -35] },
+    { id: 'bulb', label: 'Bulb', job: 'glows when current runs through its filament or LED',
+      svg: '<circle cx="200" cy="70" r="22" fill="#0f172a" stroke="#94a3b8" stroke-width="3"/><rect x="190" y="90" width="20" height="12" fill="#64748b"/>', explode: [0, -40] },
+    { id: 'beam', label: 'Beam',
+      svg: '<path d="M180 50 L120 10 H280 L220 50Z" fill="#fde047" opacity=".55"/>', pose: { opacity: 0 } },
+    { id: 'glow', label: 'Glow',
+      svg: '<circle cx="200" cy="70" r="28" fill="#fde047" opacity=".9"/>', pose: { opacity: 0 } },
+  ],
+  states: {
+    off: {
+      label: 'Off',
+      caption: 'Switch is open. Circuit broken. No current, no beam.',
+      on: { SLIDE: 'closing' },
+    },
+    closing: {
+      label: 'Switch closing',
+      caption: 'The slider bridges the contacts. Electrons can flow.',
+      on: { FLOW: 'on' },
+      parts: { switch: { x: 12 } },
+    },
+    on: {
+      label: 'On',
+      caption: 'Switch closed. Current runs from batteries through the bulb. Bright beam!',
+      on: { SLIDE: 'off2', DRAIN: 'dead' },
+      parts: { switch: { x: 20 }, glow: { opacity: 1 }, beam: { opacity: 1 }, bulb: { opacity: 0.4 } },
+    },
+    off2: {
+      label: 'Off again',
+      caption: 'You slid the switch back. Circuit open. Beam gone. Batteries still have juice.',
+      on: {},
+      parts: { switch: { x: 0 } },
+    },
+    dead: {
+      label: 'Batteries dead',
+      caption: 'Batteries drained. Even with the switch on, there is not enough push for light. Replace them.',
+      on: {},
+      parts: { switch: { x: 20 }, battery: { opacity: 0.45 }, glow: { opacity: 0 } },
+    },
+  },
+};
