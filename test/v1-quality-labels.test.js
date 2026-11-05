@@ -66,4 +66,10 @@ describe('v1.0 quality labels', () => {
     const bx = Number((b.match(/\bx="(\d+)/) || [])[1]);
     assert.ok(Math.abs(ax - bx) >= 40, `aperture x=${ax} blades x=${bx} overlap`);
   });
+
+  it('every fleet machine has a TLC model (36)', async () => {
+    const fs = await import('node:fs');
+    const tlas = fs.readdirSync('formal').filter((f) => f.endsWith('.tla'));
+    assert.equal(tlas.length, 36, tlas.join(','));
+  });
 });
