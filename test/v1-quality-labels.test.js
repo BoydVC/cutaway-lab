@@ -1,6 +1,7 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import { machines } from '../machines/index.js';
+import { makeQuiz } from '../src/quiz.js';
 
 describe('v1.0 quality labels', () => {
   for (const m of machines) {
@@ -10,4 +11,9 @@ describe('v1.0 quality labels', () => {
     });
   }
   it('fleet locked at 36', () => assert.equal(machines.length, 36));
+  for (const m of machines) {
+    it(`${m.id} quiz yields 5 questions`, () => {
+      assert.equal(makeQuiz(m, 1, 5).length, 5);
+    });
+  }
 });

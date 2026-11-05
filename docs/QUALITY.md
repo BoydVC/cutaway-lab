@@ -22,4 +22,4 @@ Fleet locked at **36** machines. Desk **1440×900** + phone **390×844** rendere
 - PR: https://github.com/BoydVC/cutaway-lab/pull/20
 
 ## Tests
-- unit **639** · e2e **36** · TLC/formal **28** · OCR clean
+- unit **675** · e2e **36** · TLC/formal **28** · OCR clean
