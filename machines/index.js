@@ -10,4 +10,7 @@ import football from './football.js';
 import baseball from './baseball.js';
 import soccer from './soccer.js';
 import lacrosse from './lacrosse.js';
-export const machines = [starship, mars, clock, heart, bees, frog, volcano, water, football, baseball, soccer, lacrosse];
+import basketball from './basketball.js';
+import hockey from './hockey.js';
+import bike from './bike.js';
+export const machines = [starship, mars, clock, heart, bees, frog, volcano, water, football, baseball, soccer, lacrosse, basketball, hockey, bike];

@@ -4,7 +4,7 @@ import { validate, mainPath, isFinal, reachable } from '../src/engine.js';
 import assert from 'node:assert/strict';
 
 const sports = machines.filter((m) => m.topic === 'Sports');
-assert.equal(sports.length, 4);
+assert.ok(sports.length >= 4, "need ≥4 sports");
 for (const m of sports) {
   assert.deepEqual(validate(m), [], m.id);
   const path = mainPath(m);

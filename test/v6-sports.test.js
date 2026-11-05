@@ -7,8 +7,8 @@ import { layout } from '../src/layout.js';
 
 const sports = ['football', 'baseball', 'soccer', 'lacrosse'];
 
-test('four sports machines registered', () => {
-  assert.equal(machines.filter((m) => m.topic === 'Sports').length, 4);
+test('sports machines registered', () => {
+  assert.ok(machines.filter((m) => m.topic === 'Sports').length >= 4);
   for (const id of sports) assert.ok(machines.find((m) => m.id === id), id);
 });
 

@@ -46,3 +46,10 @@ Regression test rejects Ravens/Orioles/NFL/etc. in machine JSON. Keep it.
 
 ## Fixes applied in v0.8
 See commit / PR body. Each finding above maps to a test in `test/v8-adversarial.test.js`.
+
+
+## v0.10 additions
+- +3 machines: basketball pick-and-roll, hockey breakout, bicycle drivetrain
+- Foam plant tightened (fizz y:-6)
+- Formal: BasketballPlay, HockeyBreakout, BikeDrive TLC-green
+- Blast: picker count assertions relaxed (≥12); sports ≥4; every-machine walk includes new ids

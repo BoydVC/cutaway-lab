@@ -1,0 +1,28 @@
+export default {
+  id: 'hockey', title: 'Hockey: Breakout', emoji: '🏒', topic: 'Sports',
+  blurb: 'How a defenseman retrieves a dump-in, hits the winger on the boards, and the center stretches the ice. Generic teal and white — no team logos.',
+  initial: 'retrieve',
+  parts: [
+    { id: 'rink', label: 'Rink',
+      svg: '<rect x="20" y="40" width="360" height="220" rx="40" fill="#e2e8f0"/><rect x="20" y="40" width="360" height="220" rx="40" fill="none" stroke="#94a3b8" stroke-width="4"/><path d="M200 40 V260" stroke="#ef4444" stroke-width="3"/><path d="M80 40 V260 M320 40 V260" stroke="#3b82f6" stroke-width="2.5"/><circle cx="200" cy="150" r="28" fill="none" stroke="#ef4444" stroke-width="2"/><circle cx="200" cy="150" r="4" fill="#ef4444"/><rect x="20" y="115" width="14" height="70" fill="#0f172a"/><rect x="366" y="115" width="14" height="70" fill="#0f172a"/>' },
+    { id: 'dman', label: 'Defenseman', job: 'retrieves the puck and starts the breakout',
+      svg: '<circle cx="70" cy="180" r="11" fill="#0f766e" stroke="#5eead4" stroke-width="2"/><text x="70" y="184" text-anchor="middle" fill="#ccfbf1" font-size="11" font-weight="700">4</text>', explode: [-20, 20] },
+    { id: 'winger', label: 'Winger', job: 'posts up on the boards for the outlet',
+      svg: '<circle cx="140" cy="70" r="11" fill="#0d9488" stroke="#5eead4" stroke-width="2"/><text x="140" y="74" text-anchor="middle" fill="#ccfbf1" font-size="11" font-weight="700">14</text>', explode: [0, -25] },
+    { id: 'center', label: 'Center', job: 'stretches through the neutral zone',
+      svg: '<circle cx="220" cy="150" r="11" fill="#115e59" stroke="#5eead4" stroke-width="2"/><text x="220" y="154" text-anchor="middle" fill="#ccfbf1" font-size="11" font-weight="700">19</text>', explode: [20, 0] },
+    { id: 'forecheck', label: 'Forechecker', job: 'pressures the defenseman on the retrieve',
+      svg: '<circle cx="110" cy="160" r="10" fill="#b91c1c" stroke="#fecaca" stroke-width="2"/><text x="110" y="164" text-anchor="middle" fill="#fecaca" font-size="11" font-weight="700">x</text>' },
+    { id: 'puck', label: 'Puck', job: 'is rimmed, then taped to the winger',
+      svg: '<circle cx="55" cy="200" r="6" fill="#111827"/>', explode: [0, -40] },
+    { id: 'lane', label: 'Outlet lane',
+      svg: '<path d="M75 175 Q120 100 145 75" stroke="#0f766e" stroke-width="2" fill="none" stroke-dasharray="5 4"/>', pose: { opacity: 0 } },
+  ],
+  states: {
+    retrieve: { label: 'Retrieve', caption: 'Puck dumped in. Defenseman wheels behind the net and looks up-ice.', on: { OUTLET: 'outlet', CHIP: 'chip' }, parts: { dman: { x: 10, y: 15 }, puck: { x: 15, y: 10 } } },
+    outlet: { label: 'Tape-to-tape outlet', caption: 'A crisp pass hits the winger on the boards. Forechecker is a step late.', on: { EXIT: 'zoneExit' }, parts: { puck: { x: 80, y: -110 }, lane: { opacity: 1 }, winger: { x: 10 }, forecheck: { x: 20, y: 10 } } },
+    zoneExit: { label: 'Exit the zone', caption: 'Winger curls up-ice with speed. Center times a cut through the middle.', on: { STRETCH: 'stretch' }, parts: { puck: { x: 120, y: -80 }, winger: { x: 50, y: 40 }, center: { x: 30, y: -5 }, lane: { opacity: 0.5 }, dman: { opacity: 0.7 } } },
+    stretch: { label: 'Stretch pass', caption: 'Winger hits the center streaking through the neutral zone. Odd-man rush!', on: {}, parts: { puck: { x: 160, y: -40 }, center: { x: 80, y: -10 }, winger: { x: 40, y: 20 }, lane: { opacity: 0.3 }, dman: { opacity: 0.6 } } },
+    chip: { label: 'Chip off the glass', caption: 'Pressure is too tight. Defenseman chips it off the glass and out. Safe, but no rush.', on: {}, parts: { puck: { x: 40, y: -80 }, dman: { x: 20 }, forecheck: { x: 15 } } },
+  },
+};

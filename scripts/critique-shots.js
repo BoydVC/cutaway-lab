@@ -34,6 +34,12 @@ const frames = [
   ['soccer', 'cross'],
   ['lacrosse', 'push'],
   ['lacrosse', 'dish'],
+  ['basketball', 'screen'],
+  ['basketball', 'dish'],
+  ['hockey', 'outlet'],
+  ['hockey', 'stretch'],
+  ['bike', 'pull'],
+  ['bike', 'roll'],
 ];
 
 async function shot(page, hash, name) {
