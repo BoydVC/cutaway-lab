@@ -17,6 +17,8 @@ export default {
       svg: '<text x="200" y="70" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="700">pins</text>' },
     { id: 'bolt', label: 'Bolt', job: 'slides out of the door frame when the plug turns',
       svg: '<rect x="255" y="145" width="70" height="30" rx="4" fill="#64748b" stroke="#e2e8f0" stroke-width="2"/>', explode: [40, 0] },
+    { id: 'lblBolt', label: 'Bolt label',
+      svg: '<text x="320" y="160" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">bolt</text>' },
     { id: 'shear', label: 'Shear line',
       svg: '<text x="200" y="132" text-anchor="middle" fill="#86efac" font-size="12" font-weight="700">shear line</text>', pose: { opacity: 0.7 } },
   ],
