@@ -6,7 +6,7 @@ export default {
     { id: 'sun', label: 'Sun', job: 'is the compass the bees use for direction', svg: '<circle cx="350" cy="40" r="22" fill="#fde047"/>' },
     { id: 'hive', label: 'Hive', job: 'is where the dance happens', svg: '<rect x="30" y="170" width="90" height="100" rx="12" fill="#d97706"/><path d="M30 200 h90 M30 230 h90" stroke="#92400e" stroke-width="3"/>', explode: [-10, 10] },
     { id: 'lblHive', label: 'Hive label',
-      svg: '<text x="70" y="160" text-anchor="middle" fill="#fde68a" font-size="13" font-weight="700">hive</text>' },
+      svg: '<text x="70" y="250" text-anchor="middle" fill="#fde68a" font-size="13" font-weight="700">hive</text>' },
     { id: 'lblFlower', label: 'Flower label',
       svg: '<text x="320" y="120" text-anchor="middle" fill="#f9a8d4" font-size="13" font-weight="700">flowers</text>' },
     { id: 'flower', label: 'Flower patch', job: 'has the nectar the bees want', svg: '<g><g fill="#f472b6"><circle cx="318" cy="228" r="9"/><circle cx="342" cy="228" r="9"/><circle cx="330" cy="216" r="9"/><circle cx="330" cy="240" r="9"/></g><circle cx="330" cy="228" r="7" fill="#facc15"/><rect x="328" y="235" width="4" height="28" fill="#16a34a"/><ellipse cx="360" cy="250" rx="8" ry="6" fill="#fb7185"/><circle cx="360" cy="250" r="3" fill="#fde047"/></g>', explode: [10, 10] },
