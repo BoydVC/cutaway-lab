@@ -5,6 +5,8 @@ export default {
   parts: [
     { id: 'sun', label: 'Sun', job: 'is the compass the bees use for direction', svg: '<circle cx="350" cy="40" r="22" fill="#fde047"/>' },
     { id: 'hive', label: 'Hive', job: 'is where the dance happens', svg: '<rect x="30" y="170" width="90" height="100" rx="12" fill="#d97706"/><path d="M30 200 h90 M30 230 h90" stroke="#92400e" stroke-width="3"/>', explode: [-10, 10] },
+    { id: 'lblSun', label: 'Sun label',
+      svg: '<text x="320" y="50" text-anchor="middle" fill="#fde047" font-size="12" font-weight="700">sun</text>' },
     { id: 'lblHive', label: 'Hive label',
       svg: '<text x="70" y="250" text-anchor="middle" fill="#fde68a" font-size="13" font-weight="700">hive</text>' },
     { id: 'lblFlower', label: 'Flower label',
