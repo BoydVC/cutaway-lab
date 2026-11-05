@@ -20,7 +20,7 @@ export default {
     { id: 'lblBall', label: 'Ball label',
       svg: '<text x="260" y="80" text-anchor="middle" fill="#fde047" font-size="13" font-weight="700">ball</text>' },
     { id: 'lblRacket', label: 'Racket label',
-      svg: '<text x="100" y="200" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">racket</text>' },
+      svg: '<text x="70" y="185" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">racket</text>' },
     { id: 'net', label: 'Net',
       svg: '<path d="M40 150 H360" stroke="#f8fafc" stroke-width="4"/><path d="M40 150 V165 M360 150 V165" stroke="#f8fafc" stroke-width="3"/>' },
     { id: 'lblNet', label: 'Net label',

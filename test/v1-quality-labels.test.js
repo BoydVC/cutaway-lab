@@ -39,4 +39,31 @@ describe('v1.0 quality labels', () => {
     assert.match(batt, /fill="#fde68a"[^>]*>9V/);
     assert.match(bulb, /fill="#fde68a"[^>]*>bulb/);
   });
+
+  it('bees dance shows sun-angle arc + flower label near patch', () => {
+    const bees = machines.find((m) => m.id === 'bees');
+    assert.ok(bees.parts.some((p) => p.id === 'sunArc'));
+    const fl = bees.parts.find((p) => p.id === 'lblFlower');
+    const y = Number((fl.svg.match(/\by="(\d+)/) || [])[1]);
+    assert.ok(y > 180, `flower label y=${y} too high (far from patch)`);
+    assert.ok(bees.states.dance.parts.sunArc);
+  });
+  it('frog growing-legs shows gills + tail + reed', () => {
+    const frog = machines.find((m) => m.id === 'frog');
+    for (const id of ['reed', 'lblGills', 'lblTail']) assert.ok(frog.parts.some((p) => p.id === id), id);
+    assert.ok(frog.states.legs.parts.lblGills);
+  });
+  it('sharpener exposes crank label', () => {
+    const s = machines.find((m) => m.id === 'sharpener');
+    assert.ok(s.parts.some((p) => p.id === 'lblCrank'));
+  });
+
+  it('shutter aperture/blades labels do not share the same anchor', () => {
+    const s = machines.find((m) => m.id === 'shutter');
+    const a = s.parts.find((p) => p.id === 'lblAperture').svg;
+    const b = s.parts.find((p) => p.id === 'lblBlades').svg;
+    const ax = Number((a.match(/\bx="(\d+)/) || [])[1]);
+    const bx = Number((b.match(/\bx="(\d+)/) || [])[1]);
+    assert.ok(Math.abs(ax - bx) >= 40, `aperture x=${ax} blades x=${bx} overlap`);
+  });
 });
