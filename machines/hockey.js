@@ -19,6 +19,8 @@ export default {
       svg: '<circle cx="110" cy="160" r="10" fill="#b91c1c" stroke="#fecaca" stroke-width="2"/><text x="110" y="164" text-anchor="middle" fill="#fecaca" font-size="11" font-weight="700">x</text>' },
     { id: 'puck', label: 'Puck', job: 'is rimmed, then taped to the winger',
       svg: '<circle cx="55" cy="200" r="6" fill="#111827"/>', explode: [0, -40] },
+    { id: 'lblPuck', label: 'Puck label',
+      svg: '<text x="200" y="200" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">puck</text>' },
     { id: 'lane', label: 'Outlet lane',
       svg: '<path d="M75 175 Q120 100 145 75" stroke="#0f766e" stroke-width="2" fill="none" stroke-dasharray="5 4"/>', pose: { opacity: 0 } },
   ],
