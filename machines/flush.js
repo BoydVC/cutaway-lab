@@ -24,7 +24,7 @@ export default {
     { id: 'lblPull', label: 'Pull label',
       svg: '<text x="320" y="250" text-anchor="middle" fill="#86efac" font-size="12" font-weight="700">pull ↓</text>', pose: { opacity: 0 } },
     { id: 'siphon', label: 'Siphon', job: 'is the S-shaped pipe that pulls the bowl empty once flow starts',
-      svg: '<path d="M240 250 Q280 250 280 220 Q280 190 250 190" stroke="#64748b" stroke-width="10" fill="none" stroke-linecap="round"/><text x="300" y="220" fill="#94a3b8" font-size="11" font-weight="700">siphon</text>', explode: [45, 20] },
+      svg: '<path d="M240 250 Q280 250 280 220 Q280 190 250 190" stroke="#64748b" stroke-width="10" fill="none" stroke-linecap="round"/><text x="300" y="220" fill="#e2e8f0" font-size="11" font-weight="700">siphon</text>', explode: [45, 20] },
     { id: 'fill', label: 'Fill valve', job: 'refills the tank after a flush',
       svg: '<rect x="120" y="50" width="14" height="80" fill="#94a3b8"/><circle cx="127" cy="50" r="8" fill="#22c55e"/>', pose: { opacity: 0.5 } },
     { id: 'swirl', label: 'Swirl',

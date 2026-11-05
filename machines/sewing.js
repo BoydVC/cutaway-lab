@@ -16,7 +16,7 @@ export default {
     { id: 'lblJam', label: 'Jam label',
       svg: '<text x="200" y="60" text-anchor="middle" fill="#f87171" font-size="12" font-weight="700">thread jam</text>', pose: { opacity: 0 } },
     { id: 'lblPlate', label: 'Plate label',
-      svg: '<text x="120" y="220" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="700">plate</text>' },
+      svg: '<text x="120" y="220" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="700">plate</text>' },
     { id: 'lblNeedle', label: 'Needle label',
       svg: '<text x="260" y="160" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="700">needle</text>' },
     { id: 'bobbin', label: 'Bobbin', job: 'holds the bottom thread that locks each stitch',
