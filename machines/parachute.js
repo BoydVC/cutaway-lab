@@ -9,6 +9,8 @@ export default {
       svg: '<path d="M100 80 Q200 20 300 80 L280 100 Q200 70 120 100Z" fill="#f87171" stroke="#fecaca" stroke-width="2"/>', pose: { opacity: 0.2, scale: 0.3, y: 40 }, explode: [0, -40] },
     { id: 'lblCanopy', label: 'Canopy label',
       svg: '<text x="200" y="40" text-anchor="middle" fill="#fecaca" font-size="13" font-weight="700">canopy</text>', pose: { opacity: 0 } },
+    { id: 'lblTangle', label: 'Tangle label',
+      svg: '<text x="280" y="120" text-anchor="middle" fill="#f87171" font-size="12" font-weight="700">tangle!</text>', pose: { opacity: 0 } },
     { id: 'lblGround', label: 'Ground label',
       svg: '<text x="200" y="295" text-anchor="middle" fill="#86efac" font-size="12" font-weight="700">ground</text>' },
     { id: 'lblJumper', label: 'Jumper label',
@@ -51,7 +53,7 @@ export default {
       label: 'Line tangle',
       caption: 'Lines crossed. Canopy will not inflate right. Need a reserve chute!',
       on: {},
-      parts: { lblCanopy: { opacity: 0.3 },  canopy: { opacity: 0.5, scale: 0.5, rot: 20 }, lines: { opacity: 0.8, rot: -15 } },
+      parts: { lblTangle: { opacity: 1 },  lblCanopy: { opacity: 0.3 },  canopy: { opacity: 0.5, scale: 0.5, rot: 20 }, lines: { opacity: 0.8, rot: -15 } },
     },
   },
 };
