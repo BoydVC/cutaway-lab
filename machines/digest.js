@@ -19,12 +19,14 @@ export default {
       svg: '<circle cx="200" cy="55" r="8" fill="#86efac" stroke="#166534" stroke-width="1.5"/>', explode: [0, -50] },
     { id: 'blood', label: 'Bloodstream', job: 'carries nutrients out to the body',
       svg: '<g stroke="#ef4444" stroke-width="3" fill="none"><path d="M220 240 Q280 220 300 180"/><path d="M210 250 Q260 260 290 230"/></g>', pose: { opacity: 0 } },
+    { id: 'lblBlood', label: 'Blood label',
+      svg: '<text x="320" y="200" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="700">blood</text>', pose: { opacity: 0 } },
   ],
   states: {
     bite: { label: 'Bite + chew', caption: 'Teeth smash the apple. Spit starts breaking starch into sugar.', on: { SWALLOW: 'swallow' }, parts: { food: { scale: 0.85 }, mouth: { scale: 1.08 } } },
     swallow: { label: 'Swallow', caption: 'Tongue pushes the bite back. The esophagus squeezes it downward — a wave called peristalsis.', on: { CHURN: 'churn', CHOKE: 'choke' }, parts: { food: { y: 50 }, esophagus: { scale: 1.05 } } },
     churn: { label: 'Stomach churn', caption: 'Acid and muscles turn the bite into soup. Ready for the intestine.', on: { ABSORB: 'absorb' }, parts: { food: { y: 100, x: -10, scale: 0.7 }, stomach: { scale: 1.1 } } },
-    absorb: { label: 'Nutrients absorb', caption: 'Small intestine soaks up the good stuff into the blood. Energy for you!', on: {}, parts: { food: { y: 160, x: 20, opacity: 0.4 }, intestine: { scale: 1.08 }, blood: { opacity: 1 } } },
+    absorb: { label: 'Nutrients absorb', caption: 'Small intestine soaks up the good stuff into the blood. Energy for you!', on: {}, parts: { lblBlood: { opacity: 1 },  food: { y: 160, x: 20, opacity: 0.4 }, intestine: { scale: 1.08 }, blood: { opacity: 1 } } },
     choke: { label: 'Wrong pipe!', caption: 'Food went toward the windpipe. Cough! (That is why the epiglottis matters.)', on: {}, parts: { food: { x: -25, y: 20, opacity: 0.6 }, esophagus: { opacity: 0.5 } } },
   },
 };
