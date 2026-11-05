@@ -27,8 +27,8 @@ describe('v10 new machines', () => {
       assert.doesNotMatch(blob, /Charlotte|Victor|Miranda|Boyd|Spalding|\bChar\b|\bVic\b/i);
     });
   }
-  it('fleet is 15 machines', () => {
-    assert.equal(machines.length, 15);
+  it('fleet is at least 15 machines', () => {
+    assert.ok(machines.length >= 15);
   });
   it('sports topic ≥ 6', () => {
     assert.ok(machines.filter((m) => m.topic === 'Sports').length >= 6);

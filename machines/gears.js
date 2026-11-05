@@ -1,0 +1,26 @@
+export default {
+  id: 'gears', title: 'Gear Train', emoji: '⚙️', topic: 'Machines',
+  blurb: 'How a small driver gear spins a bigger gear the other way — and why that makes more torque.',
+  initial: 'rest',
+  parts: [
+    { id: 'plate', label: 'Base plate', job: 'holds the gears so they stay meshed',
+      svg: '<rect x="40" y="60" width="320" height="180" rx="12" fill="#1e293b" stroke="#475569" stroke-width="3"/>' },
+    { id: 'driver', label: 'Driver gear', job: 'is the small gear you turn first',
+      svg: '<g><circle cx="140" cy="150" r="36" fill="#0f172a" stroke="#38bdf8" stroke-width="4"/><circle cx="140" cy="150" r="8" fill="#94a3b8"/><g stroke="#38bdf8" stroke-width="6" stroke-linecap="round"><path d="M140 110 V122 M140 178 V190 M100 150 H112 M168 150 H180 M112 122 L120 130 M160 170 L168 178 M112 178 L120 170 M160 130 L168 122"/></g><text x="140" y="155" text-anchor="middle" fill="#e0f2fe" font-size="12" font-weight="800">12T</text></g>', explode: [-40, 0] },
+    { id: 'driven', label: 'Driven gear', job: 'is bigger, turns the other way, and has more twist power',
+      svg: '<g><circle cx="250" cy="150" r="55" fill="#0f172a" stroke="#fbbf24" stroke-width="4"/><circle cx="250" cy="150" r="10" fill="#94a3b8"/><g stroke="#fbbf24" stroke-width="6" stroke-linecap="round"><path d="M250 90 V105 M250 195 V210 M190 150 H205 M295 150 H310 M205 105 L215 115 M285 185 L295 195 M205 195 L215 185 M285 115 L295 105"/></g><text x="250" y="155" text-anchor="middle" fill="#fef3c7" font-size="12" font-weight="800">24T</text></g>', explode: [40, 0] },
+    { id: 'arrowIn', label: 'Input spin',
+      svg: '<path d="M140 70 A40 40 0 0 1 175 95" stroke="#38bdf8" stroke-width="3" fill="none"/><polygon points="175,88 185,100 168,102" fill="#38bdf8"/>', pose: { opacity: 0 } },
+    { id: 'arrowOut', label: 'Output spin',
+      svg: '<path d="M250 70 A55 55 0 0 0 200 95" stroke="#fbbf24" stroke-width="3" fill="none"/><polygon points="200,88 188,100 208,102" fill="#fbbf24"/>', pose: { opacity: 0 } },
+    { id: 'label', label: 'Gear ratio', job: 'shows how speed trades for twist',
+      svg: '<text x="200" y="255" text-anchor="middle" fill="#cbd5e1" font-size="13" font-weight="700">ratio 1:2 — twice the twist, half the speed</text>', pose: { opacity: 0 } },
+  ],
+  states: {
+    rest: { label: 'Gears at rest', caption: 'Two gears mesh. The small one has 12 teeth; the big one has 24.', on: { TURN: 'turn' } },
+    turn: { label: 'Driver turns', caption: 'You spin the small driver clockwise. Its teeth push the big gear.', on: { MESH: 'mesh', SLIP: 'slip' }, parts: { driver: { rot: 30 }, arrowIn: { opacity: 1 } } },
+    mesh: { label: 'Teeth mesh', caption: 'Every tooth of the driver pushes one tooth of the driven gear the other way.', on: { RATIO: 'ratio' }, parts: { driver: { rot: 60 }, driven: { rot: -30 }, arrowIn: { opacity: 1 }, arrowOut: { opacity: 1 } } },
+    ratio: { label: 'Torque wins', caption: 'Two driver turns make one driven turn — half the speed, twice the twist. That is a gear ratio!', on: {}, parts: { driver: { rot: 120 }, driven: { rot: -60 }, arrowIn: { opacity: 0.6 }, arrowOut: { opacity: 1 }, label: { opacity: 1 } } },
+    slip: { label: 'Teeth skip', caption: 'Gears are too far apart. Teeth skip and nothing useful turns. Move them closer.', on: {}, parts: { driven: { x: 20, opacity: 0.7 }, arrowIn: { opacity: 0.4 } } },
+  },
+};

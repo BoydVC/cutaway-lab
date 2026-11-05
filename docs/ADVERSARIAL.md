@@ -53,3 +53,27 @@ See commit / PR body. Each finding above maps to a test in `test/v8-adversarial.
 - Foam plant tightened (fizz y:-6)
 - Formal: BasketballPlay, HockeyBreakout, BikeDrive TLC-green
 - Blast: picker count assertions relaxed (≥12); sports ≥4; every-machine walk includes new ids
+
+## Round 2 — v0.11 (tennis, photosynthesis, fleet 17)
+
+### F9 — MED — Picker wraps to 3 rows on desktop; phone nowrap scrolls
+17 machines → 3 nav rows on 1440px. Fine visually, but keyboard tab order is long.
+**Fix (partial):** phone already `flex-wrap:nowrap` + horizontal scroll. Desktop keeps wrap for discoverability.
+
+### F10 — MED — Worksheet alphabet overflow on dense machines
+Heart parts A–J already trimmed; photosynthesis + tennis add more jobs. Worksheet lettering must not overflow past Z.
+**Fix:** assert worksheet letters ≤ 26 in test; trim jobs.
+
+### F11 — LOW — Narrate TTS shells `echo JSON.stringify` (F6 follow-up)
+Still shelling piper. Captions are from our machines only (not builder). Keep stdin-only path.
+**Fix:** leave as-is; document that builder captions never enter narrate.
+
+### F12 — INFO — Chart back-edge from tennis "Fault toss" label
+Side-path label "Fault toss" vs event FAULT_TOSS — layout truncates fine at 32 chars.
+
+## Blast radius v0.10–v0.11
+| Change | Engine | Quiz | e2e | Formal | Narrate |
+|---|---|---|---|---|---|
+| +basketball/hockey/bike | validate | +3 quizzes | walk+shots | +3 TLA | +3 mp4 |
+| +tennis/photo | validate | +2 quizzes | walk+shots | +2 TLA | pending |
+| Foam y:-6 | — | — | builder | — | — |

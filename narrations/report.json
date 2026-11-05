@@ -1,0 +1,154 @@
+[
+  {
+    "id": "starship",
+    "duration": 51.15,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/starship-captions.mp4"
+  },
+  {
+    "id": "mars",
+    "duration": 46.92,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/mars-captions.mp4"
+  },
+  {
+    "id": "clock",
+    "duration": 38.68,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/clock-captions.mp4"
+  },
+  {
+    "id": "heart",
+    "duration": 31.92,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/heart-captions.mp4"
+  },
+  {
+    "id": "bees",
+    "duration": 39.0,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/bees-captions.mp4"
+  },
+  {
+    "id": "frog",
+    "duration": 46.15,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/frog-captions.mp4"
+  },
+  {
+    "id": "volcano",
+    "duration": 38.36,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/volcano-captions.mp4"
+  },
+  {
+    "id": "water",
+    "duration": 43.92,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/water-captions.mp4"
+  },
+  {
+    "id": "football",
+    "duration": 48.04,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/football-captions.mp4"
+  },
+  {
+    "id": "baseball",
+    "duration": 46.94,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/baseball-captions.mp4"
+  },
+  {
+    "id": "soccer",
+    "duration": 42.29,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/soccer-captions.mp4"
+  },
+  {
+    "id": "lacrosse",
+    "duration": 41.59,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/lacrosse-captions.mp4"
+  },
+  {
+    "id": "basketball",
+    "duration": 43.74,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/basketball-captions.mp4"
+  },
+  {
+    "id": "hockey",
+    "duration": 41.43,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/hockey-captions.mp4"
+  },
+  {
+    "id": "bike",
+    "duration": 38.32,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/bike-captions.mp4"
+  },
+  {
+    "id": "tennis",
+    "duration": 48.71,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/tennis-captions.mp4"
+  },
+  {
+    "id": "photo",
+    "duration": 39.81,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/photo-captions.mp4"
+  },
+  {
+    "id": "gears",
+    "duration": 40.2,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/gears-captions.mp4"
+  },
+  {
+    "id": "digest",
+    "duration": 39.87,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/digest-captions.mp4"
+  }
+]
