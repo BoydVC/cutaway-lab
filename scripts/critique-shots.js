@@ -25,6 +25,15 @@ const frames = [
   ['frog', 'legs'],
   ['volcano', 'erupt/x'],
   ['water', 'precip'],
+  ['football', 'fake'],
+  ['football', 'throw'],
+  ['football', 'catch'],
+  ['baseball', 'toSecond'],
+  ['baseball', 'twinKill'],
+  ['soccer', 'overlap'],
+  ['soccer', 'cross'],
+  ['lacrosse', 'push'],
+  ['lacrosse', 'dish'],
 ];
 
 async function shot(page, hash, name) {

@@ -1,6 +1,6 @@
 {
   "name": "cutaway-lab",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "type": "module",
   "private": true,
   "scripts": {
@@ -9,7 +9,9 @@
     "e2e": "node e2e/run.js",
     "check": "node scripts/check.js",
     "gif": "node scripts/record-gif.js",
-    "narrate": "node scripts/narrate.js"
+    "narrate": "node scripts/narrate.js",
+    "formal": "node formal/check.js && node formal/check-baseball.js && node formal/check-soccer.js && node formal/check-lacrosse.js && node formal/check-all.js",
+    "tlc": "bash formal/tlc-all.sh"
   },
   "license": "MIT",
   "devDependencies": {
