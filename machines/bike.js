@@ -15,6 +15,8 @@ export default {
       svg: '<text x="140" y="200" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="700">chainring</text>' },
     { id: 'pedal', label: 'Pedal', job: 'is where your foot pushes',
       svg: '<rect x="148" y="228" width="24" height="8" rx="2" fill="#e2e8f0"/><path d="M160 200 V228" stroke="#94a3b8" stroke-width="3"/>', explode: [-20, 30] },
+    { id: 'lblPedal', label: 'Pedal label',
+      svg: '<text x="100" y="230" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">pedal</text>' },
     { id: 'chain', label: 'Chain', job: 'pulls the rear cassette when the chainring turns',
       svg: '<path d="M180 185 Q250 160 300 195" stroke="#a3a3a3" stroke-width="4" fill="none"/><path d="M180 215 Q250 240 300 220" stroke="#a3a3a3" stroke-width="4" fill="none"/>', explode: [0, -35] },
     { id: 'lblChain', label: 'Chain label',
