@@ -3,6 +3,8 @@ export default {
   blurb: 'How a save turns into a 4-on-3 fast break: clear, outlet, dodge, and finish.',
   initial: 'save',
   parts: [
+    { id: 'lblReset', label: 'Callout',
+      svg: '<text x="200" y="40" text-anchor="middle" fill="#f87171" font-size="12" font-weight="700">reset</text>', pose: { opacity: 0 } },
     { id: 'field', label: 'Field', svg: '<rect x="30" y="40" width="340" height="220" fill="#14532d"/><rect x="30" y="40" width="340" height="220" fill="none" stroke="#86efac" stroke-width="3"/><circle cx="200" cy="150" r="24" fill="none" stroke="#86efac" stroke-width="2"/><path d="M200 40 V270" stroke="#86efac" stroke-width="2"/><path d="M130 40 V270 M270 40 V270" stroke="#86efac" stroke-width="1.5" stroke-dasharray="6 4" opacity=".7"/><circle cx="70" cy="150" r="28" fill="none" stroke="#5eead4" stroke-width="2" opacity=".85"/><circle cx="330" cy="150" r="28" fill="none" stroke="#5eead4" stroke-width="2" opacity=".85"/><rect x="30" y="120" width="18" height="60" fill="#e2e8f0"/><rect x="352" y="120" width="18" height="60" fill="#e2e8f0"/><text x="200" y="36" text-anchor="middle" fill="#86efac" font-size="11" font-weight="700">restraining</text>' },
     { id: 'goalie', label: 'Goalie', job: 'makes the save and starts the clear', svg: '<circle cx="60" cy="150" r="12" fill="#0f766e" stroke="#5eead4" stroke-width="2"/><text x="60" y="154" text-anchor="middle" fill="#ccfbf1" font-size="11" font-weight="700">G</text><rect x="72" y="140" width="14" height="6" fill="#5eead4"/>', explode: [-20, 0] },
     { id: 'lblG', label: 'Goalie label',
@@ -25,6 +27,6 @@ export default {
     clear: { label: 'Outlet clear', caption: 'A long outlet pass finds a defender already pushing upfield. The break is on!', on: { PUSH: 'push', STALL: 'reset' }, parts: { ball: { x: 45, y: 25 }, outlet: { x: 20, y: -5 }, attack1: { x: 20 }, attack2: { x: 15 } } },
     push: { label: '4-on-3 push', caption: 'Four attackers vs three defenders. The ball carrier dodges to draw two.', on: { DISH: 'dish' }, parts: { ball: { x: 100, y: -20 }, outlet: { x: 80, y: -40 }, stick: { opacity: 1 }, defense: { x: 30 }, attack1: { x: 40, y: -10 }, attack2: { x: 30, y: 5 } } },
     dish: { label: 'Dish and finish', caption: 'A quick skip pass finds the open attacker. Shot — goal! Fast break complete.', on: {}, parts: { ball: { x: 200, y: -20 }, attack1: { x: 80, y: 5 }, stick: { opacity: 0.3 }, outlet: { x: 90, y: -30, opacity: 0.7 }, defense: { x: 40, opacity: 0.6 } } },
-    reset: { label: 'Reset the clear', caption: 'The outlet is covered. Goalie resets and looks for a safer clear. Break called off.', on: {}, parts: { ball: { x: 10, y: 10 }, outlet: { x: -10, opacity: 0.7 } } },
+    reset: { label: 'Reset the clear', caption: 'The outlet is covered. Goalie resets and looks for a safer clear. Break called off.', on: {}, parts: { lblReset: { opacity: 1 },  ball: { x: 10, y: 10 }, outlet: { x: -10, opacity: 0.7 } } },
   },
 };

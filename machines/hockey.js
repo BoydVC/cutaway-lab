@@ -3,6 +3,8 @@ export default {
   blurb: 'How a defenseman retrieves a dump-in, hits the winger on the boards, and the center stretches the ice. Generic teal and white — no team logos.',
   initial: 'retrieve',
   parts: [
+    { id: 'lblChip', label: 'Callout',
+      svg: '<text x="200" y="40" text-anchor="middle" fill="#f87171" font-size="12" font-weight="700">chip out</text>', pose: { opacity: 0 } },
     { id: 'rink', label: 'Rink',
       svg: '<rect x="20" y="40" width="360" height="220" rx="40" fill="#e2e8f0"/><rect x="20" y="40" width="360" height="220" rx="40" fill="none" stroke="#94a3b8" stroke-width="4"/><path d="M200 40 V260" stroke="#ef4444" stroke-width="3"/><path d="M80 40 V260 M320 40 V260" stroke="#3b82f6" stroke-width="2.5"/><circle cx="200" cy="150" r="28" fill="none" stroke="#ef4444" stroke-width="2"/><circle cx="200" cy="150" r="4" fill="#ef4444"/><rect x="20" y="115" width="14" height="70" fill="#0f172a"/><rect x="366" y="115" width="14" height="70" fill="#0f172a"/>' },
     { id: 'dman', label: 'Defenseman', job: 'retrieves the puck and starts the breakout',
@@ -33,6 +35,6 @@ export default {
     outlet: { label: 'Tape-to-tape outlet', caption: 'A crisp pass hits the winger on the boards. Forechecker is a step late.', on: { EXIT: 'zoneExit' }, parts: { puck: { x: 80, y: -110 }, lane: { opacity: 1 }, winger: { x: 10 }, lblWing: { x: 10 }, forecheck: { x: 20, y: 10 } } },
     zoneExit: { label: 'Exit the zone', caption: 'Winger curls up-ice with speed. Center times a cut through the middle.', on: { STRETCH: 'stretch' }, parts: { puck: { x: 120, y: -80 }, winger: { x: 50, y: 40 }, lblWing: { x: 50, y: 40 }, center: { x: 30, y: -5 }, lblC: { x: 30, y: -5 }, lane: { opacity: 0.5 }, dman: { opacity: 0.7 } } },
     stretch: { label: 'Stretch pass', caption: 'Winger hits the center streaking through the neutral zone. Odd-man rush!', on: {}, parts: { puck: { x: 160, y: -40 }, center: { x: 80, y: -10 }, lblC: { x: 80, y: -10 }, winger: { x: 40, y: 20 }, lblWing: { x: 40, y: 20 }, lane: { opacity: 0.3 }, dman: { opacity: 0.6 } } },
-    chip: { label: 'Chip off the glass', caption: 'Pressure is too tight. Defenseman chips it off the glass and out. Safe, but no rush.', on: {}, parts: { puck: { x: 40, y: -80 }, dman: { x: 20 }, forecheck: { x: 15 } } },
+    chip: { label: 'Chip off the glass', caption: 'Pressure is too tight. Defenseman chips it off the glass and out. Safe, but no rush.', on: {}, parts: { lblChip: { opacity: 1 },  puck: { x: 40, y: -80 }, dman: { x: 20 }, forecheck: { x: 15 } } },
   },
 };

@@ -3,6 +3,8 @@ export default {
   blurb: 'How a 6-4-3 double play turns two outs from one ground ball: shortstop to second to first.',
   initial: 'pitch',
   parts: [
+    { id: 'lblSafe', label: 'Callout',
+      svg: '<text x="200" y="40" text-anchor="middle" fill="#f87171" font-size="12" font-weight="700">safe!</text>', pose: { opacity: 0 } },
     { id: 'diamond', label: 'Infield', svg: '<rect x="20" y="30" width="360" height="250" fill="#166534"/><path d="M200 270 L40 40 L360 40 Z" fill="#15803d" opacity=".55"/><path d="M200 60 L340 200 L200 270 L60 200 Z" fill="#a16207"/><path d="M200 60 L340 200 L200 270 L60 200 Z" fill="none" stroke="#fef3c7" stroke-width="2.5"/><path d="M200 270 L60 40 M200 270 L340 40" stroke="#fef3c7" stroke-width="1.5" opacity=".55"/><circle cx="200" cy="200" r="22" fill="#a3a3a3" opacity=".5"/><circle cx="200" cy="200" r="6" fill="#78716c"/><rect x="193" y="53" width="14" height="14" fill="#fff" stroke="#e2e8f0"/><rect x="333" y="193" width="14" height="14" fill="#fff"/><rect x="193" y="263" width="14" height="14" fill="#fff"/><rect x="53" y="193" width="14" height="14" fill="#fff"/><text x="200" y="48" text-anchor="middle" fill="#fef3c7" font-size="12" font-weight="700">2B</text><text x="358" y="218" fill="#fef3c7" font-size="12" font-weight="700">1B</text><text x="200" y="292" text-anchor="middle" fill="#fef3c7" font-size="12" font-weight="700">Home</text><text x="32" y="218" fill="#fef3c7" font-size="12" font-weight="700">3B</text>' },
     { id: 'pitcher', label: 'Pitcher', job: 'throws the pitch that starts the play', svg: '<circle cx="200" cy="200" r="8" fill="#1d4ed8"/>' },
     { id: 'ss', label: 'Shortstop', job: 'fields the grounder and starts the double play', svg: '<circle cx="140" cy="160" r="9" fill="#1e3a8a"/><circle cx="140" cy="160" r="3" fill="#fef08a"/>', explode: [-40, -20] },
@@ -26,6 +28,6 @@ export default {
     toSecond: { label: 'Flip to second', caption: 'Shortstop fields it clean and flips to the second baseman covering the bag.', on: { FORCE: 'toFirst' }, parts: { ball: { x: 50, y: -35 }, ss: { x: 20, y: 5 }, runner: { x: -40, y: -35 }, batter: { x: 70, y: -30 }, '2b': { x: -10, y: 10 } } },
     toFirst: { label: 'Throw to first', caption: 'Second baseman touches the bag for one out, then rifles the ball to first.', on: { OUT: 'twinKill' }, parts: { ball: { x: 110, y: 10 }, runner: { opacity: 0.3, x: -40, y: -35 }, '2b': { rot: 20 }, batter: { x: 100, y: -40 }, '1b': { x: -5, y: -5 } } },
     twinKill: { label: 'Double play!', caption: 'First baseman catches it. Two outs on one pitch — a classic 6-4-3.', on: {}, parts: { ball: { x: 120, y: 20, opacity: 0.4 }, batter: { opacity: 0.3, x: 100, y: -40 }, runner: { opacity: 0.2 } } },
-    safe: { label: 'Everybody safe', caption: 'The shortstop bobbles it. Both runners reach safely. No double play today.', on: {}, parts: { ball: { x: -40, y: -10, opacity: 0.5 }, batter: { x: 110, y: -45 }, runner: { x: -50, y: -40 } } },
+    safe: { label: 'Everybody safe', caption: 'The shortstop bobbles it. Both runners reach safely. No double play today.', on: {}, parts: { lblSafe: { opacity: 1 },  ball: { x: -40, y: -10, opacity: 0.5 }, batter: { x: 110, y: -45 }, runner: { x: -50, y: -40 } } },
   },
 };

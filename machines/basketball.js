@@ -3,6 +3,8 @@ export default {
   blurb: 'How a screen frees the ball-handler, then the screener rolls to the rim for an open look. Generic navy and orange — no team logos.',
   initial: 'iso',
   parts: [
+    { id: 'lblSwitch', label: 'Callout',
+      svg: '<text x="200" y="40" text-anchor="middle" fill="#f87171" font-size="12" font-weight="700">switch</text>', pose: { opacity: 0 } },
     { id: 'court', label: 'Half court',
       svg: '<rect x="20" y="30" width="360" height="240" fill="#b45309"/><rect x="20" y="30" width="360" height="240" fill="none" stroke="#fde68a" stroke-width="3"/><path d="M300 30 V270" stroke="#fde68a" stroke-width="2"/><path d="M300 70 A80 80 0 0 0 300 230" fill="none" stroke="#fde68a" stroke-width="2"/><circle cx="300" cy="150" r="40" fill="none" stroke="#fde68a" stroke-width="2"/><rect x="300" y="110" width="80" height="80" fill="none" stroke="#fde68a" stroke-width="2"/><path d="M300 120 H312 M300 130 H312 M300 170 H312 M300 180 H312" stroke="#fde68a" stroke-width="2"/><rect x="368" y="130" width="6" height="40" fill="#e2e8f0"/><circle cx="365" cy="150" r="9" fill="none" stroke="#f97316" stroke-width="2"/><circle cx="365" cy="150" r="2" fill="#f97316"/>' },
     { id: 'lblPaint', label: 'Paint label',
@@ -33,6 +35,6 @@ export default {
     screen: { label: 'Screen set', caption: 'Solid screen! The on-ball defender runs into it. Ball-handler turns the corner.', on: { TURN: 'turn', SWITCH: 'switch' }, parts: { screen: { opacity: 1 }, handler: { x: 30, y: -10 }, lblBall: { x: 30, y: -10 }, defender1: { x: -5, y: 15 }, ball: { x: 25, y: -10 } } },
     turn: { label: 'Turn the corner', caption: 'Ball-handler attacks downhill. Help defender has to choose: stay home or help.', on: { DISH: 'dish' }, parts: { handler: { x: 80, y: -20 }, lblBall: { x: 80, y: -20 }, ball: { x: 75, y: -20 }, screen: { opacity: 0.4 }, screener: { x: 40 }, lblScreen: { x: 40 }, defender2: { x: 20 }, roll: { opacity: 0.5 } } },
     dish: { label: 'Dish to the roll', caption: 'A bounce pass hits the screener rolling to the rim. Layup — two points!', on: {}, parts: { ball: { x: 140, y: -10 }, screener: { x: 100, y: 5 }, lblScreen: { x: 100, y: 5 }, roll: { opacity: 1 }, handler: { x: 90, y: -25 }, lblBall: { x: 90, y: -25 }, defender2: { x: 40, y: 10 } } },
-    switch: { label: 'Defense switches', caption: 'Defenders switch. Ball-handler pulls up for a mid-range jumper instead.', on: {}, parts: { handler: { x: 50, y: -30 }, ball: { x: 50, y: -50 }, defender1: { x: 40 }, defender2: { x: -30, y: 20 }, screener: { opacity: 0.6 } } },
+    switch: { label: 'Defense switches', caption: 'Defenders switch. Ball-handler pulls up for a mid-range jumper instead.', on: {}, parts: { lblSwitch: { opacity: 1 },  handler: { x: 50, y: -30 }, ball: { x: 50, y: -50 }, defender1: { x: 40 }, defender2: { x: -30, y: 20 }, screener: { opacity: 0.6 } } },
   },
 };
