@@ -28,9 +28,9 @@ export default {
   ],
   states: {
     iso: { label: 'Isolation set', caption: 'Ball-handler faces up. Screener walks over to set a pick on the defender.', on: { SCREEN: 'screen' }, parts: { screener: { x: -10 } } },
-    screen: { label: 'Screen set', caption: 'Solid screen! The on-ball defender runs into it. Ball-handler turns the corner.', on: { TURN: 'turn', SWITCH: 'switch' }, parts: { screen: { opacity: 1 }, handler: { x: 30, y: -10 }, defender1: { x: -5, y: 15 }, ball: { x: 25, y: -10 } } },
-    turn: { label: 'Turn the corner', caption: 'Ball-handler attacks downhill. Help defender has to choose: stay home or help.', on: { DISH: 'dish' }, parts: { handler: { x: 80, y: -20 }, ball: { x: 75, y: -20 }, screen: { opacity: 0.4 }, screener: { x: 40 }, defender2: { x: 20 }, roll: { opacity: 0.5 } } },
-    dish: { label: 'Dish to the roll', caption: 'A bounce pass hits the screener rolling to the rim. Layup — two points!', on: {}, parts: { ball: { x: 140, y: -10 }, screener: { x: 100, y: 5 }, roll: { opacity: 1 }, handler: { x: 90, y: -25 }, defender2: { x: 40, y: 10 } } },
+    screen: { label: 'Screen set', caption: 'Solid screen! The on-ball defender runs into it. Ball-handler turns the corner.', on: { TURN: 'turn', SWITCH: 'switch' }, parts: { screen: { opacity: 1 }, handler: { x: 30, y: -10 }, lblBall: { x: 30, y: -10 }, defender1: { x: -5, y: 15 }, ball: { x: 25, y: -10 } } },
+    turn: { label: 'Turn the corner', caption: 'Ball-handler attacks downhill. Help defender has to choose: stay home or help.', on: { DISH: 'dish' }, parts: { handler: { x: 80, y: -20 }, lblBall: { x: 80, y: -20 }, ball: { x: 75, y: -20 }, screen: { opacity: 0.4 }, screener: { x: 40 }, lblScreen: { x: 40 }, defender2: { x: 20 }, roll: { opacity: 0.5 } } },
+    dish: { label: 'Dish to the roll', caption: 'A bounce pass hits the screener rolling to the rim. Layup — two points!', on: {}, parts: { ball: { x: 140, y: -10 }, screener: { x: 100, y: 5 }, lblScreen: { x: 100, y: 5 }, roll: { opacity: 1 }, handler: { x: 90, y: -25 }, lblBall: { x: 90, y: -25 }, defender2: { x: 40, y: 10 } } },
     switch: { label: 'Defense switches', caption: 'Defenders switch. Ball-handler pulls up for a mid-range jumper instead.', on: {}, parts: { handler: { x: 50, y: -30 }, ball: { x: 50, y: -50 }, defender1: { x: 40 }, defender2: { x: -30, y: 20 }, screener: { opacity: 0.6 } } },
   },
 };

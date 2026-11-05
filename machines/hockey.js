@@ -10,7 +10,9 @@ export default {
     { id: 'lblD', label: 'D label',
       svg: '<text x="100" y="220" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="700">D</text>' },
     { id: 'lblWing', label: 'Wing label',
-      svg: '<text x="280" y="120" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="700">W</text>' },
+      svg: '<text x="140" y="55" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="700">W</text>' },
+    { id: 'lblC', label: 'Center label',
+      svg: '<text x="220" y="135" text-anchor="middle" fill="#a7f3d0" font-size="11" font-weight="700">C</text>' },
     { id: 'winger', label: 'Winger', job: 'posts up on the boards for the outlet',
       svg: '<circle cx="140" cy="70" r="11" fill="#0d9488" stroke="#5eead4" stroke-width="2"/><text x="140" y="74" text-anchor="middle" fill="#ccfbf1" font-size="11" font-weight="700">14</text>', explode: [0, -25] },
     { id: 'center', label: 'Center', job: 'stretches through the neutral zone',
@@ -26,9 +28,9 @@ export default {
   ],
   states: {
     retrieve: { label: 'Retrieve', caption: 'Puck dumped in. Defenseman wheels behind the net and looks up-ice.', on: { OUTLET: 'outlet', CHIP: 'chip' }, parts: { dman: { x: 10, y: 15 }, puck: { x: 15, y: 10 } } },
-    outlet: { label: 'Tape-to-tape outlet', caption: 'A crisp pass hits the winger on the boards. Forechecker is a step late.', on: { EXIT: 'zoneExit' }, parts: { puck: { x: 80, y: -110 }, lane: { opacity: 1 }, winger: { x: 10 }, forecheck: { x: 20, y: 10 } } },
-    zoneExit: { label: 'Exit the zone', caption: 'Winger curls up-ice with speed. Center times a cut through the middle.', on: { STRETCH: 'stretch' }, parts: { puck: { x: 120, y: -80 }, winger: { x: 50, y: 40 }, center: { x: 30, y: -5 }, lane: { opacity: 0.5 }, dman: { opacity: 0.7 } } },
-    stretch: { label: 'Stretch pass', caption: 'Winger hits the center streaking through the neutral zone. Odd-man rush!', on: {}, parts: { puck: { x: 160, y: -40 }, center: { x: 80, y: -10 }, winger: { x: 40, y: 20 }, lane: { opacity: 0.3 }, dman: { opacity: 0.6 } } },
+    outlet: { label: 'Tape-to-tape outlet', caption: 'A crisp pass hits the winger on the boards. Forechecker is a step late.', on: { EXIT: 'zoneExit' }, parts: { puck: { x: 80, y: -110 }, lane: { opacity: 1 }, winger: { x: 10 }, lblWing: { x: 10 }, forecheck: { x: 20, y: 10 } } },
+    zoneExit: { label: 'Exit the zone', caption: 'Winger curls up-ice with speed. Center times a cut through the middle.', on: { STRETCH: 'stretch' }, parts: { puck: { x: 120, y: -80 }, winger: { x: 50, y: 40 }, lblWing: { x: 50, y: 40 }, center: { x: 30, y: -5 }, lblC: { x: 30, y: -5 }, lane: { opacity: 0.5 }, dman: { opacity: 0.7 } } },
+    stretch: { label: 'Stretch pass', caption: 'Winger hits the center streaking through the neutral zone. Odd-man rush!', on: {}, parts: { puck: { x: 160, y: -40 }, center: { x: 80, y: -10 }, lblC: { x: 80, y: -10 }, winger: { x: 40, y: 20 }, lblWing: { x: 40, y: 20 }, lane: { opacity: 0.3 }, dman: { opacity: 0.6 } } },
     chip: { label: 'Chip off the glass', caption: 'Pressure is too tight. Defenseman chips it off the glass and out. Safe, but no rush.', on: {}, parts: { puck: { x: 40, y: -80 }, dman: { x: 20 }, forecheck: { x: 15 } } },
   },
 };

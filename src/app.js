@@ -99,8 +99,9 @@ function fillPicker() {
   if (S.m) document.querySelectorAll('#picker button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.id === S.m.id)));
   stars();
 }
+const TOPIC_SHORT = { 'Animals & Bodies': 'Animals', 'Earth Science': 'Earth', Machines: 'Machines', Sports: 'Sports', Space: 'Space' };
 const topics = ['All', ...new Set(machines.map((m) => m.topic))];
-$('#topics').innerHTML = topics.map((t) => `<button type="button" data-topic="${t}" aria-pressed="${t==='All'}">${t}</button>`).join('');
+$('#topics').innerHTML = topics.map((t) => `<button type="button" data-topic="${t}" aria-pressed="${t==='All'}" title="${t}">${TOPIC_SHORT[t] || t}</button>`).join('');
 document.querySelectorAll('#topics button').forEach((b) => (b.onclick = () => {
   topicFilter = b.dataset.topic;
   document.querySelectorAll('#topics button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
