@@ -9,6 +9,10 @@ export default {
     { id: 'wheel', label: 'Escape wheel', job: 'lets the gears move one tooth per tick', svg: '<g transform="translate(200 150)"><circle r="22" fill="#fbbf24"/><path d="M0 -26 L5 -18 L-5 -18Z M26 0 L18 5 L18 -5Z M0 26 L-5 18 L5 18Z M-26 0 L-18 -5 L-18 5Z" fill="#f59e0b"/></g>', explode: [70, 0] },
     { id: 'anchor', label: 'Anchor', job: 'locks and unlocks the escape wheel', svg: '<path d="M175 120 L200 110 L225 120" stroke="#9ca3af" stroke-width="6" fill="none"/>', explode: [-70, -10] },
     { id: 'pendulum', label: 'Pendulum', job: 'swings back and forth at a steady beat', svg: '<g><rect x="198" y="120" width="4" height="110" fill="#d1d5db"/><circle cx="200" cy="235" r="16" fill="#fcd34d"/></g>', explode: [-70, 10] },
+    { id: 'lblPendulum', label: 'Pendulum label',
+      svg: '<text x="200" y="280" text-anchor="middle" fill="#fde68a" font-size="13" font-weight="700">pendulum</text>' },
+    { id: 'lblEscape', label: 'Escape label',
+      svg: '<text x="280" y="120" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="700">escape</text>' },
     { id: 'weight', label: 'Weight', job: 'gives the clock its energy by slowly falling', svg: '<rect x="245" y="120" width="16" height="40" rx="3" fill="#a3a3a3"/><line x1="253" y1="40" x2="253" y2="120" stroke="#ddd"/>', explode: [50, 30] },
   ],
   states: {
