@@ -14,8 +14,8 @@ export function makeQuiz(m, seed = 1, n = 5) {
     const choices = shuffle([nxt, ...wrong.slice(0, 3)], r);
     qs.push({ kind: 'next', prompt: `After "${labels[cur]}", what happens next?`, choices: choices.map((c) => labels[c]), answer: choices.indexOf(nxt) });
   }
-  for (const p of m.parts.filter((p) => p.job && !p.id.startsWith('lbl'))) {
-    const wrong = shuffle(m.parts.filter((x) => x.id !== p.id && !x.id.startsWith('lbl')), r).slice(0, 3);
+  for (const p of m.parts.filter((p) => p.job && !p.id.startsWith('lbl') && !/ label$/i.test(p.label))) {
+    const wrong = shuffle(m.parts.filter((x) => x.id !== p.id && !x.id.startsWith('lbl') && !/ label$/i.test(x.label)), r).slice(0, 3);
     if (wrong.length < 3) continue; // need 3 decoys
     const choices = shuffle([p, ...wrong], r);
     qs.push({ kind: 'part', prompt: `Which part ${p.job}?`, choices: choices.map((c) => c.label), answer: choices.indexOf(p) });
