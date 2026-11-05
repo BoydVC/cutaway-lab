@@ -9,6 +9,8 @@ export default {
       svg: '<text x="300" y="80" text-anchor="middle" fill="#94a3b8" font-size="12" font-weight="700">case</text>' },
     { id: 'blade', label: 'Helical blade', job: 'spins and shaves wood off the pencil',
       svg: '<path d="M160 160 Q200 120 240 160 Q200 200 160 160" fill="none" stroke="#94a3b8" stroke-width="6"/><path d="M170 150 Q200 130 230 150" fill="none" stroke="#e2e8f0" stroke-width="3"/>', explode: [0, -40] },
+    { id: 'lblTip', label: 'Tip label',
+      svg: '<text x="300" y="140" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="700">tip</text>', pose: { opacity: 0 } },
     { id: 'lblBlade', label: 'Blade label',
       svg: '<text x="200" y="100" text-anchor="middle" fill="#e2e8f0" font-size="13" font-weight="700">blade</text>' },
     { id: 'lblPencil', label: 'Pencil label',

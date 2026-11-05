@@ -16,6 +16,8 @@ export default {
     { id: 'wr', label: 'Wide receiver', job: 'runs a deep route and catches the ball', svg: '<circle cx="320" cy="150" r="10" fill="#4c1d95" stroke="#fbbf24" stroke-width="1.5"/><text x="320" y="154" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="700">14</text>', explode: [40, -20] },
     { id: 'lb', label: 'Linebacker', job: 'steps up for the run fake, leaving space behind', svg: '<circle cx="230" cy="140" r="10" fill="#44403c" stroke="#a8a29e" stroke-width="1.5"/><text x="230" y="144" text-anchor="middle" fill="#e7e5e4" font-size="11" font-weight="700">54</text>' },
     { id: 'ball', label: 'Football', job: 'is snapped, faked, then thrown', svg: '<ellipse cx="200" cy="188" rx="8" ry="5" fill="#9a3412"/><path d="M194 188 H206" stroke="#fef3c7" stroke-width="1"/>', explode: [0, -40] },
+    { id: 'lblLOS', label: 'LOS label',
+      svg: '<text x="200" y="160" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="700">LOS</text>' },
     { id: 'lblBall', label: 'Ball label',
       svg: '<text x="200" y="140" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="700">ball</text>' },
     { id: 'arrow', label: 'Pass path', svg: '<path d="M210 195 Q280 100 330 145" stroke="#fbbf24" stroke-width="2" fill="none" stroke-dasharray="4 3"/>', pose: { opacity: 0 } },
