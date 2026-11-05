@@ -18,8 +18,8 @@ export default {
   ],
   states: {
     pad: { label: 'On the pad', caption: 'The rocket stands next to the tower, full of super-cold fuel.', on: { IGNITE: 'ignition', SCRUB: 'scrubbed' } , parts: { lblShip: { opacity: 0 }, lblBooster: { opacity: 1 }, lblTower: { opacity: 1 } }},
-    ignition: { label: 'Engines light', caption: 'Dozens of engines light. Clamps hold the rocket down for a moment.', on: { RELEASE: 'liftoff' }, parts: { flame: { opacity: 1 } } },
-    liftoff: { label: 'Liftoff', caption: 'The clamps let go and the rocket climbs. It gets lighter as fuel burns.', on: { CLIMB: 'staging' }, parts: { flame: { opacity: 1, y: -60 }, booster: { y: -60 }, ship: { y: -60 } } },
+    ignition: { label: 'Engines light', caption: 'Dozens of engines light. Clamps hold the rocket down for a moment.', on: { RELEASE: 'liftoff' }, parts: { lblShip: { opacity: 0.5 }, lblBooster: { opacity: 1 },  flame: { opacity: 1 } } },
+    liftoff: { label: 'Liftoff', caption: 'The clamps let go and the rocket climbs. It gets lighter as fuel burns.', on: { CLIMB: 'staging' }, parts: { lblShip: { opacity: 1 }, lblBooster: { opacity: 1 },  flame: { opacity: 1, y: -60 }, booster: { y: -60 }, ship: { y: -60 } } },
     staging: { label: 'Hot staging', caption: 'High up, the ship lights its own engines and pushes off the booster.', on: { SEPARATE: 'boostback' }, parts: { lblShip: { opacity: 1 }, lblBooster: { opacity: 1 },  booster: { y: -70, x: -30, rot: -10 }, ship: { y: -60, x: 45, rot: 8 }, flame: { opacity: 1, y: -70, x: -30, rot: -10, scale: 0.6 } } },
     boostback: { label: 'Boostback', caption: 'The booster flips around and burns its engines to fly back to the tower.', on: { DESCEND: 'catch' }, parts: { booster: { y: -90, x: 0, rot: 180 }, ship: { y: -200, x: 120, opacity: 0.3, scale: 0.5 }, flame: { opacity: 0 } } },
     catch: { label: 'Tower catch', caption: 'The arms close and catch the booster in mid-air, so it can fly again.', on: {}, parts: { lblShip: { opacity: 0 }, lblBooster: { opacity: 1 }, lblTower: { opacity: 1 },  booster: { y: -40, x: 20 }, arms: { y: 50 }, ship: { opacity: 0 } } },
