@@ -7,6 +7,8 @@ export default {
       svg: '<rect x="20" y="40" width="360" height="220" rx="40" fill="#e2e8f0"/><rect x="20" y="40" width="360" height="220" rx="40" fill="none" stroke="#94a3b8" stroke-width="4"/><path d="M200 40 V260" stroke="#ef4444" stroke-width="3"/><path d="M80 40 V260 M320 40 V260" stroke="#3b82f6" stroke-width="2.5"/><circle cx="200" cy="150" r="28" fill="none" stroke="#ef4444" stroke-width="2"/><circle cx="200" cy="150" r="4" fill="#ef4444"/><rect x="20" y="115" width="14" height="70" fill="#0f172a"/><rect x="366" y="115" width="14" height="70" fill="#0f172a"/>' },
     { id: 'dman', label: 'Defenseman', job: 'retrieves the puck and starts the breakout',
       svg: '<circle cx="70" cy="180" r="11" fill="#0f766e" stroke="#5eead4" stroke-width="2"/><text x="70" y="184" text-anchor="middle" fill="#ccfbf1" font-size="11" font-weight="700">4</text>', explode: [-20, 20] },
+    { id: 'lblNet', label: 'Net label',
+      svg: '<text x="50" y="100" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="700">net</text>' },
     { id: 'lblD', label: 'D label',
       svg: '<text x="100" y="220" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="700">D</text>' },
     { id: 'lblWing', label: 'Wing label',
