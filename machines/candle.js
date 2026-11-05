@@ -11,6 +11,8 @@ export default {
       svg: '<text x="200" y="70" text-anchor="middle" fill="#fde68a" font-size="13" font-weight="700">flame</text>', pose: { opacity: 0 } },
     { id: 'lblWax', label: 'Wax label',
       svg: '<text x="200" y="230" text-anchor="middle" fill="#92400e" font-size="13" font-weight="800">wax</text>' },
+    { id: 'lblSmoke', label: 'Smoke label',
+      svg: '<text x="240" y="50" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="700">smoke</text>', pose: { opacity: 0 } },
     { id: 'lblPool', label: 'Pool label',
       svg: '<text x="260" y="160" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="700">melt pool</text>', pose: { opacity: 0 } },
     { id: 'lblWick', label: 'Wick label',
@@ -45,7 +47,7 @@ export default {
       label: 'Snuffed',
       caption: 'You pinched or blew the flame out. Smoke curls up. Wick cools. Ready to light again later.',
       on: {},
-      parts: { lblFlame: { opacity: 0 },  smoke: { opacity: 1 }, pool: { opacity: 0.3 } },
+      parts: { lblSmoke: { opacity: 1 },  lblFlame: { opacity: 0 },  smoke: { opacity: 1 }, pool: { opacity: 0.3 } },
     },
     drown: {
       label: 'Drowned wick',

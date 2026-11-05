@@ -7,6 +7,8 @@ export default {
       svg: '<circle cx="200" cy="155" r="100" fill="#1e293b" stroke="#94a3b8" stroke-width="4"/>' },
     { id: 'dial', label: 'Dial', job: 'marks north, south, east, and west',
       svg: '<text x="200" y="72" text-anchor="middle" fill="#f87171" font-size="16" font-weight="800">N</text><text x="200" y="248" text-anchor="middle" fill="#e2e8f0" font-size="14" font-weight="700">S</text><text x="100" y="160" text-anchor="middle" fill="#e2e8f0" font-size="14" font-weight="700">W</text><text x="300" y="160" text-anchor="middle" fill="#e2e8f0" font-size="14" font-weight="700">E</text>', explode: [0, -40] },
+    { id: 'lblBearing', label: 'Bearing label',
+      svg: '<text x="200" y="290" text-anchor="middle" fill="#a5b4fc" font-size="12" font-weight="700">bearing</text>', pose: { opacity: 0 } },
     { id: 'lblPivot', label: 'Pivot label',
       svg: '<text x="265" y="180" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="700">pivot</text>' },
     { id: 'lblNeedle', label: 'Needle label',
@@ -37,7 +39,7 @@ export default {
       label: 'Taking a bearing',
       caption: 'Rotate the case so the needle lines up with N on the dial. That heading is your bearing.',
       on: {},
-      parts: { needle: { rot: 0 }, dial: { rot: 30 }, case: { rot: 30 } },
+      parts: { lblBearing: { opacity: 1 },  needle: { rot: 0 }, dial: { rot: 30 }, case: { rot: 30 } },
     },
     skew: {
       label: 'Skewed by metal',

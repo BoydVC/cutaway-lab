@@ -11,6 +11,8 @@ export default {
       svg: '<text x="200" y="70" text-anchor="middle" fill="#fde68a" font-size="13" font-weight="700">pulley</text>' },
     { id: 'lblLoad', label: 'Load label',
       svg: '<text x="200" y="280" text-anchor="middle" fill="#86efac" font-size="13" font-weight="700">load</text>' },
+    { id: 'lblDir', label: 'Direction label',
+      svg: '<text x="70" y="160" text-anchor="middle" fill="#c4b5fd" font-size="11" font-weight="700">↓ direction</text>' },
     { id: 'lblPull', label: 'Pull label',
       svg: '<text x="70" y="240" text-anchor="middle" fill="#f9a8d4" font-size="12" font-weight="700">pull</text>' },
     { id: 'lblRope', label: 'Rope label',
