@@ -15,6 +15,8 @@ npm test             # unit tests (node:test)
 npm i && npx playwright install chromium && npm run e2e   # browser tests + screenshots
 ```
 
+Topic chips above the picker (All · Space · Sports · …) filter the fleet.
+
 Keys: **Space** play/pause · **→ / ←** step · **E** exploded view · **Q** quiz · **N** read aloud.
 
 The sidebar draws the live statechart: current step glows, loops are dashed, click the next step to go there. Quiz stars save in the browser (Apprentice → Lab Scientist → Master Engineer).

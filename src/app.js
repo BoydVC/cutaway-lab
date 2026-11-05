@@ -91,8 +91,22 @@ function quiz() {
   };
   show(); d.showModal();
 }
-$('#picker').innerHTML = machines.map((m) => `<button data-id="${m.id}">${m.emoji} ${m.title}</button>`).join('');
-document.querySelectorAll('#picker button').forEach((b) => (b.onclick = () => pick(b.dataset.id)));
+let topicFilter = 'All';
+function fillPicker() {
+  const list = topicFilter === 'All' ? machines : machines.filter((m) => m.topic === topicFilter);
+  $('#picker').innerHTML = list.map((m) => `<button data-id="${m.id}">${m.emoji} ${m.title}</button>`).join('');
+  document.querySelectorAll('#picker button').forEach((b) => (b.onclick = () => pick(b.dataset.id)));
+  if (S.m) document.querySelectorAll('#picker button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.id === S.m.id)));
+  stars();
+}
+const topics = ['All', ...new Set(machines.map((m) => m.topic))];
+$('#topics').innerHTML = topics.map((t) => `<button type="button" data-topic="${t}" aria-pressed="${t==='All'}">${t}</button>`).join('');
+document.querySelectorAll('#topics button').forEach((b) => (b.onclick = () => {
+  topicFilter = b.dataset.topic;
+  document.querySelectorAll('#topics button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+  fillPicker();
+}));
+fillPicker();
 $('#back').onclick = back; $('#play').onclick = play; $('#reset').onclick = () => pick(S.m.id); $('#quizbtn').onclick = quiz;
 $('#explode').onchange = (e) => { S.exploded = e.target.checked; render(); };
 addEventListener('keydown', (e) => {

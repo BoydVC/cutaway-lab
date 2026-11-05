@@ -14,7 +14,7 @@ export default {
     { id: 'generator', label: 'Generator', job: 'turns spinning motion into electric current',
       svg: '<rect x="175" y="98" width="30" height="24" rx="3" fill="#22c55e"/><text x="190" y="85" text-anchor="middle" fill="#86efac" font-size="11" font-weight="700">gen</text>', pose: { opacity: 0.5 }, explode: [0, -35] },
     { id: 'power', label: 'Power out',
-      svg: '<path d="M200 300 V320 M180 320 H220" stroke="#facc15" stroke-width="4"/><text x="200" y="340" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="700">grid</text>', pose: { opacity: 0 } },
+      svg: '<path d="M200 270 V288 M180 288 H220" stroke="#facc15" stroke-width="4"/><text x="200" y="302" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="700">grid</text>', pose: { opacity: 0 } },
   ],
   states: {
     calm: {
