@@ -17,7 +17,7 @@ dialog{background:#1e293b;color:#e5e7eb;border:2px solid #facc15;border-radius:1
 #qchoices button.right{background:#14532d}#qchoices button.wrong{background:#7f1d1d}
 @media (max-width:760px){main{grid-template-columns:1fr;padding:0 10px 10px}#caption{font-size:17px}nav{flex-wrap:nowrap;max-height:none;padding:10px;gap:8px}nav button{flex:0 0 auto;white-space:nowrap;font-size:14px;padding:8px 12px}#chart{max-height:40vh}#stage{min-height:300px;max-height:52vh}header p{display:none}header{padding-bottom:4px}.topics{padding:0 10px 4px;gap:4px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}.topics button{flex:0 0 auto;font-size:11px;padding:3px 7px}#title{font-size:22px}}
 #badge{margin:4px 0 0;color:#fde68a;font-weight:700;min-height:1px}
-#chart{width:100%;display:block;margin-bottom:6px}#chart rect{fill:#1f2937;stroke:#475569;rx:8;transition:fill .4s}#chart g.on rect{fill:#854d0e;stroke:#facc15}#chart g.done rect{stroke:#86efac}
+#chart{width:100%;display:block;margin-bottom:6px}#chart rect{fill:#1f2937;stroke:#475569;rx:8;transition:fill .4s}#chart g.on rect{fill:#854d0e;stroke:#facc15;stroke-width:2.5}#chart g.done rect{stroke:#86efac}
 #chart text{fill:#e5e7eb;font-size:13px;font-weight:600}#chart path{fill:none;stroke:#64748b;stroke-width:1.5;marker-end:url(#arr)}#chart path.back{stroke-dasharray:4 3}#chart g.node{cursor:pointer}
 nav button small{color:#facc15}
 #chart text.ev{font-size:12px;fill:#e2e8f0;font-weight:600}
