@@ -1,6 +1,6 @@
 *{box-sizing:border-box}body{margin:0;font:16px/1.4 system-ui,sans-serif;background:#0b1020;color:#e5e7eb}
 header{padding:14px 20px;background:linear-gradient(90deg,#1e293b,#312e81)}h1{margin:0;font-size:26px}.tag{margin:4px 0 0;color:#c7d2fe}
-nav{display:flex;gap:10px;padding:12px 20px;flex-wrap:wrap}nav button{background:#1e293b;color:#e5e7eb;border:2px solid #334155;border-radius:12px;padding:8px 14px;font-size:16px;cursor:pointer}
+nav{display:flex;gap:10px;padding:12px 20px;flex-wrap:wrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin}nav button{background:#1e293b;color:#e5e7eb;border:2px solid #334155;border-radius:12px;padding:8px 14px;font-size:16px;cursor:pointer}
 nav button[aria-pressed=true]{border-color:#facc15;background:#3f3a12}
 main{display:grid;grid-template-columns:1fr 320px;gap:16px;padding:0 20px 20px}
 .stage-wrap{background:#111827;border-radius:16px;padding:14px}h2{margin:0}#blurb{color:#9ca3af;margin:4px 0 8px}
@@ -15,7 +15,7 @@ aside{background:#111827;border-radius:16px;padding:14px}aside ol{padding-left:2
 #parts li{cursor:help}pre{white-space:pre-wrap;font-size:12px;color:#a5b4fc}
 dialog{background:#1e293b;color:#e5e7eb;border:2px solid #facc15;border-radius:16px;max-width:460px;width:92vw}#qchoices button{display:block;width:100%;margin:6px 0;padding:10px;border-radius:10px;border:1px solid #475569;background:#0f172a;color:#e5e7eb;text-align:left}
 #qchoices button.right{background:#14532d}#qchoices button.wrong{background:#7f1d1d}
-@media (max-width:760px){main{grid-template-columns:1fr;padding:0 10px 10px}#caption{font-size:17px}}
+@media (max-width:760px){main{grid-template-columns:1fr;padding:0 10px 10px}#caption{font-size:17px}nav{flex-wrap:nowrap;padding:10px;gap:8px}nav button{flex:0 0 auto;white-space:nowrap;font-size:14px;padding:8px 12px}#chart{max-height:40vh}}
 #badge{margin:4px 0 0;color:#fde68a;font-weight:700;min-height:1px}
 #chart{width:100%;display:block;margin-bottom:6px}#chart rect{fill:#1f2937;stroke:#475569;rx:8;transition:fill .4s}#chart g.on rect{fill:#854d0e;stroke:#facc15}#chart g.done rect{stroke:#86efac}
 #chart text{fill:#e5e7eb;font-size:13px;font-weight:600}#chart path{fill:none;stroke:#64748b;stroke-width:1.5;marker-end:url(#arr)}#chart path.back{stroke-dasharray:4 3}#chart g.node{cursor:pointer}

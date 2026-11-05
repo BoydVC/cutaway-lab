@@ -58,11 +58,36 @@ await page.goto(URL + '#clock/tickRight/x'); await page.waitForTimeout(1100); aw
 await page.goto(URL + '#heart/ventricles'); await page.waitForTimeout(1000); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/heart.png` });
 await page.goto(URL + '#mars/skycrane'); await page.waitForTimeout(1000); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/mars.png` });
 await page.goto(URL + '#volcano/erupt/x'); await page.waitForTimeout(1100); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/volcano-exploded.png` });
-await page.goto(URL + '#bees/dance'); await page.waitForTimeout(1000); await page.keyboard.press('q'); await page.waitForTimeout(300); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/quiz.png` });
+await page.goto(URL + '#bees/dance'); await page.waitForTimeout(1000); await page.keyboard.press('q'); await page.waitForTimeout(300); await page.evaluate(() => scrollTo(0, 0)); await page.screenshot({ path: `${out}/quiz.png` }); await page.click('#qclose'); await page.waitForTimeout(200);
 const phone = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
 await phone.goto(URL + '#starship/catch'); await phone.waitForTimeout(1000);
 await t('phone: no horizontal overflow', async () => { assert.ok(await phone.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)); });
 await phone.screenshot({ path: `${out}/phone-390x844.png`, fullPage: true });
+await t('a11y: narrate speaks only once per state', async () => {
+  await page.goto(URL + '#heart/fill'); await page.waitForTimeout(200);
+  if (await page.locator('#quiz[open]').count()) await page.click('#qclose');
+  await page.evaluate(() => { window.__spoken = []; const orig = speechSynthesis.speak.bind(speechSynthesis); speechSynthesis.speak = (u) => { window.__spoken.push(u.text); return orig(u); }; });
+  await page.click('#narrate'); // enable
+  await page.goto(URL + '#heart/fill'); await page.waitForTimeout(300);
+  const n1 = await page.evaluate(() => window.__spoken.length);
+  await page.click('#explode'); await page.waitForTimeout(200); // re-render same state
+  const n2 = await page.evaluate(() => window.__spoken.length);
+  assert.equal(n2, n1, 'explode toggle should not re-speak');
+  await page.keyboard.press('ArrowRight'); await page.waitForTimeout(200);
+  const n3 = await page.evaluate(() => window.__spoken.length);
+  assert.ok(n3 > n1, 'new state should speak');
+});
+await t('builder: overlong share shows error', async () => {
+  await page.goto(URL + 'builder.html'); await page.waitForTimeout(400);
+  await page.click('#tpl'); await page.waitForTimeout(200);
+  await page.evaluate(() => {
+    const t = JSON.parse(document.querySelector('#src').value);
+    t.blurb = 'pad '.repeat(8000);
+    document.querySelector('#src').value = JSON.stringify(t, null, 2);
+  });
+  await page.click('#share'); await page.waitForTimeout(300);
+  assert.match(await page.textContent('#errs'), /too long/);
+});
 await t('no console errors', async () => assert.deepEqual(errors, [], errors.join(' | ')));
 await browser.close(); srv.kill();
 console.log(`e2e: ${pass} passed, ${fail} failed`); process.exit(fail ? 1 : 0);

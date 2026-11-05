@@ -1,0 +1,24 @@
+{
+  "title": "Cutaway Lab demo",
+  "url": "http://127.0.0.1:4430/#starship",
+  "aspects": ["16:9"],
+  "fps": 10,
+  "steps": [
+    {"action": "caption", "text": "Every cutaway is a real state machine", "frames": 10},
+    {"action": "hold", "frames": 6},
+    {"action": "click", "selector": "#events button", "frames": 8},
+    {"action": "click", "selector": "#events button", "frames": 8},
+    {"action": "click", "selector": "#events button", "frames": 8},
+    {"action": "caption", "text": "Space to play · E exploded · Q quiz", "frames": 8},
+    {"action": "click", "selector": "#picker button:nth-child(4)", "frames": 8},
+    {"action": "caption", "text": "Heartbeat: chambers, valves, flow", "frames": 8},
+    {"action": "click", "selector": "#events button", "frames": 7},
+    {"action": "click", "selector": "#events button", "frames": 7},
+    {"action": "click", "selector": "#picker button:nth-child(9)", "frames": 8},
+    {"action": "caption", "text": "Sports plays too — play-action pass", "frames": 8},
+    {"action": "click", "selector": "#play", "frames": 6},
+    {"action": "hold", "frames": 20},
+    {"action": "click", "selector": "#play", "frames": 4},
+    {"action": "hold", "frames": 6}
+  ]
+}
