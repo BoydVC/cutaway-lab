@@ -11,6 +11,8 @@ export default {
       svg: '<text x="70" y="210" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="700">counterweight</text>' },
     { id: 'cable', label: 'Cables', job: 'hold the car and the counterweight over a pulley',
       svg: '<path d="M108 60 V40 H200 V70" stroke="#cbd5e1" stroke-width="3" fill="none"/><circle cx="200" cy="40" r="10" fill="#94a3b8" stroke="#e2e8f0" stroke-width="2"/>' },
+    { id: 'lblCable', label: 'Cable label',
+      svg: '<text x="240" y="80" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">cables</text>' },
     { id: 'car', label: 'Car', job: 'is the box people ride in',
       svg: '<rect x="155" y="180" width="90" height="70" rx="4" fill="#1e293b" stroke="#38bdf8" stroke-width="3"/><rect x="168" y="195" width="28" height="40" rx="2" fill="#0ea5e9" opacity=".5"/><rect x="204" y="195" width="28" height="40" rx="2" fill="#0ea5e9" opacity=".5"/><text x="200" y="175" text-anchor="middle" fill="#7dd3fc" font-size="12" font-weight="700">car</text>', explode: [50, 0] },
     { id: 'doors', label: 'Doors', job: 'must close before the car can move',

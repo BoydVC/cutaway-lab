@@ -7,6 +7,8 @@ export default {
       svg: '<rect x="100" y="60" width="200" height="220" rx="16" fill="#1e293b" stroke="#94a3b8" stroke-width="3"/>' },
     { id: 'display', label: 'Display', job: 'shows the current temperature and your setpoint',
       svg: '<rect x="120" y="90" width="160" height="70" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/><text x="200" y="135" text-anchor="middle" fill="#e2e8f0" font-size="28" font-weight="800">68°</text>', explode: [0, -40] },
+    { id: 'lblRoom', label: 'Room label',
+      svg: '<text x="200" y="60" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="700">room</text>' },
     { id: 'setpoint', label: 'Setpoint', job: 'is the temperature you asked for',
       svg: '<text x="200" y="185" text-anchor="middle" fill="#facc15" font-size="14" font-weight="700">set 70°</text>', explode: [0, 0] },
     { id: 'sensor', label: 'Temp sensor', job: 'measures how warm the room is right now',
