@@ -196,6 +196,15 @@
     "segments": 5
   },
   {
+    "id": "seesaw",
+    "duration": 33.97,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/seesaw-captions.mp4",
+    "segments": 5
+  },
+  {
     "id": "sewing",
     "duration": 40.65,
     "hasAudio": true,
@@ -226,6 +235,15 @@
     "hasVideo": true,
     "ok": true,
     "file": "narrations/soccer-captions.mp4"
+  },
+  {
+    "id": "spring",
+    "duration": 32.52,
+    "hasAudio": true,
+    "hasVideo": true,
+    "ok": true,
+    "file": "narrations/spring-captions.mp4",
+    "segments": 5
   },
   {
     "id": "starship",
