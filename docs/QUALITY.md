@@ -14,6 +14,7 @@ Fleet locked at **36** machines. Desk **1440×900** + phone **390×844** rendere
 - Volcano magma/lava/ash clear of cone · Starship tower/booster/ship · Mars atmosphere fade
 - Sports role captions · Clock escape/weight · Digest esophagus · Elevator counterweight/cables
 - Flashlight switch/beam/batteries · Candle wax contrast · Turbine tower · Lock bolt · …
+- Basketball pick-and-roll + hockey breakout e2e walks are real asserts (not console.log)
 
 ## Media / report paths
 - Best GIF: `/workspace/tokenmax/project-nov5/cutaway-lab/screenshots/demo.gif`
@@ -22,4 +23,4 @@ Fleet locked at **36** machines. Desk **1440×900** + phone **390×844** rendere
 - PR: https://github.com/BoydVC/cutaway-lab/pull/20
 
 ## Tests
-- unit **675** · e2e **36** · TLC/formal **28** · OCR clean
+- unit **675** · e2e **38** · TLC/formal **28** · OCR clean
