@@ -40,6 +40,9 @@ function padWav(src, dest, totalSec) {
 }
 
 const targets = machines.filter((m) => !only || m.id === only);
+// merge by id: preserve prior rows when --only regenerates a subset (R3-2)
+const reportPath = path.join(OUT, 'report.json');
+const prior = fs.existsSync(reportPath) ? JSON.parse(fs.readFileSync(reportPath, 'utf8')) : [];
 const report = [];
 
 for (const m of targets) {
@@ -141,7 +144,13 @@ for (const m of targets) {
   console.log(`=> ${m.id}: ${fmtDur2.toFixed(1)}s audio=${hasAudio2} ok=${ok}`);
 }
 
-fs.writeFileSync(path.join(OUT, 'report.json'), JSON.stringify(report, null, 2));
+// merge by id
+const byId = new Map(prior.map((r) => [r.id, r]));
+for (const r of report) byId.set(r.id, r);
+const merged = [...byId.values()].sort((a, b) => a.id.localeCompare(b.id));
+fs.writeFileSync(reportPath, JSON.stringify(merged, null, 2));
+// expose merged count in summary
+report.length = 0; report.push(...merged);
 await browser.close(); srv.kill();
 const bad = report.filter((r) => !r.ok);
 console.log(JSON.stringify({ total: report.length, ok: report.length - bad.length, bad }, null, 2));

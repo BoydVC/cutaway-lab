@@ -77,3 +77,26 @@ Side-path label "Fault toss" vs event FAULT_TOSS — layout truncates fine at 32
 | +basketball/hockey/bike | validate | +3 quizzes | walk+shots | +3 TLA | +3 mp4 |
 | +tennis/photo | validate | +2 quizzes | walk+shots | +2 TLA | pending |
 | Foam y:-6 | — | — | builder | — | — |
+
+## Round 3 — fleet 23 blast-radius (2026-11-05)
+
+### Method
+- Re-validated all 23 machines (engine.validate + mainPath + makeQuiz + PII deny-list).
+- Traced every import of `machines/index.js` and hard-coded machine id lists (e2e walk, formal checks, narrate, demos).
+- Re-checked share payload limit, quiz uniqueness, narrate-once, chart label ≥12px.
+
+### Findings
+
+| ID | Severity | Finding | Fix |
+|----|----------|---------|-----|
+| R3-1 | med | e2e walk list is a hard-coded id array — new machines silently skipped if forgotten | add test that e2e/run.js walk includes every `machines[].id` |
+| R3-2 | med | `narrate.js --only` overwrites `narrations/report.json` with a 1-row report | merge into existing report by id |
+| R3-3 | low | Elevator floor highlight stayed on "1" while car was at floor 3 | floor markers are now separate parts; open state lights "3" |
+| R3-4 | low | Stoplight `red` is terminal (teaching one cycle) — autoplay stops; OK for kids, document it | documented in machine blurb; no code change |
+| R3-5 | low | Worksheet letter jobs capped at 26; fleet 23 × ~4 jobs still fine | existing cap test covers this |
+| R3-6 | info | Heart aorta label was 10px | bumped to 12px in v0.12 |
+
+### Tests added
+- `test/v13-civic-machines.test.js` (elevator/flush/stoplight)
+- `test/v14-blast.test.js` — e2e walk covers fleet; narrate report merge; chart fonts
+
