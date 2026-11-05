@@ -3,6 +3,8 @@ export default {
   blurb: 'How a swinging pendulum lets a falling weight turn the gears one tiny tick at a time.',
   initial: 'wound',
   parts: [
+    { id: 'lblDown', label: 'Rundown callout',
+      svg: '<text x="200" y="40" text-anchor="middle" fill="#f87171" font-size="12" font-weight="700">run down</text>', pose: { opacity: 0 } },
     { id: 'lblTick', label: 'Tick label',
       svg: '<text x="320" y="80" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="700">tick</text>', pose: { opacity: 0 } },
     { id: 'case', label: 'Clock case', svg: '<rect x="120" y="20" width="160" height="260" rx="10" fill="#7c4a24"/><rect x="132" y="32" width="136" height="236" rx="6" fill="#3b2412"/>' },
