@@ -15,6 +15,8 @@ export default {
       svg: '<g fill="#cbd5e1"><rect x="232" y="60" width="18" height="10" rx="2"/><rect x="232" y="78" width="18" height="10" rx="2"/><rect x="232" y="96" width="18" height="10" rx="2"/><rect x="232" y="114" width="18" height="10" rx="2"/><rect x="232" y="132" width="18" height="10" rx="2"/><rect x="232" y="150" width="18" height="10" rx="2"/><rect x="232" y="168" width="18" height="10" rx="2"/><rect x="232" y="186" width="18" height="10" rx="2"/><rect x="232" y="204" width="18" height="10" rx="2"/><rect x="232" y="222" width="18" height="10" rx="2"/><rect x="232" y="240" width="18" height="10" rx="2"/><rect x="232" y="258" width="18" height="10" rx="2"/></g>', explode: [40, 0] },
     { id: 'slider', label: 'Slider', job: 'is the wedge that forces teeth together or apart',
       svg: '<path d="M160 250 H240 L230 280 H170Z" fill="#fbbf24" stroke="#fde68a" stroke-width="2"/><rect x="185" y="255" width="30" height="40" rx="4" fill="#f59e0b"/><text x="200" y="295" text-anchor="middle" fill="#0f172a" font-size="11" font-weight="800">pull</text>', explode: [0, 40] },
+    { id: 'lblStop', label: 'Stop label',
+      svg: '<text x="200" y="50" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="700">stop</text>' },
     { id: 'lblSlider', label: 'Slider label',
       svg: '<text x="200" y="80" text-anchor="middle" fill="#fde68a" font-size="13" font-weight="700">slider</text>' },
     { id: 'lblTeeth', label: 'Teeth label',

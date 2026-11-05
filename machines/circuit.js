@@ -9,6 +9,8 @@ export default {
       svg: '<rect x="60" y="125" width="48" height="70" rx="4" fill="#1e293b" stroke="#e2e8f0" stroke-width="2"/><rect x="60" y="125" width="48" height="22" fill="#f87171"/><rect x="60" y="173" width="48" height="22" fill="#60a5fa"/><text x="84" y="141" text-anchor="middle" fill="#fff" font-size="12" font-weight="800">+</text><text x="84" y="189" text-anchor="middle" fill="#fff" font-size="12" font-weight="800">−</text><text x="84" y="215" text-anchor="middle" fill="#94a3b8" font-size="11">9V</text>', explode: [-45, 0] },
     { id: 'lblBatt', label: 'Battery label',
       svg: '<text x="80" y="120" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="700">battery</text>' },
+    { id: 'lblShort', label: 'Short label',
+      svg: '<text x="200" y="250" text-anchor="middle" fill="#f87171" font-size="13" font-weight="800">SHORT!</text>', pose: { opacity: 0 } },
     { id: 'lblCurrent', label: 'Current label',
       svg: '<text x="200" y="60" text-anchor="middle" fill="#86efac" font-size="12" font-weight="700">current</text>', pose: { opacity: 0 } },
     { id: 'switch', label: 'Switch', job: 'opens or closes the path for current',
@@ -54,7 +56,7 @@ export default {
       label: 'Short circuit',
       caption: 'A wire skipped the bulb. Current takes the easy path — battery drains fast, no light. Dangerous!',
       on: {},
-      parts: { switch: { rot: 18, y: 12 }, shortWire: { opacity: 1 }, current: { opacity: 0.5 }, glow: { opacity: 0 } },
+      parts: { lblShort: { opacity: 1 },  switch: { rot: 18, y: 12 }, shortWire: { opacity: 1 }, current: { opacity: 0.5 }, glow: { opacity: 0 } },
     },
   },
 };
