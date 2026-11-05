@@ -13,6 +13,8 @@ export default {
       svg: '<text x="260" y="110" text-anchor="middle" fill="#cbd5e1" font-size="12" font-weight="700">switch</text>' },
     { id: 'bulb', label: 'Bulb', job: 'glows when current runs through its filament or LED',
       svg: '<circle cx="200" cy="70" r="22" fill="#0f172a" stroke="#94a3b8" stroke-width="3"/><rect x="190" y="90" width="20" height="12" fill="#64748b"/>', explode: [0, -40] },
+    { id: 'lblBulb', label: 'Bulb label',
+      svg: '<text x="200" y="90" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="700">bulb</text>' },
     { id: 'lblBeam', label: 'Beam label',
       svg: '<text x="320" y="100" text-anchor="middle" fill="#fef08a" font-size="13" font-weight="700">beam</text>', pose: { opacity: 0 } },
     { id: 'lblBatt', label: 'Battery label',

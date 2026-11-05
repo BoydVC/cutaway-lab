@@ -15,6 +15,8 @@ export default {
       svg: '<line x1="200" y1="55" x2="230" y2="40" stroke="#fbbf24" stroke-width="4"/><circle cx="232" cy="38" r="5" fill="#f59e0b"/>', explode: [40, -20] },
     { id: 'hose', label: 'Hose', job: 'aims the agent at the base of the flames',
       svg: '<path d="M250 140 Q300 140 310 180" stroke="#334155" stroke-width="10" fill="none" stroke-linecap="round"/>', explode: [45, 20] },
+    { id: 'lblHose', label: 'Hose label',
+      svg: '<text x="300" y="160" text-anchor="middle" fill="#cbd5e1" font-size="12" font-weight="700">hose</text>' },
     { id: 'lblPin', label: 'Pin label',
       svg: '<text x="140" y="80" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="700">pin</text>' },
     { id: 'lblBase', label: 'Base label',
