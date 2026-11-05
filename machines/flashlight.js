@@ -9,6 +9,8 @@ export default {
       svg: '<rect x="155" y="140" width="90" height="50" rx="4" fill="#334155" stroke="#e2e8f0" stroke-width="2"/><rect x="155" y="140" width="90" height="16" fill="#f87171"/><text x="200" y="175" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">AA</text>', explode: [-45, 0] },
     { id: 'switch', label: 'Switch', job: 'opens or closes the path for current',
       svg: '<rect x="175" y="100" width="50" height="18" rx="4" fill="#475569"/><circle cx="185" cy="109" r="7" fill="#94a3b8"/>', explode: [0, -35] },
+    { id: 'lblSwitch', label: 'Switch label',
+      svg: '<text x="260" y="110" text-anchor="middle" fill="#cbd5e1" font-size="12" font-weight="700">switch</text>' },
     { id: 'bulb', label: 'Bulb', job: 'glows when current runs through its filament or LED',
       svg: '<circle cx="200" cy="70" r="22" fill="#0f172a" stroke="#94a3b8" stroke-width="3"/><rect x="190" y="90" width="20" height="12" fill="#64748b"/>', explode: [0, -40] },
     { id: 'lblBeam', label: 'Beam label',
