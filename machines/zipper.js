@@ -5,6 +5,8 @@ export default {
   parts: [
     { id: 'tapeL', label: 'Left tape',
       svg: '<rect x="120" y="40" width="36" height="260" rx="4" fill="#1e3a5f"/>' },
+    { id: 'lblFabric', label: 'Fabric label',
+      svg: '<text x="70" y="150" text-anchor="middle" fill="#93c5fd" font-size="12" font-weight="700">fabric</text>' },
     { id: 'tapeR', label: 'Right tape',
       svg: '<rect x="244" y="40" width="36" height="260" rx="4" fill="#1e3a5f"/>' },
     { id: 'teethL', label: 'Left teeth', job: 'are the little hooks on one side of the tape',
