@@ -17,6 +17,8 @@ export default {
       svg: '<text x="100" y="200" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">racket</text>' },
     { id: 'net', label: 'Net',
       svg: '<path d="M40 150 H360" stroke="#f8fafc" stroke-width="4"/><path d="M40 150 V165 M360 150 V165" stroke="#f8fafc" stroke-width="3"/>' },
+    { id: 'lblNet', label: 'Net label',
+      svg: '<text x="200" y="160" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">net</text>' },
     { id: 'arc', label: 'Kick arc',
       svg: '<path d="M140 100 Q220 40 280 160" stroke="#fde047" stroke-width="2" fill="none" stroke-dasharray="5 4"/>', pose: { opacity: 0 } },
   ],
