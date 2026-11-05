@@ -3,6 +3,8 @@ export default {
   blurb: 'How a play-action pass fools the defense: fake a handoff, then throw deep. Generic purple and gold colors — no team logos.',
   initial: 'huddle',
   parts: [
+    { id: 'lblCheck', label: 'Callout',
+      svg: '<text x="200" y="40" text-anchor="middle" fill="#f87171" font-size="12" font-weight="700">checkdown</text>', pose: { opacity: 0 } },
     { id: 'field', label: 'Field', svg: '<rect x="-20" y="40" width="440" height="220" fill="#166534"/><rect x="-20" y="40" width="50" height="220" fill="#14532d"/><rect x="370" y="40" width="50" height="220" fill="#14532d"/><text x="5" y="155" fill="#86efac" font-size="14" font-weight="700" opacity=".5" transform="rotate(-90 18 155)">END</text><g stroke="#86efac" stroke-width="2" opacity=".8"><path d="M50 40 V260 M100 40 V260 M150 40 V260 M200 40 V260 M250 40 V260 M300 40 V260 M350 40 V260"/><path d="M50 148 H80 M50 152 H80 M320 148 H350 M320 152 H350" stroke-width="1.5"/></g><path d="M200 40 V260" stroke="#fef08a" stroke-width="2" stroke-dasharray="6 6" opacity=".7"/><text x="95" y="72" fill="#bbf7d0" font-size="13" font-weight="700">40</text><text x="145" y="72" fill="#bbf7d0" font-size="13" font-weight="700">30</text><text x="195" y="72" fill="#bbf7d0" font-size="13" font-weight="700">20</text>' },
     { id: 'oline', label: 'Offensive line', job: 'blocks so the quarterback has time', svg: '<g fill="#1e1b4b"><rect x="160" y="168" width="16" height="18" rx="2"/><rect x="180" y="168" width="16" height="18" rx="2"/><rect x="200" y="168" width="16" height="18" rx="2"/><rect x="220" y="168" width="16" height="18" rx="2"/><rect x="240" y="168" width="16" height="18" rx="2"/></g>' },
     { id: 'rb', label: 'Running back', job: 'fakes taking the ball to fool the defense', svg: '<circle cx="175" cy="200" r="10" fill="#4c1d95" stroke="#fbbf24" stroke-width="1.5"/><text x="175" y="204" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="700">22</text>', explode: [-40, 20] },
@@ -30,6 +32,6 @@ export default {
     fake: { label: 'Play-action fake', caption: 'The QB sticks the ball toward the running back — but keeps it! Linebackers bite on the run.', on: { THROW: 'throw' }, parts: { ball: { x: -18, y: 14 }, rb: { x: -25, y: 5 }, lb: { y: 28, x: -10 }, oline: { y: -4 } } },
     throw: { label: 'Deep throw', caption: 'The QB pulls the ball back and throws deep downfield. The receiver is open!', on: { CATCH: 'catch' }, parts: { ball: { x: 80, y: -40 }, qb: { rot: -20, x: 6 }, wr: { x: 20, y: -20 }, arrow: { opacity: 1 }, lb: { y: 20 } } },
     catch: { label: 'Touchdown catch', caption: 'The receiver catches it in stride and scores. Play-action worked!', on: {}, parts: { ball: { x: 130, y: -55, opacity: 0.2 }, wr: { x: 50, y: -50 }, arrow: { opacity: 0.4 }, qb: { opacity: 0.7 } } },
-    checkdown: { label: 'Checkdown instead', caption: 'The deep route is covered, so the QB dumps a short pass to the running back.', on: {}, parts: { ball: { x: -30, y: 20 }, rb: { x: -40, y: 10 } } },
+    checkdown: { label: 'Checkdown instead', caption: 'The deep route is covered, so the QB dumps a short pass to the running back.', on: {}, parts: { lblCheck: { opacity: 1 },  ball: { x: -30, y: 20 }, rb: { x: -40, y: 10 } } },
   },
 };

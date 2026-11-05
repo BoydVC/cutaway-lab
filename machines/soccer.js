@@ -3,6 +3,8 @@ export default {
   blurb: 'How a fullback overlaps the winger, drawing a defender and opening a cut-back cross.',
   initial: 'build',
   parts: [
+    { id: 'lblCut', label: 'Callout',
+      svg: '<text x="200" y="40" text-anchor="middle" fill="#f87171" font-size="12" font-weight="700">cut inside</text>', pose: { opacity: 0 } },
     { id: 'pitch', label: 'Pitch', svg: '<rect x="20" y="30" width="360" height="240" fill="#15803d"/><rect x="20" y="30" width="360" height="240" fill="none" stroke="#bbf7d0" stroke-width="3"/><path d="M200 30 V270" stroke="#bbf7d0" stroke-width="2"/><circle cx="200" cy="150" r="30" fill="none" stroke="#bbf7d0" stroke-width="2"/><circle cx="200" cy="150" r="3" fill="#bbf7d0"/><rect x="20" y="95" width="50" height="110" fill="none" stroke="#bbf7d0" stroke-width="2"/><rect x="20" y="120" width="18" height="60" fill="none" stroke="#bbf7d0" stroke-width="2"/><rect x="330" y="95" width="50" height="110" fill="none" stroke="#bbf7d0" stroke-width="2"/><rect x="362" y="120" width="18" height="60" fill="none" stroke="#bbf7d0" stroke-width="2"/><path d="M70 120 Q95 150 70 180" fill="none" stroke="#bbf7d0" stroke-width="2"/><path d="M330 120 Q305 150 330 180" fill="none" stroke="#bbf7d0" stroke-width="2"/>' },
     { id: 'goal', label: 'Goal', svg: '<rect x="368" y="115" width="8" height="70" fill="#e2e8f0"/>' },
     { id: 'fb', label: 'Fullback', job: 'sprints past the winger on the overlap', svg: '<circle cx="110" cy="210" r="11" fill="#1d4ed8" stroke="#fef08a" stroke-width="2"/><text x="110" y="214" text-anchor="middle" fill="#fef08a" font-size="11" font-weight="700">3</text>', explode: [-30, 20] },
@@ -27,6 +29,6 @@ export default {
     overlap: { label: 'Overlap run', caption: 'The fullback sprints past! The defender has to choose: follow the fullback or stay with the winger.', on: { PASS: 'pass', HOLD: 'cutInside' }, parts: { fb: { x: 120, y: -30 }, lane: { opacity: 1 }, defender: { x: 20, y: -10 } } },
     pass: { label: 'Pass into space', caption: 'The winger slides the ball into the fullback\'s run. The defender is caught in between.', on: { CROSS: 'cross' }, parts: { ball: { x: 80, y: -40 }, fb: { x: 150, y: -50 }, lane: { opacity: 0.5 }, defender: { x: 30, y: -20 }, winger: { x: 20 } } },
     cross: { label: 'Cut-back cross', caption: 'Instead of a high cross, the fullback cuts the ball back to the striker. Goal!', on: {}, parts: { ball: { x: 100, y: -30 }, fb: { x: 170, y: -55 }, striker: { x: 10, y: 10 }, defender: { x: 50, y: -40 }, lane: { opacity: 0 } } },
-    cutInside: { label: 'Cut inside instead', caption: 'The pass is covered, so the winger cuts inside and shoots or finds the striker another way.', on: {}, parts: { winger: { x: 40, y: -30 }, ball: { x: 40, y: -30 }, fb: { x: 100, y: -20, opacity: 0.5 } } },
+    cutInside: { label: 'Cut inside instead', caption: 'The pass is covered, so the winger cuts inside and shoots or finds the striker another way.', on: {}, parts: { lblCut: { opacity: 1 },  winger: { x: 40, y: -30 }, ball: { x: 40, y: -30 }, fb: { x: 100, y: -20, opacity: 0.5 } } },
   },
 };
