@@ -12,7 +12,7 @@ export default {
     { id: 'lblQB', label: 'QB label',
       svg: '<text x="200" y="175" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="700">QB</text>' },
     { id: 'lblRB', label: 'RB label',
-      svg: '<text x="170" y="210" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="700">RB</text>' },
+      svg: '<text x="150" y="230" text-anchor="middle" fill="#fde68a" font-size="12" font-weight="700">RB</text>' },
     { id: 'lblWR', label: 'WR label',
       svg: '<text x="300" y="120" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="700">WR</text>' },
     { id: 'wr', label: 'Wide receiver', job: 'runs a deep route and catches the ball', svg: '<circle cx="320" cy="150" r="10" fill="#4c1d95" stroke="#fbbf24" stroke-width="1.5"/><text x="320" y="154" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="700">14</text>', explode: [40, -20] },
